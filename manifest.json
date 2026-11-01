@@ -1,0 +1,25 @@
+{
+  "name": "JobHunter — Issa CISSÉ",
+  "short_name": "JobHunter",
+  "description": "Plateforme Mobile de Suivi des Candidatures et Réponses Recruteurs",
+  "start_url": "./",
+  "scope": "./",
+  "display": "standalone",
+  "background_color": "#090d16",
+  "theme_color": "#090d16",
+  "orientation": "portrait-primary",
+  "icons": [
+    {
+      "src": "https://api.iconify.design/heroicons:briefcase-solid.svg?color=%2338bdf8",
+      "sizes": "192x192",
+      "type": "image/svg+xml",
+      "purpose": "any maskable"
+    },
+    {
+      "src": "https://api.iconify.design/heroicons:briefcase-solid.svg?color=%2338bdf8",
+      "sizes": "512x512",
+      "type": "image/svg+xml",
+      "purpose": "any maskable"
+    }
+  ]
+}
