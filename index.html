@@ -1,783 +1,602 @@
 <!DOCTYPE html>
-<html lang="fr">
+<html lang="fr" class="dark">
 <head>
   <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Tableau de Bord Recrutement & Chasse de Tête — Issa CISSÉ</title>
-  <script src="https://cdn.tailwindcss.com"></script>
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-  <style>
-    @import url('https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap');
-    body { font-family: 'Plus Jakarta Sans', sans-serif; background-color: #0b0f19; color: #f1f5f9; }
-    .glass-card { background: rgba(17, 24, 39, 0.7); backdrop-filter: blur(12px); border: 1px solid rgba(255, 255, 255, 0.08); }
-    .glass-card:hover { border-color: rgba(59, 130, 246, 0.4); }
-  </style>
-  <!-- PWA ANDROID META & MANIFEST -->
-  <link rel="manifest" href="./manifest.json">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, viewport-fit=cover">
+  <title>JobHunter — Issa CISSÉ (PWA Mobile)</title>
+  
+  <!-- PWA Meta Tags -->
   <meta name="theme-color" content="#090d16">
-  <meta name="mobile-web-app-capable" content="yes">
   <meta name="apple-mobile-web-app-capable" content="yes">
   <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
-  <meta name="apple-mobile-web-app-title" content="JobHunter">
+  <link rel="manifest" href="./manifest.json">
+  <link rel="icon" type="image/svg+xml" href="https://api.iconify.design/heroicons:briefcase-solid.svg?color=%2338bdf8">
+
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  
+  <style>
+    body {
+      background-color: #090d16;
+      color: #f1f5f9;
+      font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+      -webkit-tap-highlight-color: transparent;
+      padding-bottom: env(safe-area-inset-bottom, 20px);
+    }
+    .no-scrollbar::-webkit-scrollbar { display: none; }
+    .no-scrollbar { -ms-overflow-style: none; scrollbar-width: none; }
+    .glass-dock {
+      background: rgba(9, 13, 22, 0.92);
+      backdrop-filter: blur(16px);
+      -webkit-backdrop-filter: blur(16px);
+    }
+  </style>
 </head>
-<body class="min-h-screen flex flex-col">
+<body class="flex flex-col min-h-screen bg-[#090d16] text-gray-100 selection:bg-blue-600">
 
-  <!-- TOP BAR -->
-  <header class="border-b border-gray-800 bg-gray-950/80 sticky top-0 z-50 backdrop-blur-md">
-    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-3 flex justify-between items-center">
-      <div class="flex items-center space-x-3.5">
-        <div class="w-10 h-10 rounded-xl bg-gradient-to-tr from-blue-600 to-indigo-500 flex items-center justify-center text-white shadow-lg shadow-blue-500/20 font-black text-lg">
-          IC
-        </div>
-        <div>
-          <div class="flex items-center space-x-2">
-            <h1 class="text-base font-extrabold text-white tracking-tight">AGENT AUTONOME DE RECRUTEMENT</h1>
-            <span class="px-2 py-0.5 rounded text-[10px] font-bold bg-emerald-500/10 text-emerald-400 border border-emerald-500/20">ACTIF 7H/7</span>
-          </div>
-          <p class="text-xs text-gray-400">Candidat : <strong class="text-gray-200">Issa CISSÉ</strong> · Double Compétence : Gestion GEA (Bac+3) &amp; IT / Automatisation</p>
-        </div>
+  <!-- TOP HEADER MOBILE NATIVE -->
+  <header class="sticky top-0 z-40 px-4 py-3 bg-gray-950/90 backdrop-blur-md border-b border-gray-800/80 flex items-center justify-between">
+    <div class="flex items-center space-x-2.5">
+      <div class="w-8 h-8 rounded-xl bg-gradient-to-tr from-blue-600 to-indigo-600 flex items-center justify-center text-white font-black text-xs shadow-md shadow-blue-500/30">
+        IC
       </div>
-
-      <!-- ACTIONS BAR -->
-      <div class="flex items-center space-x-3">
-        <!-- TOGGLE TRADUCTION ANGLAIS -> FRANÇAIS -->
-        <button onclick="toggleTranslationMode()" id="btn-translate-toggle" class="px-3 py-1.5 rounded-lg text-xs font-bold border transition-all flex items-center space-x-1.5 bg-blue-500/15 border-blue-500/30 text-blue-300 hover:bg-blue-500/25">
-          <span id="trans-flag">🇫🇷</span>
-          <span id="trans-text">Traduction FR Active</span>
-        </button>
-
-        <!-- SCAN BUTTON -->
-        <button onclick="triggerJobHunt()" id="btn-scan" class="px-3.5 py-1.5 bg-gradient-to-r from-blue-600 to-indigo-600 hover:from-blue-500 hover:to-indigo-500 text-white rounded-lg text-xs font-bold flex items-center space-x-1.5 shadow-lg shadow-blue-600/20 transition-all">
-          <i class="fa-solid fa-arrows-rotate" id="scan-icon"></i>
-          <span>Scanner maintenant</span>
-        </button>
-
-        <span class="text-xs text-gray-400 border-l border-gray-800 pl-3 hidden sm:inline">
-          Routine : <strong class="text-blue-400">07:00</strong>
-        </span>
+      <div>
+        <div class="flex items-center space-x-1.5">
+          <h1 class="text-xs font-black text-white tracking-wide">JobHunter</h1>
+          <span class="w-2 h-2 rounded-full bg-emerald-400 animate-pulse"></span>
+        </div>
+        <p class="text-[9.5px] text-gray-400 font-medium">Agent Autonome &bull; Issa CISSÉ</p>
       </div>
+    </div>
+    
+    <div class="flex items-center space-x-2">
+      <button onclick="switchTab('reponses')" class="relative w-8 h-8 rounded-xl bg-gray-900 border border-gray-800 text-gray-300 flex items-center justify-center text-xs active:scale-95 transition-transform">
+        <i class="fa-solid fa-bell text-emerald-400 text-xs"></i>
+        <span class="absolute -top-0.5 -right-0.5 w-2.5 h-2.5 bg-emerald-400 rounded-full animate-ping"></span>
+        <span class="absolute -top-0.5 -right-0.5 w-2.5 h-2.5 bg-emerald-400 rounded-full"></span>
+      </button>
     </div>
   </header>
 
-  <!-- MAIN CONTENT -->
-  <main class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-6 flex-1 w-full space-y-6">
+  <!-- MAIN SCROLLABLE CONTAINER -->
+  <main class="flex-1 overflow-y-auto no-scrollbar pb-24 px-4 pt-3 space-y-4 max-w-xl mx-auto w-full">
 
-    <!-- KPI STATS CARDS -->
-    <div class="grid grid-cols-1 md:grid-cols-4 gap-4">
-      <div class="glass-card rounded-2xl p-4 flex items-center justify-between">
-        <div>
-          <p class="text-xs font-semibold text-gray-400">Total Opportunités</p>
-          <h3 class="text-2xl font-black text-white mt-1" id="stat-total">0</h3>
-          <p class="text-[11px] text-emerald-400 mt-0.5 flex items-center"><i class="fa-solid fa-check-double mr-1"></i>Vérifiées &amp; dédupliquées</p>
-        </div>
-        <div class="w-12 h-12 rounded-xl bg-blue-500/10 text-blue-400 flex items-center justify-center text-xl">
-          <i class="fa-solid fa-briefcase"></i>
-        </div>
-      </div>
+    <!-- ==================== VUE 1 : OFFRES ==================== -->
+    <div id="tab-view-offres" class="space-y-3.5">
 
-      <div class="glass-card rounded-2xl p-4 flex items-center justify-between">
-        <div>
-          <p class="text-xs font-semibold text-gray-400">Priorité 1 (&ge; 70%)</p>
-          <h3 class="text-2xl font-black text-emerald-400 mt-1" id="stat-p1">0</h3>
-          <p class="text-[11px] text-gray-400 mt-0.5">Missions &amp; postes idéaux</p>
-        </div>
-        <div class="w-12 h-12 rounded-xl bg-emerald-500/10 text-emerald-400 flex items-center justify-center text-xl">
-          <i class="fa-solid fa-star"></i>
-        </div>
-      </div>
-
-      <div class="glass-card rounded-2xl p-4 flex items-center justify-between">
-        <div>
-          <p class="text-xs font-semibold text-gray-400">Postes Traduits en Français</p>
-          <h3 class="text-2xl font-black text-indigo-400 mt-1" id="stat-translated">0</h3>
-          <p class="text-[11px] text-gray-400 mt-0.5">Offres internationales en FR</p>
-        </div>
-        <div class="w-12 h-12 rounded-xl bg-indigo-500/10 text-indigo-400 flex items-center justify-center text-xl">
-          <i class="fa-solid fa-language"></i>
-        </div>
-      </div>
-
-      <div class="glass-card rounded-2xl p-4 flex items-center justify-between border-t-2 border-emerald-500 cursor-pointer hover:bg-gray-800/40 transition-all" onclick="switchView('reponses')">
-        <div>
-          <p class="text-xs font-semibold text-gray-400">Retours &amp; Emails Reçus</p>
-          <h3 class="text-2xl font-black text-emerald-400 mt-1" id="stat-reponses">2</h3>
-          <p class="text-[11px] text-emerald-300/80 mt-0.5">Boîte de réception active</p>
-        </div>
-        <div class="w-12 h-12 rounded-xl bg-emerald-500/10 text-emerald-400 flex items-center justify-center text-xl relative">
-          <i class="fa-solid fa-inbox"></i>
-          <span class="absolute -top-1 -right-1 w-3 h-3 bg-emerald-500 rounded-full animate-ping"></span>
-        </div>
-      </div>
-    </div>
-
-    <!-- PROFILE RECAP STRATEGIQUE -->
-    <div class="glass-card rounded-2xl p-4 border-l-4 border-blue-500">
-      <div class="flex flex-col md:flex-row justify-between items-start md:items-center gap-3">
-        <div>
-          <div class="flex items-center space-x-2">
-            <span class="text-xs uppercase font-extrabold tracking-wider text-blue-400">Profil Validé</span>
-            <span class="px-2 py-0.5 rounded text-[10px] font-bold bg-blue-500/10 text-blue-300">Licence Pro GEA + Formation IT</span>
-            <span class="px-2 py-0.5 rounded text-[10px] font-bold bg-emerald-500/10 text-emerald-300">Bamako / Télétravail</span>
+      <!-- CARTE CANDIDAT RÉSUMÉ -->
+      <div class="bg-gradient-to-r from-blue-950/40 via-indigo-950/30 to-gray-900 p-3.5 rounded-2xl border border-blue-500/30 shadow-lg">
+        <div class="flex justify-between items-start">
+          <div>
+            <span class="px-2 py-0.5 rounded text-[9px] font-extrabold bg-blue-500/20 text-blue-300 uppercase tracking-wider">Profil Vérifié</span>
+            <h3 class="text-sm font-black text-white mt-1">Issa CISSÉ</h3>
+            <p class="text-[10.5px] text-gray-300 font-medium">BAC +3 Licence Pro GEA &bull; Lead Digital &amp; SI</p>
           </div>
-          <p class="text-xs text-gray-300 mt-1">
-            <strong>Stratégie Double :</strong> Consultant Prestataire B2B (Missions/TDR) &bull; Cadre Salarié à Responsabilité &bull; Prétentions selon grilles d'entreprise.
-          </p>
+          <span class="px-2 py-1 bg-emerald-500/20 text-emerald-300 rounded-lg text-[10px] font-bold flex items-center gap-1 border border-emerald-500/30">
+            <i class="fa-solid fa-location-dot"></i> Bamako / Remote
+          </span>
         </div>
-        <div class="flex items-center space-x-2">
-          <span class="px-2.5 py-1 rounded bg-gray-800 text-gray-300 text-[11px] font-semibold border border-gray-700">TaamaPass (Grand opérateur de transport)</span>
-          <span class="px-2.5 py-1 rounded bg-gray-800 text-gray-300 text-[11px] font-semibold border border-gray-700">Sòrò Stock</span>
-          <span class="px-2.5 py-1 rounded bg-gray-800 text-gray-300 text-[11px] font-semibold border border-gray-700">Guichet Numérique</span>
-        </div>
-      </div>
-    </div>
-
-    <!-- NAVIGATION PAR ONGLETS (OFFRES vs BOÎTE DE RÉCEPTION RECRUTEURS) -->
-    <div class="flex items-center space-x-3 border-b border-gray-800 pb-2">
-      <button id="tab-offres" onclick="switchView('offres')" class="px-4 py-2 rounded-xl text-xs font-bold transition-all bg-blue-600 text-white shadow-lg shadow-blue-600/30 flex items-center space-x-2">
-        <i class="fa-solid fa-briefcase"></i>
-        <span>Offres d'Emploi Détectées (<span id="tab-count-offres">0</span>)</span>
-      </button>
-      <button id="tab-reponses" onclick="switchView('reponses')" class="px-4 py-2 rounded-xl text-xs font-bold transition-all bg-gray-900 text-gray-400 hover:text-white border border-gray-800 flex items-center space-x-2 relative">
-        <i class="fa-solid fa-envelope-open-text text-emerald-400"></i>
-        <span>Suivi des Retours &amp; Emails Recruteurs (<span id="tab-count-reponses">2</span>)</span>
-        <span class="ml-1.5 px-1.5 py-0.2 rounded-full text-[9px] bg-emerald-500 text-white font-extrabold">NOUVEAU</span>
-      </button>
-    </div>
-
-    <!-- VUE 1 : OFFRES ET CANDIDATURES -->
-    <div id="view-offres" class="glass-card rounded-2xl p-5 space-y-4">
-      <div class="flex flex-col md:flex-row justify-between items-center gap-3">
-        <div class="flex flex-wrap items-center gap-2">
-          <span class="text-xs font-bold text-gray-400 uppercase">Filtrer :</span>
-          <select id="filter-prio" onchange="renderJobs()" class="bg-gray-900 border border-gray-700 text-white text-xs rounded-lg px-2.5 py-1.5 focus:outline-none focus:border-blue-500">
-            <option value="ALL">Toutes Priorités</option>
-            <option value="P1">Priorité 1 (&ge; 70%)</option>
-            <option value="P2">Priorité 2 (50-69%)</option>
-            <option value="P3">Priorité 3 (&lt; 50%)</option>
-          </select>
-
-          <select id="filter-status" onchange="renderJobs()" class="bg-gray-900 border border-gray-700 text-white text-xs rounded-lg px-2.5 py-1.5 focus:outline-none focus:border-blue-500">
-            <option value="ALL">Tous les Statuts</option>
-            <option value="À analyser">À analyser</option>
-            <option value="Sélectionnée">Sélectionnée</option>
-            <option value="À valider">À valider</option>
-            <option value="Candidature envoyée">Candidature envoyée</option>
-            <option value="Entretien">Entretien</option>
-          </select>
-
-          <select id="filter-lang" onchange="renderJobs()" class="bg-gray-900 border border-gray-700 text-white text-xs rounded-lg px-2.5 py-1.5 focus:outline-none focus:border-blue-500">
-            <option value="ALL">Toutes les Langues</option>
-            <option value="MALI">Offres Locales (Mali)</option>
-            <option value="EN">Offres Internationales (Traduites)</option>
-          </select>
-        </div>
-
-        <div class="text-xs text-gray-400">
-          <span id="count-display" class="font-bold text-white">0</span> offres affichées
+        <div class="flex items-center gap-1.5 mt-2.5 pt-2 border-t border-gray-800/80 text-[9.5px] text-gray-400 flex-wrap">
+          <span class="bg-gray-800/80 px-2 py-0.5 rounded text-gray-300">TaamaPass (PWA)</span>
+          <span class="bg-gray-800/80 px-2 py-0.5 rounded text-gray-300">Sòrò Stock</span>
+          <span class="bg-gray-800/80 px-2 py-0.5 rounded text-gray-300">Opti-pro (SIE-AES)</span>
         </div>
       </div>
 
-      <!-- TABLE -->
-      <div class="overflow-x-auto">
-        <table class="w-full text-left border-collapse text-xs">
-          <thead>
-            <tr class="border-b border-gray-800 text-gray-400 font-bold uppercase text-[11px]">
-              <th class="py-3 px-3">Poste &amp; Entreprise</th>
-              <th class="py-3 px-3">Localisation &amp; Source</th>
-              <th class="py-3 px-3 text-center">Score Match</th>
-              <th class="py-3 px-3">Date Limite</th>
-              <th class="py-3 px-3">Statut</th>
-              <th class="py-3 px-3 text-right">Actions</th>
-            </tr>
-          </thead>
-          <tbody id="jobs-tbody" class="divide-y divide-gray-800/60">
-            <!-- Rempli dynamiquement -->
-          </tbody>
-        </table>
+      <!-- KPI MOBILES GRID -->
+      <div class="grid grid-cols-3 gap-2 text-center">
+        <div class="bg-gray-900/90 border border-gray-800 p-2.5 rounded-xl">
+          <div class="text-base font-black text-white" id="stat-total">19</div>
+          <div class="text-[9px] text-gray-400 mt-0.5 font-medium">Offres Ciblées</div>
+        </div>
+        <div class="bg-gray-900/90 border border-gray-800 p-2.5 rounded-xl">
+          <div class="text-base font-black text-blue-400" id="stat-p1">11</div>
+          <div class="text-[9px] text-blue-300 mt-0.5 font-medium">Priorité 1</div>
+        </div>
+        <div onclick="switchTab('reponses')" class="bg-gray-900/90 border border-emerald-500/40 p-2.5 rounded-xl relative cursor-pointer active:scale-95 transition-transform">
+          <span class="absolute -top-1 -right-1 w-2.5 h-2.5 bg-emerald-400 rounded-full animate-ping"></span>
+          <div class="text-base font-black text-emerald-400" id="stat-reponses">2</div>
+          <div class="text-[9px] text-emerald-300 mt-0.5 font-bold">Retours Reçus</div>
+        </div>
       </div>
+
+      <!-- BANNIÈRE DERNIER RETOUR RECUTEUR -->
+      <div onclick="switchTab('reponses')" class="bg-emerald-950/20 border border-emerald-500/30 rounded-2xl p-3 cursor-pointer active:scale-[0.98] transition-transform shadow-md">
+        <div class="flex justify-between items-center mb-1">
+          <span class="text-[10px] font-extrabold uppercase text-emerald-400 flex items-center gap-1.5">
+            <i class="fa-solid fa-inbox text-emerald-400"></i> Dernier retour reçu
+          </span>
+          <span class="text-[9px] text-gray-500 font-mono">01/11 10:15</span>
+        </div>
+        <h4 class="text-xs font-bold text-white">Accusé de réception BDM-SA</h4>
+        <p class="text-[10px] text-gray-300 line-clamp-2 mt-0.5 leading-relaxed">
+          Votre profil double compétence (GEA + IT) a retenu notre attention. Transmis à la DSI pour analyse technique...
+        </p>
+        <div class="mt-2 flex justify-between items-center pt-1.5 border-t border-emerald-900/40">
+          <span class="text-[9.5px] text-emerald-300 italic"><i class="fa-solid fa-lightbulb mr-1"></i>Action: Préparer Q&A TaamaPass</span>
+          <span class="px-2 py-0.5 bg-emerald-600 text-white rounded text-[9.5px] font-bold">Consulter &rarr;</span>
+        </div>
+      </div>
+
+      <!-- BARRE DE RECHERCHE & FILTRES CHIPS -->
+      <div class="space-y-2">
+        <div class="relative">
+          <i class="fa-solid fa-magnifying-glass absolute left-3 top-1/2 -translate-y-1/2 text-gray-500 text-xs"></i>
+          <input type="text" id="search-input" oninput="filterJobs()" placeholder="Rechercher poste, entreprise, compétences..." 
+                 class="w-full bg-gray-900/90 border border-gray-800 rounded-xl pl-8 pr-3 py-2 text-xs text-white placeholder-gray-500 focus:outline-none focus:border-blue-500">
+        </div>
+        
+        <!-- Filter chips scrollables horizontalement -->
+        <div class="flex items-center space-x-1.5 overflow-x-auto no-scrollbar py-0.5 text-[11px] font-bold">
+          <button onclick="setFilter('ALL')" id="chip-ALL" class="filter-chip px-3 py-1 rounded-lg bg-blue-600 text-white shrink-0">
+            Tous (<span id="count-all">19</span>)
+          </button>
+          <button onclick="setFilter('P1')" id="chip-P1" class="filter-chip px-3 py-1 rounded-lg bg-gray-900 text-gray-400 border border-gray-800 hover:text-white shrink-0">
+            ⭐ Priorité 1
+          </button>
+          <button onclick="setFilter('MALI')" id="chip-MALI" class="filter-chip px-3 py-1 rounded-lg bg-gray-900 text-gray-400 border border-gray-800 hover:text-white shrink-0">
+            🇲🇱 Bamako
+          </button>
+          <button onclick="setFilter('REMOTE')" id="chip-REMOTE" class="filter-chip px-3 py-1 rounded-lg bg-gray-900 text-gray-400 border border-gray-800 hover:text-white shrink-0">
+            🌍 Remote Monde
+          </button>
+        </div>
+      </div>
+
+      <!-- LISTE DES CARTES D'OFFRES DYNAMIQUES -->
+      <div id="mobile-jobs-container" class="space-y-2.5">
+        <!-- Rempli en Javascript -->
+      </div>
+
     </div>
 
-    <!-- VUE 2 : SUIVI ET RETOURS DES EMAILS RECRUTEURS -->
-    <div id="view-reponses" class="glass-card rounded-2xl p-5 space-y-4 hidden">
-      <div class="flex flex-col md:flex-row justify-between items-start md:items-center gap-3 border-b border-gray-800 pb-4">
+    <!-- ==================== VUE 2 : RETOURS & EMAILS ==================== -->
+    <div id="tab-view-reponses" class="space-y-3.5 hidden">
+      <div class="flex justify-between items-center pb-2 border-b border-gray-800">
         <div>
-          <h2 class="text-base font-extrabold text-white flex items-center gap-2">
+          <h2 class="text-sm font-black text-white flex items-center gap-1.5">
             <i class="fa-solid fa-inbox text-emerald-400"></i>
-            Boîte de Suivi des Réponses &amp; Convocations d'Entretiens
+            Boîte de Réception Recruteurs
           </h2>
-          <p class="text-xs text-gray-400 mt-1">
-            Chaque email ou retour reçu des recruteurs (Orange, BDM-SA, PDI, etc.) est capté, horodaté et associé à l'action recommandée.
-          </p>
+          <p class="text-[10px] text-gray-400">Emails, accusés de réception et convocations</p>
         </div>
-        <button onclick="refreshReponses()" class="px-3 py-1.5 bg-gray-800 hover:bg-gray-700 text-gray-200 text-xs font-semibold rounded-lg flex items-center gap-1.5 border border-gray-700">
+        <button onclick="syncReponses()" class="px-2.5 py-1 bg-gray-900 border border-gray-800 hover:border-gray-700 text-xs text-gray-300 rounded-lg flex items-center gap-1 font-bold">
           <i class="fa-solid fa-rotate text-emerald-400"></i>
-          <span>Vérifier nouveaux retours</span>
+          <span>Vérifier</span>
         </button>
       </div>
 
-      <!-- LISTE DES EMAILS ET RETOURS REÇUS -->
-      <div id="reponses-container" class="space-y-3">
-        <!-- Rempli dynamiquement en JS -->
+      <div id="mobile-reponses-container" class="space-y-3">
+        <!-- Rempli en Javascript -->
+      </div>
+    </div>
+
+    <!-- ==================== VUE 3 : MON CV PDF ==================== -->
+    <div id="tab-view-cv" class="space-y-3 hidden">
+      <div class="flex justify-between items-center pb-2 border-b border-gray-800">
+        <div>
+          <h2 class="text-sm font-black text-white flex items-center gap-1.5">
+            <i class="fa-solid fa-file-pdf text-rose-400"></i>
+            Aperçu de Mon CV Adapté
+          </h2>
+          <p class="text-[10px] text-gray-400">Format officiel 1-Page Dirigeant / Lead SI</p>
+        </div>
+        <div class="flex gap-1.5">
+          <button onclick="loadPdf('fr')" id="btn-cv-fr" class="px-2.5 py-1 rounded-lg text-[10px] font-bold bg-blue-600 text-white">FR (Exécutif)</button>
+          <button onclick="loadPdf('en')" id="btn-cv-en" class="px-2.5 py-1 rounded-lg text-[10px] font-bold bg-gray-800 text-gray-400">EN (Lemon.io)</button>
+        </div>
+      </div>
+
+      <div class="bg-gray-900 border border-gray-800 rounded-2xl overflow-hidden shadow-2xl flex flex-col h-[65vh]">
+        <iframe id="cv-iframe" src="./CV_ISSA_CISSE_OFFICIEL.pdf" class="w-full flex-1 border-0"></iframe>
+        <div class="p-3 bg-gray-950 border-t border-gray-800 flex justify-between items-center">
+          <span class="text-[10px] text-gray-400">PDF officiel compilé (228 Ko)</span>
+          <a id="btn-download-cv" href="./CV_ISSA_CISSE_OFFICIEL.pdf" download class="px-3 py-1.5 bg-blue-600 hover:bg-blue-500 text-white rounded-xl text-xs font-bold flex items-center gap-1.5 shadow-md">
+            <i class="fa-solid fa-download"></i> Télécharger
+          </a>
+        </div>
+      </div>
+    </div>
+
+    <!-- ==================== VUE 4 : PROFIL DU CANDIDAT ==================== -->
+    <div id="tab-view-profil" class="space-y-3.5 hidden">
+      <div class="bg-gray-900 border border-gray-800 rounded-2xl p-4 text-center space-y-3">
+        <div class="w-16 h-16 rounded-2xl bg-gradient-to-tr from-blue-600 to-indigo-600 flex items-center justify-center text-white font-black text-xl mx-auto shadow-xl shadow-blue-500/20">
+          IC
+        </div>
+        <div>
+          <h2 class="text-base font-black text-white">Issa CISSÉ</h2>
+          <p class="text-xs text-blue-400 font-semibold mt-0.5">Chef de Projet Digital &bull; Consultant Gestion &amp; SI</p>
+          <p class="text-[11px] text-gray-400 mt-1">Bamako Golf, Commune V, Mali</p>
+        </div>
+        
+        <div class="flex justify-center gap-2 pt-2 border-t border-gray-800 text-xs">
+          <a href="tel:+22378020209" class="px-3 py-1.5 bg-emerald-600/20 text-emerald-300 border border-emerald-500/30 rounded-xl font-bold flex items-center gap-1.5">
+            <i class="fa-solid fa-phone"></i> (+223) 78 02 02 09
+          </a>
+          <a href="mailto:cisseissa03@gmail.com" class="px-3 py-1.5 bg-blue-600/20 text-blue-300 border border-blue-500/30 rounded-xl font-bold flex items-center gap-1.5">
+            <i class="fa-solid fa-envelope"></i> Email
+          </a>
+        </div>
+      </div>
+
+      <!-- FORMATION VALIDÉE -->
+      <div class="bg-gray-900 border border-gray-800 rounded-2xl p-4 space-y-2.5">
+        <h3 class="text-xs font-black text-white uppercase tracking-wider flex items-center gap-2">
+          <i class="fa-solid fa-graduation-cap text-indigo-400"></i> Diplômes &amp; Formation
+        </h3>
+        <div class="space-y-2 text-xs">
+          <div class="p-2.5 bg-gray-950 rounded-xl border border-gray-800">
+            <span class="text-[10px] font-bold text-blue-400">2012 — 2015</span>
+            <h4 class="font-bold text-white">Licence Professionnelle en Gestion (GEA) + Informatique</h4>
+            <p class="text-[11px] text-gray-400">Institut Universitaire de Gestion (IUG) &bull; Bamako</p>
+          </div>
+        </div>
+      </div>
+
+      <!-- RÉALISATIONS PHARES -->
+      <div class="bg-gray-900 border border-gray-800 rounded-2xl p-4 space-y-2.5">
+        <h3 class="text-xs font-black text-white uppercase tracking-wider flex items-center gap-2">
+          <i class="fa-solid fa-rocket text-emerald-400"></i> Projets Réalisés
+        </h3>
+        <div class="space-y-2 text-xs">
+          <div class="p-2.5 bg-gray-950 rounded-xl border border-gray-800">
+            <div class="flex justify-between items-center">
+              <h4 class="font-bold text-white">TaamaPass (PWA Billetterie &amp; Flotte)</h4>
+              <span class="text-[9px] bg-emerald-500/10 text-emerald-400 px-2 py-0.5 rounded font-bold">120K+ Passagers</span>
+            </div>
+            <p class="text-[10px] text-gray-400 mt-1">Application mobile et desktop synchronisée pour le transport interurbain.</p>
+          </div>
+          <div class="p-2.5 bg-gray-950 rounded-xl border border-gray-800">
+            <div class="flex justify-between items-center">
+              <h4 class="font-bold text-white">Sòrò Stock (Caisse &amp; Stocks OHADA)</h4>
+              <span class="text-[9px] bg-blue-500/10 text-blue-400 px-2 py-0.5 rounded font-bold">Offline-First</span>
+            </div>
+            <p class="text-[10px] text-gray-400 mt-1">Moteur de gestion des stocks et trésorerie autonome pour PME.</p>
+          </div>
+        </div>
       </div>
     </div>
 
   </main>
 
-  <!-- MODAL DOSSIER CANDIDATURE -->
-  <div id="modal-dossier" class="fixed inset-0 bg-black/80 backdrop-blur-sm z-50 flex items-center justify-center hidden p-4">
-    <div class="bg-gray-900 border border-gray-700 rounded-2xl max-w-3xl w-full max-h-[92vh] flex flex-col shadow-2xl overflow-hidden">
+  <!-- ==================== ANDROID BOTTOM DOCK (NAVIGATION BAR PWA) ==================== -->
+  <nav class="fixed bottom-0 left-0 right-0 h-16 glass-dock border-t border-gray-800 flex justify-around items-center px-3 z-40 max-w-xl mx-auto">
+    <button onclick="switchTab('offres')" id="nav-offres" class="nav-item flex flex-col items-center text-blue-400 text-[10px] font-bold">
+      <i class="fa-solid fa-briefcase text-base mb-0.5"></i>
+      <span>Offres</span>
+    </button>
+    
+    <button onclick="switchTab('reponses')" id="nav-reponses" class="nav-item flex flex-col items-center text-gray-400 hover:text-white text-[10px] font-bold relative">
+      <i class="fa-solid fa-envelope-open-text text-base mb-0.5"></i>
+      <span>Retours</span>
+      <span class="absolute 1 -top-1 right-2 w-2 h-2 bg-emerald-400 rounded-full animate-ping"></span>
+      <span class="absolute 1 -top-1 right-2 w-2 h-2 bg-emerald-400 rounded-full"></span>
+    </button>
+    
+    <button onclick="switchTab('cv')" id="nav-cv" class="nav-item flex flex-col items-center text-gray-400 hover:text-white text-[10px] font-bold">
+      <i class="fa-solid fa-file-pdf text-base mb-0.5"></i>
+      <span>Mon CV</span>
+    </button>
+    
+    <button onclick="switchTab('profil')" id="nav-profil" class="nav-item flex flex-col items-center text-gray-400 hover:text-white text-[10px] font-bold">
+      <i class="fa-solid fa-user-tie text-base mb-0.5"></i>
+      <span>Profil</span>
+    </button>
+  </nav>
+
+  <!-- MODAL DOSSIER OFFRE (COVER LETTER + TTS) -->
+  <div id="modal-dossier" class="fixed inset-0 bg-black/80 backdrop-blur-sm z-50 flex items-end sm:items-center justify-center hidden p-0 sm:p-4">
+    <div class="bg-gray-900 border-t sm:border border-gray-700 rounded-t-3xl sm:rounded-2xl max-w-xl w-full max-h-[90vh] flex flex-col shadow-2xl overflow-hidden">
       <div class="p-4 border-b border-gray-800 flex justify-between items-center bg-gray-950">
         <div>
-          <div class="flex items-center space-x-2">
-            <h3 class="font-bold text-white text-sm" id="modal-title">Dossier de Candidature</h3>
-            <span id="modal-lang-badge" class="px-2 py-0.5 rounded text-[10px] font-bold bg-blue-500/10 text-blue-300">FR</span>
-          </div>
-          <p class="text-xs text-gray-400" id="modal-company">Entreprise cible</p>
+          <span id="modal-badge-prio" class="px-2 py-0.5 rounded text-[9px] font-bold bg-blue-500/20 text-blue-300">P1</span>
+          <h3 class="font-bold text-white text-xs mt-1" id="modal-title">Titre du Poste</h3>
+          <p class="text-[10px] text-gray-400" id="modal-company">Entreprise</p>
         </div>
-        <button onclick="closeModal()" class="text-gray-400 hover:text-white text-lg">&times;</button>
+        <button onclick="closeModal()" class="w-8 h-8 rounded-full bg-gray-800 text-gray-300 flex items-center justify-center text-lg">&times;</button>
       </div>
 
-      <div class="p-5 overflow-y-auto space-y-4 flex-1 text-xs">
-        <!-- DESCRIPTION / MISSIONS TRADUITES AVEC LECTURE VOCALE -->
-        <div class="bg-gray-950 border border-gray-800 rounded-xl p-3">
-          <div class="flex justify-between items-center mb-2 flex-wrap gap-2">
-            <span class="font-bold text-gray-300 uppercase text-[11px]"><i class="fa-solid fa-circle-info mr-1 text-blue-400"></i>Descriptif du Poste &amp; Missions</span>
-            
-            <!-- SÉLECTION DE VOIX ET BOUTON ÉCOUTER -->
-            <div class="flex items-center space-x-2 bg-gray-900 px-2.5 py-1 rounded-lg border border-indigo-500/40 shadow-sm">
-              <i class="fa-solid fa-headphones text-indigo-400 text-xs"></i>
-              <span class="text-[10px] text-gray-400 font-semibold">Voix :</span>
-              <select id="voice-select" onchange="onVoiceChange()" class="bg-gray-800 text-indigo-200 text-[10.5px] rounded px-2 py-0.5 border border-gray-700 focus:outline-none">
-                <option value="fr-female">1. Amélie (Français - Posée & Claire)</option>
-                <option value="fr-male">2. Thomas (Français - Cadre / Professionnel)</option>
-                <option value="fr-dynamic">3. Claire (Français - Dynamique & Expressive)</option>
-                <option value="en-us">4. English (Voix originale anglophone)</option>
-              </select>
-              <button id="btn-speech" onclick="toggleSpeech()" class="px-2.5 py-1 bg-indigo-600 hover:bg-indigo-500 text-white rounded text-[10.5px] font-bold flex items-center space-x-1.5 transition-all shadow-md shadow-indigo-600/30">
-                <i class="fa-solid fa-play" id="speech-icon"></i>
-                <span id="speech-btn-label">Écouter</span>
-              </button>
-            </div>
-          </div>
-          <p id="modal-desc" class="text-gray-300 leading-relaxed text-[11.5px]"></p>
+      <!-- AUDIO TTS BAR -->
+      <div class="bg-gray-950 px-4 py-2.5 border-b border-gray-800 flex items-center justify-between text-xs">
+        <div class="flex items-center space-x-2 text-indigo-300 font-semibold text-[11px]">
+          <i class="fa-solid fa-volume-high text-indigo-400"></i>
+          <span>Lecture Vocale (TTS)</span>
         </div>
-
-        <div class="bg-blue-500/10 border border-blue-500/20 rounded-xl p-2.5 text-blue-200">
-          <i class="fa-solid fa-lock mr-1.5 text-blue-400"></i>
-          <strong>Contrôle candidat :</strong> Aucun envoi automatique n'est fait sans votre clic d'accord.
-        </div>
-
-        <div>
-          <div class="flex items-center justify-between mb-1.5">
-            <h4 class="font-bold text-gray-200 uppercase text-[11px]">1. Lettre de Motivation Personnalisée</h4>
-            <button onclick="copyToClipboard('preview-lettre')" class="text-blue-400 hover:underline"><i class="fa-regular fa-copy mr-1"></i>Copier la lettre</button>
-          </div>
-          <textarea id="preview-lettre" readonly rows="7" class="w-full bg-gray-950 border border-gray-800 rounded-lg p-3 text-gray-300 font-mono text-[11px] focus:outline-none"></textarea>
-        </div>
-
-        <div>
-          <div class="flex items-center justify-between mb-1.5">
-            <h4 class="font-bold text-gray-200 uppercase text-[11px]">2. Email d'Accompagnement du Recruteur</h4>
-            <button onclick="copyToClipboard('preview-email')" class="text-blue-400 hover:underline"><i class="fa-regular fa-copy mr-1"></i>Copier l'email</button>
-          </div>
-          <textarea id="preview-email" readonly rows="4" class="w-full bg-gray-950 border border-gray-800 rounded-lg p-3 text-gray-300 font-mono text-[11px] focus:outline-none"></textarea>
-        </div>
-
-        <div>
-          <div class="flex items-center justify-between mb-2">
-            <h4 class="font-bold text-gray-200 uppercase text-[11px] flex items-center gap-1.5">
-              <i class="fa-regular fa-file-pdf text-rose-400 text-sm"></i>
-              <span>3. Aperçu Visuel du CV Adapté (Format PDF)</span>
-            </h4>
-            <div class="flex items-center space-x-2">
-              <span class="text-[10px] text-emerald-400 font-bold bg-emerald-500/10 px-2 py-0.5 rounded border border-emerald-500/20">HD 100% CONFORME</span>
-              <a id="btn-open-pdf" href="/dashboard/CV_ISSA_CISSE_OFFICIEL.pdf" target="_blank" class="px-2.5 py-1 bg-gray-800 hover:bg-gray-700 text-blue-400 rounded text-[10px] font-semibold border border-gray-700 flex items-center gap-1 transition-all">
-                <i class="fa-solid fa-arrow-up-right-from-square"></i>
-                <span>Plein écran</span>
-              </a>
-              <a id="btn-download-pdf" href="/dashboard/CV_ISSA_CISSE_OFFICIEL.pdf" download="CV_ISSA_CISSE.pdf" class="px-2.5 py-1 bg-blue-600 hover:bg-blue-500 text-white rounded text-[10px] font-bold flex items-center gap-1 transition-all shadow-sm shadow-blue-500/20">
-                <i class="fa-solid fa-download"></i>
-                <span>Télécharger PDF</span>
-              </a>
-            </div>
-          </div>
-          
-          <!-- LECTEUR INTÉGRÉ PDF DANS LA MODALE -->
-          <div class="w-full h-[480px] bg-gray-950 rounded-xl border border-gray-800 overflow-hidden shadow-inner relative">
-            <iframe id="pdf-viewer" src="/dashboard/CV_ISSA_CISSE_OFFICIEL.pdf#view=FitH&toolbar=0" class="w-full h-full border-0"></iframe>
-          </div>
+        <div class="flex items-center space-x-2">
+          <select id="tts-voice-select" class="bg-gray-900 border border-gray-700 text-gray-200 text-[10px] rounded-lg px-2 py-1">
+            <option value="fr-FR">Voix Amélie (FR)</option>
+            <option value="en-US">Voice Claire (EN)</option>
+          </select>
+          <button id="tts-play-btn" onclick="toggleTtsModal()" class="px-3 py-1 bg-indigo-600 hover:bg-indigo-500 text-white rounded-lg text-[10px] font-bold flex items-center gap-1 shadow-md">
+            <i class="fa-solid fa-play text-[8px]"></i> <span>Écouter</span>
+          </button>
         </div>
       </div>
 
-      <div class="p-4 border-t border-gray-800 bg-gray-950 flex justify-between items-center">
-        <button onclick="closeModal()" class="px-4 py-2 bg-gray-800 hover:bg-gray-700 text-gray-300 rounded-lg text-xs font-semibold">Fermer</button>
-        <button onclick="markAsSent()" class="px-4 py-2 bg-emerald-600 hover:bg-emerald-500 text-white rounded-lg text-xs font-bold flex items-center space-x-1.5 shadow-lg shadow-emerald-600/20">
-          <i class="fa-solid fa-paper-plane"></i>
-          <span>Valider et Marquer comme Envoyée</span>
+      <div class="p-4 overflow-y-auto space-y-3.5 flex-1 text-xs leading-relaxed text-gray-300">
+        <div>
+          <h4 class="text-[11px] font-black uppercase text-emerald-400 mb-1">Description &amp; Enjeux</h4>
+          <div id="modal-desc" class="bg-gray-950 p-3 rounded-xl border border-gray-800 text-[11px] leading-relaxed"></div>
+        </div>
+
+        <div>
+          <h4 class="text-[11px] font-black uppercase text-blue-400 mb-1">Lettre de Motivation Sur-Mesure</h4>
+          <div id="modal-lettre" class="bg-gray-950 p-3 rounded-xl border border-gray-800 text-[11px] whitespace-pre-line leading-relaxed font-sans text-gray-200"></div>
+        </div>
+      </div>
+
+      <div class="p-3 bg-gray-950 border-t border-gray-800 flex justify-between items-center">
+        <button onclick="closeModal()" class="px-4 py-2 bg-gray-800 hover:bg-gray-700 text-gray-300 rounded-xl text-xs font-bold">Fermer</button>
+        <button onclick="openModalCvPdf()" class="px-4 py-2 bg-blue-600 hover:bg-blue-500 text-white rounded-xl text-xs font-bold flex items-center gap-1.5 shadow-md">
+          <i class="fa-regular fa-file-pdf"></i> Voir CV PDF
         </button>
       </div>
     </div>
   </div>
 
+  <!-- TOAST NOTIFICATION -->
+  <div id="toast" class="fixed top-4 left-1/2 -translate-x-1/2 z-50 px-4 py-2.5 rounded-2xl shadow-2xl text-xs font-bold transition-all opacity-0 pointer-events-none transform -translate-y-2 flex items-center space-x-2"></div>
+
+  <!-- EMBEDDED DATA & SCRIPT -->
   <script>
-    let allJobs = [{"id": "CORP-BDM-01", "source": "Banque de Développement du Mali (BDM-SA)", "titre": "Chef de Projet Digital & Systèmes d'Information", "entreprise": "Banque de Développement du Mali (BDM-SA)", "localisation": "Siège BDM-SA, Bamako, Mali", "date_publication": "2026-11-01", "date_limite": "15 Novembre 2026", "description": "Superviser la transformation numérique des canaux bancaires, l'automatisation des flux financiers et la coordination des prestataires techniques.", "exigences": "Diplôme Bac+5 en Informatique ou Gestion de Projet. Expérience avérée dans les applications métiers, la gestion des flux de données et le management de projet digital.", "salaire": "Grille Cadre Bancaire Mali (Très attractif + Avantages sociaux)", "lien_direct": "https://www.bdm-sa.com/recrutement", "statut": "Candidature envoyée", "is_english": false, "titre_fr": "Chef de Projet Digital & Systèmes d'Information", "description_fr": "Superviser la transformation numérique des canaux bancaires, l'automatisation des flux financiers et la coordination des prestataires techniques.", "exigences_fr": "Diplôme Bac+5 en Informatique ou Gestion de Projet. Expérience avérée dans les applications métiers, la gestion des flux de données et le management de projet digital.", "score_correspondance": 100, "competences_validees": ["Format Mission / Consultance Prestataire", "Gestion d'Entreprise & Administration (GEA)", "Audit Opérationnel & Transformation Digitale", "Conception de Solutions Métiers (PWA, Web, Desktop)", "Automatisation intelligente & Workflows IA", "Diplôme Universitaire (BAC + 3 Licence Pro GEA + IT)", "Adéquation parfaite : Double profil Gestion d'Entreprise + IT", "Références et plateformes réelles vérifiables (TaamaPass, Sòrò Stock)", "Localisation 100% conforme : Bamako (Sur site / Hybride)"], "competences_manquantes": [], "categorie_priorite": "PRIORITÉ 1 (Excellente opportunité)", "status": "Candidature envoyée"}, {"id": "CORP-ONG-03", "source": "Organisations Internationales / Partenaires au Développement", "titre": "Coordinateur des Systèmes d'Information & Gestion des Données", "entreprise": "Programme de Développement Institutionnel (Bamako)", "localisation": "Bamako avec missions ponctuelles", "date_publication": "2026-11-01", "date_limite": "12 Novembre 2026", "description": "Mise en place de bases de données sécurisées, automatisation du suivi-évaluation et formation des agents aux outils numériques.", "exigences": "Bac+4/5 en Informatique ou Gestion de Données. Excellente maîtrise de SQL/Bases relationnelles, reporting digitalisé et capacité de vulgarisation.", "salaire": "Barème International Organisations Humanitaires & Coopération", "lien_direct": "https://www.malibaara.com/", "statut": "Candidature envoyée", "is_english": false, "titre_fr": "Coordinateur des Systèmes d'Information & Gestion des Données", "description_fr": "Mise en place de bases de données sécurisées, automatisation du suivi-évaluation et formation des agents aux outils numériques.", "exigences_fr": "Bac+4/5 en Informatique ou Gestion de Données. Excellente maîtrise de SQL/Bases relationnelles, reporting digitalisé et capacité de vulgarisation.", "score_correspondance": 67, "competences_validees": ["Gestion d'Entreprise & Administration (GEA)", "Systèmes d'Information, Bases de Données & Normes", "Automatisation intelligente & Workflows IA", "Diplôme Universitaire (BAC + 3 Licence Pro GEA + IT)", "Adéquation parfaite : Double profil Gestion d'Entreprise + IT", "Localisation 100% conforme : Bamako (Sur site / Hybride)"], "competences_manquantes": [], "categorie_priorite": "PRIORITÉ 2 (Opportunité intéressante)", "status": "Candidature envoyée"}, {"id": "REM-2091161", "source": "Remotive (Télétravail International)", "titre": "AI Trainer - Video Annotation", "entreprise": "iMerit Technology", "localisation": "Télétravail (100% Remote - Accessible depuis Bamako)", "date_publication": "2026-10-22", "date_limite": "Recrutement ouvert", "description": "AI Trainer - Video AnnotationRemote | Independent Contractor Prove your skills. Get certified. Robotics AI is advancing rapidly, and high-quality video data helps intelligent systems better understand the world around them. We are inviting detail-oriented professionals to complete our certification process for potential robotics AI projects. ▌ What you will doAs part of the certification process, you will demonstrate your ability to:Annotate short video clips by identifying objects, actions and ...", "exigences": "Maîtrise de JavaScript/Node.js, architecture web, autonomie et communication écrite.", "salaire": "70K-80K", "lien_direct": "https://remotive.com/remote-jobs/artificial-intelligence/ai-trainer-video-annotation-2091161", "statut": "À analyser", "is_english": true, "titre_original": "AI Trainer - Video Annotation", "description_original": "AI Trainer - Video AnnotationRemote | Independent Contractor Prove your skills. Get certified. Robotics AI is advancing rapidly, and high-quality video data helps intelligent systems better understand the world around them. We are inviting detail-oriented professionals to complete our certification process for potential robotics AI projects. ▌ What you will doAs part of the certification process, you will demonstrate your ability to:Annotate short video clips by identifying objects, actions and ...", "exigences_original": "Maîtrise de JavaScript/Node.js, architecture web, autonomie et communication écrite.", "titre_fr": "Entraîneur IA - Annotation vidéo", "description_fr": "AI Trainer - Annotation vidéo à distance | Entrepreneur indépendant Prouvez vos compétences. Obtenez une certification. L’IA robotique progresse rapidement et les données vidéo de haute qualité aident les systèmes intelligents à mieux comprendre le monde qui les entoure. Nous invitons les professionnels soucieux du détail à compléter notre processus de certification pour des projets potentiels d'IA robotique. ▌ Ce que vous ferezDans le cadre du processus de certification, vous démontrerez votre capacité à :Annoter de courts clips vidéo en identifiant des objets, des actions et...", "exigences_fr": "Maîtrise de JavaScript/Node.js, architecture web, autonomie et communication écrite.", "score_correspondance": 65, "competences_validees": ["Format Mission / Consultance Prestataire", "Conception de Solutions Métiers (PWA, Web, Desktop)", "Systèmes d'Information, Bases de Données & Normes", "Automatisation intelligente & Workflows IA", "Localisation 100% conforme : Bamako (Sur site / Hybride)"], "competences_manquantes": [], "categorie_priorite": "PRIORITÉ 2 (Opportunité intéressante)"}, {"id": "REM-2086540", "source": "Remotive (Télétravail International)", "titre": "Inside Sales Contractor", "entreprise": "Credit Wellness, LLC", "localisation": "Télétravail (100% Remote - Accessible depuis Bamako)", "date_publication": "2026-10-08", "date_limite": "Recrutement ouvert", "description": "About Us We are a financial services start up focusing on helping to improve consumer credit profiles. We are currently seeking KPI driven sales representatives looking to earn up to 45K in their first year while working remotely. We offer comprehensive training and continuous sales coaching to help you meet your financial goals. During our training period we offer a guaranteed training stipend while our trainees are acclimating to the position (*see weekly pay below). If you are a seasoned sale...", "exigences": "Maîtrise de JavaScript/Node.js, architecture web, autonomie et communication écrite.", "salaire": "OTE $25k - $35k", "lien_direct": "https://remotive.com/remote-jobs/sales/inside-sales-contractor-2086540", "statut": "À analyser", "is_english": true, "titre_original": "Inside Sales Contractor", "description_original": "About Us We are a financial services start up focusing on helping to improve consumer credit profiles. We are currently seeking KPI driven sales representatives looking to earn up to 45K in their first year while working remotely. We offer comprehensive training and continuous sales coaching to help you meet your financial goals. During our training period we offer a guaranteed training stipend while our trainees are acclimating to the position (*see weekly pay below). If you are a seasoned sale...", "exigences_original": "Maîtrise de JavaScript/Node.js, architecture web, autonomie et communication écrite.", "titre_fr": "Entrepreneur en ventes internes", "description_fr": "À propos de nous Nous sommes une start-up de services financiers qui se concentre sur l'amélioration des profils de crédit à la consommation. Nous recherchons actuellement des représentants commerciaux axés sur les KPI et cherchant à gagner jusqu'à 45 000 $ au cours de leur première année tout en travaillant à distance. Nous proposons une formation complète et un coaching commercial continu pour vous aider à atteindre vos objectifs financiers. Pendant notre période de formation, nous offrons une allocation de formation garantie pendant que nos stagiaires s'acclimatent au poste (*voir salaire hebdomadaire ci-dessous). Si vous êtes un vendeur chevronné...", "exigences_fr": "Maîtrise de JavaScript/Node.js, architecture web, autonomie et communication écrite.", "score_correspondance": 65, "competences_validees": ["Format Mission / Consultance Prestataire", "Conception de Solutions Métiers (PWA, Web, Desktop)", "Systèmes d'Information, Bases de Données & Normes", "Automatisation intelligente & Workflows IA", "Localisation 100% conforme : Bamako (Sur site / Hybride)"], "competences_manquantes": [], "categorie_priorite": "PRIORITÉ 2 (Opportunité intéressante)"}, {"id": "REM-2091045", "source": "Remotive (Télétravail International)", "titre": "Tier III Service Desk Engineer", "entreprise": "Unio Digital", "localisation": "Télétravail (100% Remote - Accessible depuis Bamako)", "date_publication": "2026-10-07", "date_limite": "Recrutement ouvert", "description": "Unió Digital is an Arizona-based managed service provider (MSP) delivering Managed IT Services, Low Voltage Cabling, Access Control, Video Surveillance, and Intrusion Services. We believe technology should be intuitive, not intimidating. We are looking for an experienced Tier 3 Service Desk Technician with exceptional problem-solving skills. You will serve as the escalation point within the team, resolving complex technical issues while also leading client onboarding and project initiatives. You...", "exigences": "Maîtrise de JavaScript/Node.js, architecture web, autonomie et communication écrite.", "salaire": "", "lien_direct": "https://remotive.com/remote-jobs/information-technology/tier-iii-service-desk-engineer-2091045", "statut": "À analyser", "is_english": true, "titre_original": "Tier III Service Desk Engineer", "description_original": "Unió Digital is an Arizona-based managed service provider (MSP) delivering Managed IT Services, Low Voltage Cabling, Access Control, Video Surveillance, and Intrusion Services. We believe technology should be intuitive, not intimidating. We are looking for an experienced Tier 3 Service Desk Technician with exceptional problem-solving skills. You will serve as the escalation point within the team, resolving complex technical issues while also leading client onboarding and project initiatives. You...", "exigences_original": "Maîtrise de JavaScript/Node.js, architecture web, autonomie et communication écrite.", "titre_fr": "Ingénieur Service Desk de niveau III", "description_fr": "Unió Digital est un fournisseur de services gérés (MSP) basé en Arizona qui fournit des services informatiques gérés, des services de câblage basse tension, de contrôle d'accès, de vidéosurveillance et d'intrusion. Nous pensons que la technologie doit être intuitive et non intimidante. Nous recherchons un technicien Service Desk expérimenté de niveau 3 doté de compétences exceptionnelles en résolution de problèmes. Vous servirez de point d'escalade au sein de l'équipe, résolvant des problèmes techniques complexes tout en dirigeant l'intégration des clients et les initiatives de projet. Toi...", "exigences_fr": "Maîtrise de JavaScript/Node.js, architecture web, autonomie et communication écrite.", "score_correspondance": 65, "competences_validees": ["Format Mission / Consultance Prestataire", "Conception de Solutions Métiers (PWA, Web, Desktop)", "Systèmes d'Information, Bases de Données & Normes", "Automatisation intelligente & Workflows IA", "Localisation 100% conforme : Bamako (Sur site / Hybride)"], "competences_manquantes": [], "categorie_priorite": "PRIORITÉ 2 (Opportunité intéressante)"}, {"id": "REM-1185979", "source": "Remotive (Télétravail International)", "titre": "Freelance Writer", "entreprise": "IAPWE", "localisation": "Télétravail (100% Remote - Accessible depuis Bamako)", "date_publication": "2026-10-04", "date_limite": "Recrutement ouvert", "description": "Our organization is seeking content writers to create articles and blog posts on a variety of topics. The rate of pay is $20 per 100 words (this comes out to approximately $100 per article or $50 per hour). Some topics you may be asked to write about include the following (you can always turn down a topic if you do not feel comfortable writing about it, however if you have experience or expertise in a specific area, please let us know): Health &amp; beauty Fitness Home Decor Fashion Sports Do it...", "exigences": "Maîtrise de JavaScript/Node.js, architecture web, autonomie et communication écrite.", "salaire": "$50-$75 /hour", "lien_direct": "https://remotive.com/remote-jobs/writing/freelance-writer-1185979", "statut": "À analyser", "is_english": true, "titre_original": "Freelance Writer", "description_original": "Our organization is seeking content writers to create articles and blog posts on a variety of topics. The rate of pay is $20 per 100 words (this comes out to approximately $100 per article or $50 per hour). Some topics you may be asked to write about include the following (you can always turn down a topic if you do not feel comfortable writing about it, however if you have experience or expertise in a specific area, please let us know): Health &amp; beauty Fitness Home Decor Fashion Sports Do it...", "exigences_original": "Maîtrise de JavaScript/Node.js, architecture web, autonomie et communication écrite.", "titre_fr": "Écrivain indépendant", "description_fr": "Notre organisation recherche des rédacteurs de contenu pour créer des articles et des billets de blog sur une variété de sujets. Le taux de rémunération est de 20 $ pour 100 mots (cela équivaut à environ 100 $ par article ou 50 $ de l'heure). Certains sujets sur lesquels vous pourriez être invité à écrire sont les suivants (vous pouvez toujours refuser un sujet si vous ne vous sentez pas à l'aise d'écrire à ce sujet, mais si vous avez de l'expérience ou une expertise dans un domaine spécifique, veuillez nous le faire savoir) : Santé et beauté Fitness Décoration d'intérieur Mode Sports Faites-le...", "exigences_fr": "Maîtrise de JavaScript/Node.js, architecture web, autonomie et communication écrite.", "score_correspondance": 54, "competences_validees": ["Format Mission / Consultance Prestataire", "Missions de Consultance & Prestation Technique", "Conception de Solutions Métiers (PWA, Web, Desktop)", "Localisation 100% conforme : Bamako (Sur site / Hybride)"], "competences_manquantes": [], "categorie_priorite": "PRIORITÉ 2 (Opportunité intéressante)"}, {"id": "CORP-ORANGE-02", "source": "Orange Mali / Orange Money", "titre": "Product Owner / Responsable Solutions Digitales & Mobile Money", "entreprise": "Orange Mali (Direction des Services Numériques)", "localisation": "Bamako (Hamdallaye ACI 2000)", "date_publication": "2026-11-01", "date_limite": "20 Novembre 2026", "description": "Piloter la conception et l'évolution des fonctionnalités B2B et B2C des applications mobiles, suivi des parcours clients et intégration de services tiers.", "exigences": "Bac+5 Ingénieur informatique ou Master SI. Expérience en conception de produits numériques (PWA/Mobile), sens de l'expérience utilisateur et rigueur opérationnelle.", "salaire": "Selon profil Cadre Télécoms & Services Financiers", "lien_direct": "https://orange.com/fr/carrieres", "statut": "À analyser", "is_english": false, "titre_fr": "Product Owner / Responsable Solutions Digitales & Mobile Money", "description_fr": "Piloter la conception et l'évolution des fonctionnalités B2B et B2C des applications mobiles, suivi des parcours clients et intégration de services tiers.", "exigences_fr": "Bac+5 Ingénieur informatique ou Master SI. Expérience en conception de produits numériques (PWA/Mobile), sens de l'expérience utilisateur et rigueur opérationnelle.", "score_correspondance": 45, "competences_validees": ["Conception de Solutions Métiers (PWA, Web, Desktop)", "Systèmes d'Information, Bases de Données & Normes", "Références et plateformes réelles vérifiables (TaamaPass, Sòrò Stock)", "Localisation 100% conforme : Bamako (Sur site / Hybride)"], "competences_manquantes": [], "categorie_priorite": "PRIORITÉ 3 (Opportunité secondaire)"}, {"id": "REM-2091165", "source": "Remotive (Télétravail International)", "titre": "Full-Stack Developer", "entreprise": "Fluence International, Inc.", "localisation": "Télétravail (100% Remote - Accessible depuis Bamako)", "date_publication": "2026-10-29", "date_limite": "Recrutement ouvert", "description": "We’re looking for a pragmatic, security-minded Full-Stack Developer to help build and scale Fluence’s B2B products used by clinicians, researchers, and organizations in psychedelic-assisted therapy and mental health. You’ll work closely with and report to our Senior AI &amp; Design Lead to turn product requirements into robust, secure, and well-documented applications, as well as maintain existing ones. What you’ll do Build and maintain full-stack web applications using React and Next.js. Archit...", "exigences": "Maîtrise de JavaScript/Node.js, architecture web, autonomie et communication écrite.", "salaire": "$3.5k–$5k/month", "lien_direct": "https://remotive.com/remote-jobs/software-development/full-stack-developer-2091165", "statut": "À analyser", "is_english": true, "titre_original": "Full-Stack Developer", "description_original": "We’re looking for a pragmatic, security-minded Full-Stack Developer to help build and scale Fluence’s B2B products used by clinicians, researchers, and organizations in psychedelic-assisted therapy and mental health. You’ll work closely with and report to our Senior AI &amp; Design Lead to turn product requirements into robust, secure, and well-documented applications, as well as maintain existing ones. What you’ll do Build and maintain full-stack web applications using React and Next.js. Archit...", "exigences_original": "Maîtrise de JavaScript/Node.js, architecture web, autonomie et communication écrite.", "titre_fr": "Développeur Full-Stack", "description_fr": "Nous recherchons un développeur Full-Stack pragmatique et soucieux de la sécurité pour aider à créer et à faire évoluer les produits B2B de Fluence utilisés par les cliniciens, les chercheurs et les organisations dans le domaine de la thérapie assistée par psychédélique et de la santé mentale. Vous travaillerez en étroite collaboration avec notre responsable principal de l'IA et de la conception et lui rendrez compte pour transformer les exigences du produit en applications robustes, sécurisées et bien documentées, ainsi que pour maintenir celles existantes. Ce que vous ferez Créer et maintenir des applications Web complètes à l'aide de React et Next.js. Archit...", "exigences_fr": "Maîtrise de JavaScript/Node.js, architecture web, autonomie et communication écrite.", "score_correspondance": 43, "competences_validees": ["Conception de Solutions Métiers (PWA, Web, Desktop)", "Systèmes d'Information, Bases de Données & Normes", "Automatisation intelligente & Workflows IA", "Localisation 100% conforme : Bamako (Sur site / Hybride)"], "competences_manquantes": [], "categorie_priorite": "PRIORITÉ 3 (Opportunité secondaire)"}, {"id": "REM-1680495", "source": "Remotive (Télétravail International)", "titre": "Remote Office Assistant", "entreprise": "Coalition Technologies ", "localisation": "Télétravail (100% Remote - Accessible depuis Bamako)", "date_publication": "2026-10-11", "date_limite": "Recrutement ouvert", "description": "Coalition Technologies is seeking a reliable, detail-oriented, and highly organized Remote Office Assistant to support administrative, bookkeeping, billing, reporting, data entry, and internal operations tasks. This role is ideal for someone with strong communication skills, discretion, attention to detail, and a willingness to learn and grow within a fast-paced remote work environment. As an Office Assistant, you will help support daily administrative operations, assist with entry-level bookkee...", "exigences": "Maîtrise de JavaScript/Node.js, architecture web, autonomie et communication écrite.", "salaire": "$35,3k- $52k", "lien_direct": "https://remotive.com/remote-jobs/marketing/remote-office-assistant-1680495", "statut": "À analyser", "is_english": true, "titre_original": "Remote Office Assistant", "description_original": "Coalition Technologies is seeking a reliable, detail-oriented, and highly organized Remote Office Assistant to support administrative, bookkeeping, billing, reporting, data entry, and internal operations tasks. This role is ideal for someone with strong communication skills, discretion, attention to detail, and a willingness to learn and grow within a fast-paced remote work environment. As an Office Assistant, you will help support daily administrative operations, assist with entry-level bookkee...", "exigences_original": "Maîtrise de JavaScript/Node.js, architecture web, autonomie et communication écrite.", "titre_fr": "Assistant de bureau à distance", "description_fr": "Coalition Technologies est à la recherche d'un assistant de bureau à distance fiable, minutieux et hautement organisé pour prendre en charge les tâches administratives, de comptabilité, de facturation, de reporting, de saisie de données et d'opérations internes. Ce rôle est idéal pour une personne possédant de solides compétences en communication, de la discrétion, une attention aux détails et une volonté d'apprendre et de grandir dans un environnement de travail à distance en évolution rapide. En tant qu'assistant de bureau, vous contribuerez à soutenir les opérations administratives quotidiennes, aiderez les comptables débutants...", "exigences_fr": "Maîtrise de JavaScript/Node.js, architecture web, autonomie et communication écrite.", "score_correspondance": 43, "competences_validees": ["Conception de Solutions Métiers (PWA, Web, Desktop)", "Systèmes d'Information, Bases de Données & Normes", "Automatisation intelligente & Workflows IA", "Localisation 100% conforme : Bamako (Sur site / Hybride)"], "competences_manquantes": [], "categorie_priorite": "PRIORITÉ 3 (Opportunité secondaire)"}, {"id": "REM-2091134", "source": "Remotive (Télétravail International)", "titre": "Head of Engineering", "entreprise": "Lemon.io", "localisation": "Télétravail (100% Remote - Accessible depuis Bamako)", "date_publication": "2026-10-26", "date_limite": "Recrutement ouvert", "description": "About Lemon.ioLemon.io is a profitable, growing talent marketplace that connects vetted senior engineers with companies that need them. We’ve been in business for 10 years, have 60 people across Ukraine, Europe, Canada, and the US, and process over $16M in annual GMV. We compress the traditional 2–5 week hiring timeline down to 24–48 hours through a curated, pre-vetted supply of developers.Hiring is still broken. Recruiters spend weeks building candidate pipelines on traditional platforms, burni...", "exigences": "Maîtrise de JavaScript/Node.js, architecture web, autonomie et communication écrite.", "salaire": "", "lien_direct": "https://remotive.com/remote-jobs/software-development/head-of-engineering-2091134", "statut": "À analyser", "is_english": true, "titre_original": "Head of Engineering", "description_original": "About Lemon.ioLemon.io is a profitable, growing talent marketplace that connects vetted senior engineers with companies that need them. We’ve been in business for 10 years, have 60 people across Ukraine, Europe, Canada, and the US, and process over $16M in annual GMV. We compress the traditional 2–5 week hiring timeline down to 24–48 hours through a curated, pre-vetted supply of developers.Hiring is still broken. Recruiters spend weeks building candidate pipelines on traditional platforms, burni...", "exigences_original": "Maîtrise de JavaScript/Node.js, architecture web, autonomie et communication écrite.", "titre_fr": "Responsable de l'ingénierie", "description_fr": "À propos de Lemon.ioLemon.io est un marché de talents rentable et en pleine croissance qui met en relation des ingénieurs seniors sélectionnés avec les entreprises qui en ont besoin. Nous sommes en affaires depuis 10 ans, comptons 60 personnes en Ukraine, en Europe, au Canada et aux États-Unis, et traitons plus de 16 millions de dollars de GMV annuel. Nous réduisons le délai de recrutement traditionnel de 2 à 5 semaines à 24 à 48 heures grâce à une sélection de développeurs sélectionnés et pré-sélectionnés. Le recrutement est toujours interrompu. Les recruteurs passent des semaines à constituer des pipelines de candidats sur des plateformes traditionnelles, brûlant...", "exigences_fr": "Maîtrise de JavaScript/Node.js, architecture web, autonomie et communication écrite.", "score_correspondance": 32, "competences_validees": ["Conception de Solutions Métiers (PWA, Web, Desktop)", "Systèmes d'Information, Bases de Données & Normes", "Localisation 100% conforme : Bamako (Sur site / Hybride)"], "competences_manquantes": [], "categorie_priorite": "PRIORITÉ 3 (Opportunité secondaire)"}, {"id": "REM-2091158", "source": "Remotive (Télétravail International)", "titre": "Software Engineer, AI Coding Tasks", "entreprise": "Askable", "localisation": "Télétravail (100% Remote - Accessible depuis Bamako)", "date_publication": "2026-10-17", "date_limite": "Recrutement ouvert", "description": "We're looking for experienced software engineers to build AI coding tasks from a codebase they know well. US$1,000 per task, and you can do as many tasks as you want. You turn a real change from a repository you know into a task that today's best AI coding models struggle with: hard for the models, but fair for a skilled engineer. Your tasks are used to measure and train AI coding models. Remote, any location. US$1,000 per task that passes review. Minimum of one task a week, about 10 hours a wee...", "exigences": "Maîtrise de JavaScript/Node.js, architecture web, autonomie et communication écrite.", "salaire": "$1000 per task", "lien_direct": "https://remotive.com/remote-jobs/software-development/software-engineer-ai-coding-tasks-2091158", "statut": "À analyser", "is_english": true, "titre_original": "Software Engineer, AI Coding Tasks", "description_original": "We're looking for experienced software engineers to build AI coding tasks from a codebase they know well. US$1,000 per task, and you can do as many tasks as you want. You turn a real change from a repository you know into a task that today's best AI coding models struggle with: hard for the models, but fair for a skilled engineer. Your tasks are used to measure and train AI coding models. Remote, any location. US$1,000 per task that passes review. Minimum of one task a week, about 10 hours a wee...", "exigences_original": "Maîtrise de JavaScript/Node.js, architecture web, autonomie et communication écrite.", "titre_fr": "Ingénieur logiciel, tâches de codage IA", "description_fr": "Nous recherchons des ingénieurs logiciels expérimentés pour créer des tâches de codage d'IA à partir d'une base de code qu'ils connaissent bien. 1 000 US$ par tâche, et vous pouvez effectuer autant de tâches que vous le souhaitez. Vous transformez un véritable changement d'un référentiel que vous connaissez en une tâche avec laquelle les meilleurs modèles de codage d'IA d'aujourd'hui ont du mal : difficile pour les modèles, mais équitable pour un ingénieur qualifié. Vos tâches sont utilisées pour mesurer et entraîner des modèles de codage d'IA. À distance, n'importe où. 1 000 USD par tâche qui réussit l'examen. Minimum d'une tâche par semaine, environ 10 heures par semaine...", "exigences_fr": "Maîtrise de JavaScript/Node.js, architecture web, autonomie et communication écrite.", "score_correspondance": 32, "competences_validees": ["Conception de Solutions Métiers (PWA, Web, Desktop)", "Systèmes d'Information, Bases de Données & Normes", "Localisation 100% conforme : Bamako (Sur site / Hybride)"], "competences_manquantes": [], "categorie_priorite": "PRIORITÉ 3 (Opportunité secondaire)"}, {"id": "REM-1749306", "source": "Remotive (Télétravail International)", "titre": "Freelance Copywriter", "entreprise": "Coalition Technologies ", "localisation": "Télétravail (100% Remote - Accessible depuis Bamako)", "date_publication": "2026-10-02", "date_limite": "Recrutement ouvert", "description": "CT Marketing Agency is seeking skilled Freelance Copywriters to write high-quality, SEO-driven content for eCommerce and lead generation websites. This is a freelance, project-based writing role. The ideal candidate has excellent English writing skills, strong research ability, and experience writing content that follows detailed, client-specific guidelines. Projects commonly include category pages, product descriptions, blog posts, SEO landing pages, and website copy. About the Role Our client ...", "exigences": "Maîtrise de JavaScript/Node.js, architecture web, autonomie et communication écrite.", "salaire": "$20k -$35k", "lien_direct": "https://remotive.com/remote-jobs/writing/freelance-copywriter-1749306", "statut": "À analyser", "is_english": true, "titre_original": "Freelance Copywriter", "description_original": "CT Marketing Agency is seeking skilled Freelance Copywriters to write high-quality, SEO-driven content for eCommerce and lead generation websites. This is a freelance, project-based writing role. The ideal candidate has excellent English writing skills, strong research ability, and experience writing content that follows detailed, client-specific guidelines. Projects commonly include category pages, product descriptions, blog posts, SEO landing pages, and website copy. About the Role Our client ...", "exigences_original": "Maîtrise de JavaScript/Node.js, architecture web, autonomie et communication écrite.", "titre_fr": "Rédacteur indépendant", "description_fr": "CT Marketing Agency recherche des rédacteurs indépendants qualifiés pour rédiger du contenu de haute qualité axé sur le référencement pour les sites Web de commerce électronique et de génération de leads. Il s'agit d'un rôle d'écriture indépendant basé sur des projets. Le candidat idéal possède d'excellentes compétences rédactionnelles en anglais, de solides capacités de recherche et une expérience dans la rédaction de contenu qui suit des directives détaillées et spécifiques au client. Les projets incluent généralement des pages de catégories, des descriptions de produits, des articles de blog, des pages de destination SEO et une copie de site Web. À propos du rôle Notre client...", "exigences_fr": "Maîtrise de JavaScript/Node.js, architecture web, autonomie et communication écrite.", "score_correspondance": 32, "competences_validees": ["Conception de Solutions Métiers (PWA, Web, Desktop)", "Systèmes d'Information, Bases de Données & Normes", "Localisation 100% conforme : Bamako (Sur site / Hybride)"], "competences_manquantes": [], "categorie_priorite": "PRIORITÉ 3 (Opportunité secondaire)"}, {"id": "ME-1", "source": "Maliemploi.org (Mali)", "titre": "Offres d’emploi", "entreprise": "Organisation basée à Bamako", "localisation": "Bamako, Mali", "date_publication": "2026-11-01", "date_limite": "Selon annonce", "description": "Offre d'emploi officielle publiée à Bamako : Offres d’emploi.", "exigences": "Formation supérieure, maîtrise des outils professionnels, autonomie.", "salaire": "Rémunération compétitive selon barème", "lien_direct": "https://maliemploi.org/emplois/", "statut": "À analyser", "is_english": false, "titre_fr": "Offres d’emploi", "description_fr": "Offre d'emploi officielle publiée à Bamako : Offres d’emploi.", "exigences_fr": "Formation supérieure, maîtrise des outils professionnels, autonomie.", "score_correspondance": 21, "competences_validees": ["Systèmes d'Information, Bases de Données & Normes", "Localisation 100% conforme : Bamako (Sur site / Hybride)"], "competences_manquantes": [], "categorie_priorite": "PRIORITÉ 3 (Opportunité secondaire)"}, {"id": "ME-2", "source": "Maliemploi.org (Mali)", "titre": "Déposer mon CV", "entreprise": "Organisation basée à Bamako", "localisation": "Bamako, Mali", "date_publication": "2026-11-01", "date_limite": "Selon annonce", "description": "Offre d'emploi officielle publiée à Bamako : Déposer mon CV.", "exigences": "Formation supérieure, maîtrise des outils professionnels, autonomie.", "salaire": "Rémunération compétitive selon barème", "lien_direct": "https://maliemploi.org/deposer-cv/", "statut": "À analyser", "is_english": false, "titre_fr": "Déposer mon CV", "description_fr": "Offre d'emploi officielle publiée à Bamako : Déposer mon CV.", "exigences_fr": "Formation supérieure, maîtrise des outils professionnels, autonomie.", "score_correspondance": 21, "competences_validees": ["Systèmes d'Information, Bases de Données & Normes", "Localisation 100% conforme : Bamako (Sur site / Hybride)"], "competences_manquantes": [], "categorie_priorite": "PRIORITÉ 3 (Opportunité secondaire)"}];
+    const allJobs = [{"id": "CORP-BDM-01", "source": "Banque de Développement du Mali (BDM-SA)", "titre": "Chef de Projet Digital & Systèmes d'Information", "entreprise": "Banque de Développement du Mali (BDM-SA)", "localisation": "Siège BDM-SA, Bamako, Mali", "date_publication": "2026-11-01", "date_limite": "15 Novembre 2026", "description": "Superviser la transformation numérique des canaux bancaires, l'automatisation des flux financiers et la coordination des prestataires techniques.", "exigences": "Diplôme Bac+5 en Informatique ou Gestion de Projet. Expérience avérée dans les applications métiers, la gestion des flux de données et le management de projet digital.", "salaire": "Grille Cadre Bancaire Mali (Très attractif + Avantages sociaux)", "lien_direct": "https://www.bdm-sa.com/recrutement", "statut": "Candidature envoyée", "is_english": false, "titre_fr": "Chef de Projet Digital & Systèmes d'Information", "description_fr": "Superviser la transformation numérique des canaux bancaires, l'automatisation des flux financiers et la coordination des prestataires techniques.", "exigences_fr": "Diplôme Bac+5 en Informatique ou Gestion de Projet. Expérience avérée dans les applications métiers, la gestion des flux de données et le management de projet digital.", "score_correspondance": 100, "competences_validees": ["Format Mission / Consultance Prestataire", "Gestion d'Entreprise & Administration (GEA)", "Audit Opérationnel & Transformation Digitale", "Conception de Solutions Métiers (PWA, Web, Desktop)", "Automatisation intelligente & Workflows IA", "Diplôme Universitaire (BAC + 3 Licence Pro GEA + IT)", "Adéquation parfaite : Double profil Gestion d'Entreprise + IT", "Références et plateformes réelles vérifiables (TaamaPass, Sòrò Stock)", "Localisation 100% conforme : Bamako (Sur site / Hybride)"], "competences_manquantes": [], "categorie_priorite": "PRIORITÉ 1 (Excellente opportunité)", "status": "Candidature envoyée"}, {"id": "CORP-ONG-03", "source": "Organisations Internationales / Partenaires au Développement", "titre": "Coordinateur des Systèmes d'Information & Gestion des Données", "entreprise": "Programme de Développement Institutionnel (Bamako)", "localisation": "Bamako avec missions ponctuelles", "date_publication": "2026-11-01", "date_limite": "12 Novembre 2026", "description": "Mise en place de bases de données sécurisées, automatisation du suivi-évaluation et formation des agents aux outils numériques.", "exigences": "Bac+4/5 en Informatique ou Gestion de Données. Excellente maîtrise de SQL/Bases relationnelles, reporting digitalisé et capacité de vulgarisation.", "salaire": "Barème International Organisations Humanitaires & Coopération", "lien_direct": "https://www.malibaara.com/", "statut": "Candidature envoyée", "is_english": false, "titre_fr": "Coordinateur des Systèmes d'Information & Gestion des Données", "description_fr": "Mise en place de bases de données sécurisées, automatisation du suivi-évaluation et formation des agents aux outils numériques.", "exigences_fr": "Bac+4/5 en Informatique ou Gestion de Données. Excellente maîtrise de SQL/Bases relationnelles, reporting digitalisé et capacité de vulgarisation.", "score_correspondance": 67, "competences_validees": ["Gestion d'Entreprise & Administration (GEA)", "Systèmes d'Information, Bases de Données & Normes", "Automatisation intelligente & Workflows IA", "Diplôme Universitaire (BAC + 3 Licence Pro GEA + IT)", "Adéquation parfaite : Double profil Gestion d'Entreprise + IT", "Localisation 100% conforme : Bamako (Sur site / Hybride)"], "competences_manquantes": [], "categorie_priorite": "PRIORITÉ 2 (Opportunité intéressante)", "status": "Candidature envoyée"}, {"id": "REM-2091161", "source": "Remotive (Télétravail International)", "titre": "AI Trainer - Video Annotation", "entreprise": "iMerit Technology", "localisation": "Télétravail (100% Remote - Accessible depuis Bamako)", "date_publication": "2026-10-22", "date_limite": "Recrutement ouvert", "description": "AI Trainer - Video AnnotationRemote | Independent Contractor Prove your skills. Get certified. Robotics AI is advancing rapidly, and high-quality video data helps intelligent systems better understand the world around them. We are inviting detail-oriented professionals to complete our certification process for potential robotics AI projects. ▌ What you will doAs part of the certification process, you will demonstrate your ability to:Annotate short video clips by identifying objects, actions and ...", "exigences": "Maîtrise de JavaScript/Node.js, architecture web, autonomie et communication écrite.", "salaire": "70K-80K", "lien_direct": "https://remotive.com/remote-jobs/artificial-intelligence/ai-trainer-video-annotation-2091161", "statut": "À analyser", "is_english": true, "titre_original": "AI Trainer - Video Annotation", "description_original": "AI Trainer - Video AnnotationRemote | Independent Contractor Prove your skills. Get certified. Robotics AI is advancing rapidly, and high-quality video data helps intelligent systems better understand the world around them. We are inviting detail-oriented professionals to complete our certification process for potential robotics AI projects. ▌ What you will doAs part of the certification process, you will demonstrate your ability to:Annotate short video clips by identifying objects, actions and ...", "exigences_original": "Maîtrise de JavaScript/Node.js, architecture web, autonomie et communication écrite.", "titre_fr": "Entraîneur IA - Annotation vidéo", "description_fr": "AI Trainer - Annotation vidéo à distance | Entrepreneur indépendant Prouvez vos compétences. Obtenez une certification. L’IA robotique progresse rapidement et les données vidéo de haute qualité aident les systèmes intelligents à mieux comprendre le monde qui les entoure. Nous invitons les professionnels soucieux du détail à compléter notre processus de certification pour des projets potentiels d'IA robotique. ▌ Ce que vous ferezDans le cadre du processus de certification, vous démontrerez votre capacité à :Annoter de courts clips vidéo en identifiant des objets, des actions et...", "exigences_fr": "Maîtrise de JavaScript/Node.js, architecture web, autonomie et communication écrite.", "score_correspondance": 65, "competences_validees": ["Format Mission / Consultance Prestataire", "Conception de Solutions Métiers (PWA, Web, Desktop)", "Systèmes d'Information, Bases de Données & Normes", "Automatisation intelligente & Workflows IA", "Localisation 100% conforme : Bamako (Sur site / Hybride)"], "competences_manquantes": [], "categorie_priorite": "PRIORITÉ 2 (Opportunité intéressante)"}, {"id": "REM-2086540", "source": "Remotive (Télétravail International)", "titre": "Inside Sales Contractor", "entreprise": "Credit Wellness, LLC", "localisation": "Télétravail (100% Remote - Accessible depuis Bamako)", "date_publication": "2026-10-08", "date_limite": "Recrutement ouvert", "description": "About Us We are a financial services start up focusing on helping to improve consumer credit profiles. We are currently seeking KPI driven sales representatives looking to earn up to 45K in their first year while working remotely. We offer comprehensive training and continuous sales coaching to help you meet your financial goals. During our training period we offer a guaranteed training stipend while our trainees are acclimating to the position (*see weekly pay below). If you are a seasoned sale...", "exigences": "Maîtrise de JavaScript/Node.js, architecture web, autonomie et communication écrite.", "salaire": "OTE $25k - $35k", "lien_direct": "https://remotive.com/remote-jobs/sales/inside-sales-contractor-2086540", "statut": "À analyser", "is_english": true, "titre_original": "Inside Sales Contractor", "description_original": "About Us We are a financial services start up focusing on helping to improve consumer credit profiles. We are currently seeking KPI driven sales representatives looking to earn up to 45K in their first year while working remotely. We offer comprehensive training and continuous sales coaching to help you meet your financial goals. During our training period we offer a guaranteed training stipend while our trainees are acclimating to the position (*see weekly pay below). If you are a seasoned sale...", "exigences_original": "Maîtrise de JavaScript/Node.js, architecture web, autonomie et communication écrite.", "titre_fr": "Entrepreneur en ventes internes", "description_fr": "À propos de nous Nous sommes une start-up de services financiers qui se concentre sur l'amélioration des profils de crédit à la consommation. Nous recherchons actuellement des représentants commerciaux axés sur les KPI et cherchant à gagner jusqu'à 45 000 $ au cours de leur première année tout en travaillant à distance. Nous proposons une formation complète et un coaching commercial continu pour vous aider à atteindre vos objectifs financiers. Pendant notre période de formation, nous offrons une allocation de formation garantie pendant que nos stagiaires s'acclimatent au poste (*voir salaire hebdomadaire ci-dessous). Si vous êtes un vendeur chevronné...", "exigences_fr": "Maîtrise de JavaScript/Node.js, architecture web, autonomie et communication écrite.", "score_correspondance": 65, "competences_validees": ["Format Mission / Consultance Prestataire", "Conception de Solutions Métiers (PWA, Web, Desktop)", "Systèmes d'Information, Bases de Données & Normes", "Automatisation intelligente & Workflows IA", "Localisation 100% conforme : Bamako (Sur site / Hybride)"], "competences_manquantes": [], "categorie_priorite": "PRIORITÉ 2 (Opportunité intéressante)"}, {"id": "REM-2091045", "source": "Remotive (Télétravail International)", "titre": "Tier III Service Desk Engineer", "entreprise": "Unio Digital", "localisation": "Télétravail (100% Remote - Accessible depuis Bamako)", "date_publication": "2026-10-07", "date_limite": "Recrutement ouvert", "description": "Unió Digital is an Arizona-based managed service provider (MSP) delivering Managed IT Services, Low Voltage Cabling, Access Control, Video Surveillance, and Intrusion Services. We believe technology should be intuitive, not intimidating. We are looking for an experienced Tier 3 Service Desk Technician with exceptional problem-solving skills. You will serve as the escalation point within the team, resolving complex technical issues while also leading client onboarding and project initiatives. You...", "exigences": "Maîtrise de JavaScript/Node.js, architecture web, autonomie et communication écrite.", "salaire": "", "lien_direct": "https://remotive.com/remote-jobs/information-technology/tier-iii-service-desk-engineer-2091045", "statut": "À analyser", "is_english": true, "titre_original": "Tier III Service Desk Engineer", "description_original": "Unió Digital is an Arizona-based managed service provider (MSP) delivering Managed IT Services, Low Voltage Cabling, Access Control, Video Surveillance, and Intrusion Services. We believe technology should be intuitive, not intimidating. We are looking for an experienced Tier 3 Service Desk Technician with exceptional problem-solving skills. You will serve as the escalation point within the team, resolving complex technical issues while also leading client onboarding and project initiatives. You...", "exigences_original": "Maîtrise de JavaScript/Node.js, architecture web, autonomie et communication écrite.", "titre_fr": "Ingénieur Service Desk de niveau III", "description_fr": "Unió Digital est un fournisseur de services gérés (MSP) basé en Arizona qui fournit des services informatiques gérés, des services de câblage basse tension, de contrôle d'accès, de vidéosurveillance et d'intrusion. Nous pensons que la technologie doit être intuitive et non intimidante. Nous recherchons un technicien Service Desk expérimenté de niveau 3 doté de compétences exceptionnelles en résolution de problèmes. Vous servirez de point d'escalade au sein de l'équipe, résolvant des problèmes techniques complexes tout en dirigeant l'intégration des clients et les initiatives de projet. Toi...", "exigences_fr": "Maîtrise de JavaScript/Node.js, architecture web, autonomie et communication écrite.", "score_correspondance": 65, "competences_validees": ["Format Mission / Consultance Prestataire", "Conception de Solutions Métiers (PWA, Web, Desktop)", "Systèmes d'Information, Bases de Données & Normes", "Automatisation intelligente & Workflows IA", "Localisation 100% conforme : Bamako (Sur site / Hybride)"], "competences_manquantes": [], "categorie_priorite": "PRIORITÉ 2 (Opportunité intéressante)"}, {"id": "REM-1185979", "source": "Remotive (Télétravail International)", "titre": "Freelance Writer", "entreprise": "IAPWE", "localisation": "Télétravail (100% Remote - Accessible depuis Bamako)", "date_publication": "2026-10-04", "date_limite": "Recrutement ouvert", "description": "Our organization is seeking content writers to create articles and blog posts on a variety of topics. The rate of pay is $20 per 100 words (this comes out to approximately $100 per article or $50 per hour). Some topics you may be asked to write about include the following (you can always turn down a topic if you do not feel comfortable writing about it, however if you have experience or expertise in a specific area, please let us know): Health &amp; beauty Fitness Home Decor Fashion Sports Do it...", "exigences": "Maîtrise de JavaScript/Node.js, architecture web, autonomie et communication écrite.", "salaire": "$50-$75 /hour", "lien_direct": "https://remotive.com/remote-jobs/writing/freelance-writer-1185979", "statut": "À analyser", "is_english": true, "titre_original": "Freelance Writer", "description_original": "Our organization is seeking content writers to create articles and blog posts on a variety of topics. The rate of pay is $20 per 100 words (this comes out to approximately $100 per article or $50 per hour). Some topics you may be asked to write about include the following (you can always turn down a topic if you do not feel comfortable writing about it, however if you have experience or expertise in a specific area, please let us know): Health &amp; beauty Fitness Home Decor Fashion Sports Do it...", "exigences_original": "Maîtrise de JavaScript/Node.js, architecture web, autonomie et communication écrite.", "titre_fr": "Écrivain indépendant", "description_fr": "Notre organisation recherche des rédacteurs de contenu pour créer des articles et des billets de blog sur une variété de sujets. Le taux de rémunération est de 20 $ pour 100 mots (cela équivaut à environ 100 $ par article ou 50 $ de l'heure). Certains sujets sur lesquels vous pourriez être invité à écrire sont les suivants (vous pouvez toujours refuser un sujet si vous ne vous sentez pas à l'aise d'écrire à ce sujet, mais si vous avez de l'expérience ou une expertise dans un domaine spécifique, veuillez nous le faire savoir) : Santé et beauté Fitness Décoration d'intérieur Mode Sports Faites-le...", "exigences_fr": "Maîtrise de JavaScript/Node.js, architecture web, autonomie et communication écrite.", "score_correspondance": 54, "competences_validees": ["Format Mission / Consultance Prestataire", "Missions de Consultance & Prestation Technique", "Conception de Solutions Métiers (PWA, Web, Desktop)", "Localisation 100% conforme : Bamako (Sur site / Hybride)"], "competences_manquantes": [], "categorie_priorite": "PRIORITÉ 2 (Opportunité intéressante)"}, {"id": "CORP-ORANGE-02", "source": "Orange Mali / Orange Money", "titre": "Product Owner / Responsable Solutions Digitales & Mobile Money", "entreprise": "Orange Mali (Direction des Services Numériques)", "localisation": "Bamako (Hamdallaye ACI 2000)", "date_publication": "2026-11-01", "date_limite": "20 Novembre 2026", "description": "Piloter la conception et l'évolution des fonctionnalités B2B et B2C des applications mobiles, suivi des parcours clients et intégration de services tiers.", "exigences": "Bac+5 Ingénieur informatique ou Master SI. Expérience en conception de produits numériques (PWA/Mobile), sens de l'expérience utilisateur et rigueur opérationnelle.", "salaire": "Selon profil Cadre Télécoms & Services Financiers", "lien_direct": "https://orange.com/fr/carrieres", "statut": "À analyser", "is_english": false, "titre_fr": "Product Owner / Responsable Solutions Digitales & Mobile Money", "description_fr": "Piloter la conception et l'évolution des fonctionnalités B2B et B2C des applications mobiles, suivi des parcours clients et intégration de services tiers.", "exigences_fr": "Bac+5 Ingénieur informatique ou Master SI. Expérience en conception de produits numériques (PWA/Mobile), sens de l'expérience utilisateur et rigueur opérationnelle.", "score_correspondance": 45, "competences_validees": ["Conception de Solutions Métiers (PWA, Web, Desktop)", "Systèmes d'Information, Bases de Données & Normes", "Références et plateformes réelles vérifiables (TaamaPass, Sòrò Stock)", "Localisation 100% conforme : Bamako (Sur site / Hybride)"], "competences_manquantes": [], "categorie_priorite": "PRIORITÉ 3 (Opportunité secondaire)"}, {"id": "REM-2091165", "source": "Remotive (Télétravail International)", "titre": "Full-Stack Developer", "entreprise": "Fluence International, Inc.", "localisation": "Télétravail (100% Remote - Accessible depuis Bamako)", "date_publication": "2026-10-29", "date_limite": "Recrutement ouvert", "description": "We’re looking for a pragmatic, security-minded Full-Stack Developer to help build and scale Fluence’s B2B products used by clinicians, researchers, and organizations in psychedelic-assisted therapy and mental health. You’ll work closely with and report to our Senior AI &amp; Design Lead to turn product requirements into robust, secure, and well-documented applications, as well as maintain existing ones. What you’ll do Build and maintain full-stack web applications using React and Next.js. Archit...", "exigences": "Maîtrise de JavaScript/Node.js, architecture web, autonomie et communication écrite.", "salaire": "$3.5k–$5k/month", "lien_direct": "https://remotive.com/remote-jobs/software-development/full-stack-developer-2091165", "statut": "À analyser", "is_english": true, "titre_original": "Full-Stack Developer", "description_original": "We’re looking for a pragmatic, security-minded Full-Stack Developer to help build and scale Fluence’s B2B products used by clinicians, researchers, and organizations in psychedelic-assisted therapy and mental health. You’ll work closely with and report to our Senior AI &amp; Design Lead to turn product requirements into robust, secure, and well-documented applications, as well as maintain existing ones. What you’ll do Build and maintain full-stack web applications using React and Next.js. Archit...", "exigences_original": "Maîtrise de JavaScript/Node.js, architecture web, autonomie et communication écrite.", "titre_fr": "Développeur Full-Stack", "description_fr": "Nous recherchons un développeur Full-Stack pragmatique et soucieux de la sécurité pour aider à créer et à faire évoluer les produits B2B de Fluence utilisés par les cliniciens, les chercheurs et les organisations dans le domaine de la thérapie assistée par psychédélique et de la santé mentale. Vous travaillerez en étroite collaboration avec notre responsable principal de l'IA et de la conception et lui rendrez compte pour transformer les exigences du produit en applications robustes, sécurisées et bien documentées, ainsi que pour maintenir celles existantes. Ce que vous ferez Créer et maintenir des applications Web complètes à l'aide de React et Next.js. Archit...", "exigences_fr": "Maîtrise de JavaScript/Node.js, architecture web, autonomie et communication écrite.", "score_correspondance": 43, "competences_validees": ["Conception de Solutions Métiers (PWA, Web, Desktop)", "Systèmes d'Information, Bases de Données & Normes", "Automatisation intelligente & Workflows IA", "Localisation 100% conforme : Bamako (Sur site / Hybride)"], "competences_manquantes": [], "categorie_priorite": "PRIORITÉ 3 (Opportunité secondaire)"}, {"id": "REM-1680495", "source": "Remotive (Télétravail International)", "titre": "Remote Office Assistant", "entreprise": "Coalition Technologies ", "localisation": "Télétravail (100% Remote - Accessible depuis Bamako)", "date_publication": "2026-10-11", "date_limite": "Recrutement ouvert", "description": "Coalition Technologies is seeking a reliable, detail-oriented, and highly organized Remote Office Assistant to support administrative, bookkeeping, billing, reporting, data entry, and internal operations tasks. This role is ideal for someone with strong communication skills, discretion, attention to detail, and a willingness to learn and grow within a fast-paced remote work environment. As an Office Assistant, you will help support daily administrative operations, assist with entry-level bookkee...", "exigences": "Maîtrise de JavaScript/Node.js, architecture web, autonomie et communication écrite.", "salaire": "$35,3k- $52k", "lien_direct": "https://remotive.com/remote-jobs/marketing/remote-office-assistant-1680495", "statut": "À analyser", "is_english": true, "titre_original": "Remote Office Assistant", "description_original": "Coalition Technologies is seeking a reliable, detail-oriented, and highly organized Remote Office Assistant to support administrative, bookkeeping, billing, reporting, data entry, and internal operations tasks. This role is ideal for someone with strong communication skills, discretion, attention to detail, and a willingness to learn and grow within a fast-paced remote work environment. As an Office Assistant, you will help support daily administrative operations, assist with entry-level bookkee...", "exigences_original": "Maîtrise de JavaScript/Node.js, architecture web, autonomie et communication écrite.", "titre_fr": "Assistant de bureau à distance", "description_fr": "Coalition Technologies est à la recherche d'un assistant de bureau à distance fiable, minutieux et hautement organisé pour prendre en charge les tâches administratives, de comptabilité, de facturation, de reporting, de saisie de données et d'opérations internes. Ce rôle est idéal pour une personne possédant de solides compétences en communication, de la discrétion, une attention aux détails et une volonté d'apprendre et de grandir dans un environnement de travail à distance en évolution rapide. En tant qu'assistant de bureau, vous contribuerez à soutenir les opérations administratives quotidiennes, aiderez les comptables débutants...", "exigences_fr": "Maîtrise de JavaScript/Node.js, architecture web, autonomie et communication écrite.", "score_correspondance": 43, "competences_validees": ["Conception de Solutions Métiers (PWA, Web, Desktop)", "Systèmes d'Information, Bases de Données & Normes", "Automatisation intelligente & Workflows IA", "Localisation 100% conforme : Bamako (Sur site / Hybride)"], "competences_manquantes": [], "categorie_priorite": "PRIORITÉ 3 (Opportunité secondaire)"}, {"id": "REM-2091134", "source": "Remotive (Télétravail International)", "titre": "Head of Engineering", "entreprise": "Lemon.io", "localisation": "Télétravail (100% Remote - Accessible depuis Bamako)", "date_publication": "2026-10-26", "date_limite": "Recrutement ouvert", "description": "About Lemon.ioLemon.io is a profitable, growing talent marketplace that connects vetted senior engineers with companies that need them. We’ve been in business for 10 years, have 60 people across Ukraine, Europe, Canada, and the US, and process over $16M in annual GMV. We compress the traditional 2–5 week hiring timeline down to 24–48 hours through a curated, pre-vetted supply of developers.Hiring is still broken. Recruiters spend weeks building candidate pipelines on traditional platforms, burni...", "exigences": "Maîtrise de JavaScript/Node.js, architecture web, autonomie et communication écrite.", "salaire": "", "lien_direct": "https://remotive.com/remote-jobs/software-development/head-of-engineering-2091134", "statut": "À analyser", "is_english": true, "titre_original": "Head of Engineering", "description_original": "About Lemon.ioLemon.io is a profitable, growing talent marketplace that connects vetted senior engineers with companies that need them. We’ve been in business for 10 years, have 60 people across Ukraine, Europe, Canada, and the US, and process over $16M in annual GMV. We compress the traditional 2–5 week hiring timeline down to 24–48 hours through a curated, pre-vetted supply of developers.Hiring is still broken. Recruiters spend weeks building candidate pipelines on traditional platforms, burni...", "exigences_original": "Maîtrise de JavaScript/Node.js, architecture web, autonomie et communication écrite.", "titre_fr": "Responsable de l'ingénierie", "description_fr": "À propos de Lemon.ioLemon.io est un marché de talents rentable et en pleine croissance qui met en relation des ingénieurs seniors sélectionnés avec les entreprises qui en ont besoin. Nous sommes en affaires depuis 10 ans, comptons 60 personnes en Ukraine, en Europe, au Canada et aux États-Unis, et traitons plus de 16 millions de dollars de GMV annuel. Nous réduisons le délai de recrutement traditionnel de 2 à 5 semaines à 24 à 48 heures grâce à une sélection de développeurs sélectionnés et pré-sélectionnés. Le recrutement est toujours interrompu. Les recruteurs passent des semaines à constituer des pipelines de candidats sur des plateformes traditionnelles, brûlant...", "exigences_fr": "Maîtrise de JavaScript/Node.js, architecture web, autonomie et communication écrite.", "score_correspondance": 32, "competences_validees": ["Conception de Solutions Métiers (PWA, Web, Desktop)", "Systèmes d'Information, Bases de Données & Normes", "Localisation 100% conforme : Bamako (Sur site / Hybride)"], "competences_manquantes": [], "categorie_priorite": "PRIORITÉ 3 (Opportunité secondaire)"}, {"id": "REM-2091158", "source": "Remotive (Télétravail International)", "titre": "Software Engineer, AI Coding Tasks", "entreprise": "Askable", "localisation": "Télétravail (100% Remote - Accessible depuis Bamako)", "date_publication": "2026-10-17", "date_limite": "Recrutement ouvert", "description": "We're looking for experienced software engineers to build AI coding tasks from a codebase they know well. US$1,000 per task, and you can do as many tasks as you want. You turn a real change from a repository you know into a task that today's best AI coding models struggle with: hard for the models, but fair for a skilled engineer. Your tasks are used to measure and train AI coding models. Remote, any location. US$1,000 per task that passes review. Minimum of one task a week, about 10 hours a wee...", "exigences": "Maîtrise de JavaScript/Node.js, architecture web, autonomie et communication écrite.", "salaire": "$1000 per task", "lien_direct": "https://remotive.com/remote-jobs/software-development/software-engineer-ai-coding-tasks-2091158", "statut": "À analyser", "is_english": true, "titre_original": "Software Engineer, AI Coding Tasks", "description_original": "We're looking for experienced software engineers to build AI coding tasks from a codebase they know well. US$1,000 per task, and you can do as many tasks as you want. You turn a real change from a repository you know into a task that today's best AI coding models struggle with: hard for the models, but fair for a skilled engineer. Your tasks are used to measure and train AI coding models. Remote, any location. US$1,000 per task that passes review. Minimum of one task a week, about 10 hours a wee...", "exigences_original": "Maîtrise de JavaScript/Node.js, architecture web, autonomie et communication écrite.", "titre_fr": "Ingénieur logiciel, tâches de codage IA", "description_fr": "Nous recherchons des ingénieurs logiciels expérimentés pour créer des tâches de codage d'IA à partir d'une base de code qu'ils connaissent bien. 1 000 US$ par tâche, et vous pouvez effectuer autant de tâches que vous le souhaitez. Vous transformez un véritable changement d'un référentiel que vous connaissez en une tâche avec laquelle les meilleurs modèles de codage d'IA d'aujourd'hui ont du mal : difficile pour les modèles, mais équitable pour un ingénieur qualifié. Vos tâches sont utilisées pour mesurer et entraîner des modèles de codage d'IA. À distance, n'importe où. 1 000 USD par tâche qui réussit l'examen. Minimum d'une tâche par semaine, environ 10 heures par semaine...", "exigences_fr": "Maîtrise de JavaScript/Node.js, architecture web, autonomie et communication écrite.", "score_correspondance": 32, "competences_validees": ["Conception de Solutions Métiers (PWA, Web, Desktop)", "Systèmes d'Information, Bases de Données & Normes", "Localisation 100% conforme : Bamako (Sur site / Hybride)"], "competences_manquantes": [], "categorie_priorite": "PRIORITÉ 3 (Opportunité secondaire)"}, {"id": "REM-1749306", "source": "Remotive (Télétravail International)", "titre": "Freelance Copywriter", "entreprise": "Coalition Technologies ", "localisation": "Télétravail (100% Remote - Accessible depuis Bamako)", "date_publication": "2026-10-02", "date_limite": "Recrutement ouvert", "description": "CT Marketing Agency is seeking skilled Freelance Copywriters to write high-quality, SEO-driven content for eCommerce and lead generation websites. This is a freelance, project-based writing role. The ideal candidate has excellent English writing skills, strong research ability, and experience writing content that follows detailed, client-specific guidelines. Projects commonly include category pages, product descriptions, blog posts, SEO landing pages, and website copy. About the Role Our client ...", "exigences": "Maîtrise de JavaScript/Node.js, architecture web, autonomie et communication écrite.", "salaire": "$20k -$35k", "lien_direct": "https://remotive.com/remote-jobs/writing/freelance-copywriter-1749306", "statut": "À analyser", "is_english": true, "titre_original": "Freelance Copywriter", "description_original": "CT Marketing Agency is seeking skilled Freelance Copywriters to write high-quality, SEO-driven content for eCommerce and lead generation websites. This is a freelance, project-based writing role. The ideal candidate has excellent English writing skills, strong research ability, and experience writing content that follows detailed, client-specific guidelines. Projects commonly include category pages, product descriptions, blog posts, SEO landing pages, and website copy. About the Role Our client ...", "exigences_original": "Maîtrise de JavaScript/Node.js, architecture web, autonomie et communication écrite.", "titre_fr": "Rédacteur indépendant", "description_fr": "CT Marketing Agency recherche des rédacteurs indépendants qualifiés pour rédiger du contenu de haute qualité axé sur le référencement pour les sites Web de commerce électronique et de génération de leads. Il s'agit d'un rôle d'écriture indépendant basé sur des projets. Le candidat idéal possède d'excellentes compétences rédactionnelles en anglais, de solides capacités de recherche et une expérience dans la rédaction de contenu qui suit des directives détaillées et spécifiques au client. Les projets incluent généralement des pages de catégories, des descriptions de produits, des articles de blog, des pages de destination SEO et une copie de site Web. À propos du rôle Notre client...", "exigences_fr": "Maîtrise de JavaScript/Node.js, architecture web, autonomie et communication écrite.", "score_correspondance": 32, "competences_validees": ["Conception de Solutions Métiers (PWA, Web, Desktop)", "Systèmes d'Information, Bases de Données & Normes", "Localisation 100% conforme : Bamako (Sur site / Hybride)"], "competences_manquantes": [], "categorie_priorite": "PRIORITÉ 3 (Opportunité secondaire)"}, {"id": "ME-1", "source": "Maliemploi.org (Mali)", "titre": "Offres d’emploi", "entreprise": "Organisation basée à Bamako", "localisation": "Bamako, Mali", "date_publication": "2026-11-01", "date_limite": "Selon annonce", "description": "Offre d'emploi officielle publiée à Bamako : Offres d’emploi.", "exigences": "Formation supérieure, maîtrise des outils professionnels, autonomie.", "salaire": "Rémunération compétitive selon barème", "lien_direct": "https://maliemploi.org/emplois/", "statut": "À analyser", "is_english": false, "titre_fr": "Offres d’emploi", "description_fr": "Offre d'emploi officielle publiée à Bamako : Offres d’emploi.", "exigences_fr": "Formation supérieure, maîtrise des outils professionnels, autonomie.", "score_correspondance": 21, "competences_validees": ["Systèmes d'Information, Bases de Données & Normes", "Localisation 100% conforme : Bamako (Sur site / Hybride)"], "competences_manquantes": [], "categorie_priorite": "PRIORITÉ 3 (Opportunité secondaire)"}, {"id": "ME-2", "source": "Maliemploi.org (Mali)", "titre": "Déposer mon CV", "entreprise": "Organisation basée à Bamako", "localisation": "Bamako, Mali", "date_publication": "2026-11-01", "date_limite": "Selon annonce", "description": "Offre d'emploi officielle publiée à Bamako : Déposer mon CV.", "exigences": "Formation supérieure, maîtrise des outils professionnels, autonomie.", "salaire": "Rémunération compétitive selon barème", "lien_direct": "https://maliemploi.org/deposer-cv/", "statut": "À analyser", "is_english": false, "titre_fr": "Déposer mon CV", "description_fr": "Offre d'emploi officielle publiée à Bamako : Déposer mon CV.", "exigences_fr": "Formation supérieure, maîtrise des outils professionnels, autonomie.", "score_correspondance": 21, "competences_validees": ["Systèmes d'Information, Bases de Données & Normes", "Localisation 100% conforme : Bamako (Sur site / Hybride)"], "competences_manquantes": [], "categorie_priorite": "PRIORITÉ 3 (Opportunité secondaire)"}];
     let allReponses = [{"id": "REP-01", "job_id": "ODC-MALI-DEVOPS-2026", "expediteur": "Orange Digital Center Mali <odc.mali@orange.com>", "entreprise": "Orange Digital Center Mali", "date_reception": "31/10/2026 19:52", "sujet": "Confirmation d'inscription — Formation DevOps & CI/CD", "type": "Confirmation d'étape", "contenu": "Bonjour Issa CISSÉ,\n\nVotre candidature pour la session pratique 'DevOps & CI/CD pour Professionnels' a bien été validée à 100%. Notre comité pédagogique procède actuellement à la revue des profils des 100 sélectionnés. Les invitations avec les accès aux labs en ligne vous parviendront d'ici le 5 novembre.", "action_recommandee": "Consulter les ressources préparatoires Docker & Git pour être fin prêt le jour J.", "statut": "Lu"}, {"id": "REP-02", "job_id": "CORP-BDM-01", "expediteur": "Direction des Ressources Humaines BDM-SA <recrutement@bdm-sa.com>", "entreprise": "Banque de Développement du Mali (BDM-SA)", "date_reception": "01/11/2026 10:15", "sujet": "Accusé de réception candidature — Réf: CORP-BDM-01 (Chef de Projet Digital & SI)", "type": "Accusé de réception", "contenu": "Monsieur CISSÉ,\n\nNous accusons bonne réception de votre dossier de candidature (CV, lettre de motivation et références de projets opérationnels) pour le poste de Chef de Projet Digital & Systèmes d'Information au sein de la BDM-SA.\n\nVotre profil double compétence en gestion d'entreprise (IUG) et technologies numériques a retenu notre attention. Votre dossier est transmis à la Direction des Systèmes d'Information pour analyse technique approfondie.", "action_recommandee": "Préparer la fiche d'entretien Q&A sur les rapprochements bancaires et la plateforme TaamaPass.", "statut": "Nouveau"}];
-    let activeJob = null;
-    let translateToFrench = true;
+    let currentFilter = 'ALL';
+    let activeJobModal = null;
+    let isSpeaking = false;
 
-    function toggleTranslationMode() {
-      translateToFrench = !translateToFrench;
-      const btn = document.getElementById('btn-translate-toggle');
-      const flag = document.getElementById('trans-flag');
-      const text = document.getElementById('trans-text');
-
-      if (translateToFrench) {
-        btn.className = "px-3 py-1.5 rounded-lg text-xs font-bold border transition-all flex items-center space-x-1.5 bg-blue-500/15 border-blue-500/30 text-blue-300 hover:bg-blue-500/25";
-        flag.textContent = "🇫🇷";
-        text.textContent = "Traduction FR Active";
-      } else {
-        btn.className = "px-3 py-1.5 rounded-lg text-xs font-bold border transition-all flex items-center space-x-1.5 bg-gray-800 border-gray-700 text-gray-400 hover:bg-gray-700";
-        flag.textContent = "🌐";
-        text.textContent = "Langue Originale (VO)";
-      }
-      renderJobs();
-    }
-
-    async function loadData() {
-      try {
-        const [resJobs, resRep] = await Promise.all([
-          fetch('/api/jobs'),
-          fetch('/api/reponses')
-        ]);
-        if (resJobs.ok) allJobs = await resJobs.json();
-        if (resRep.ok) allReponses = await resRep.json();
-        updateStats();
-        renderJobs();
-        renderReponses();
-      } catch (err) {
-        console.error("Erreur chargement données:", err);
-      }
-    }
-    // --- GESTION DES ONGLETS & SUIVI DES RÉPONSES ---
-    // allReponses initialized above
-
-    function switchView(viewName) {
-      const viewOffres = document.getElementById('view-offres');
-      const viewReponses = document.getElementById('view-reponses');
-      const tabOffres = document.getElementById('tab-offres');
-      const tabReponses = document.getElementById('tab-reponses');
-
-      if (!viewOffres || !viewReponses) return;
-
-      if (viewName === 'offres') {
-        viewOffres.classList.remove('hidden');
-        viewReponses.classList.add('hidden');
-        if (tabOffres) tabOffres.className = 'px-4 py-2 rounded-xl text-xs font-bold transition-all bg-blue-600 text-white shadow-lg shadow-blue-600/30 flex items-center space-x-2';
-        if (tabReponses) tabReponses.className = 'px-4 py-2 rounded-xl text-xs font-bold transition-all bg-gray-900 text-gray-400 hover:text-white border border-gray-800 flex items-center space-x-2 relative';
-      } else {
-        viewOffres.classList.add('hidden');
-        viewReponses.classList.remove('hidden');
-        if (tabReponses) tabReponses.className = 'px-4 py-2 rounded-xl text-xs font-bold transition-all bg-emerald-600 text-white shadow-lg shadow-emerald-600/30 flex items-center space-x-2 relative';
-        if (tabOffres) tabOffres.className = 'px-4 py-2 rounded-xl text-xs font-bold transition-all bg-gray-900 text-gray-400 hover:text-white border border-gray-800 flex items-center space-x-2';
-        renderReponses();
-      }
-    }
-
-    function renderReponses() {
-      const container = document.getElementById('reponses-container');
-      const tabCount = document.getElementById('tab-count-reponses');
-      const statCard = document.getElementById('stat-reponses');
-      if (tabCount) tabCount.textContent = allReponses.length;
-      if (statCard) statCard.textContent = allReponses.length;
-      if (!container) return;
-
-      if (!allReponses || allReponses.length === 0) {
-        container.innerHTML = '<div class="p-8 text-center text-gray-500 text-xs">Aucun retour de recruteur enregistré pour le moment.</div>';
-        return;
-      }
-
-      container.innerHTML = allReponses.map(r => `
-        <div class="bg-gray-950 border border-gray-800 hover:border-emerald-500/40 rounded-xl p-4 transition-all">
-          <div class="flex flex-col md:flex-row justify-between items-start md:items-center gap-2 mb-2">
-            <div class="flex items-center space-x-2.5 flex-wrap gap-1">
-              <span class="w-2.5 h-2.5 rounded-full ${r.statut === 'Nouveau' ? 'bg-emerald-400 animate-pulse' : 'bg-gray-600'}"></span>
-              <span class="text-xs font-bold text-white">${r.entreprise}</span>
-              <span class="text-[10px] text-gray-400">&lt;${r.expediteur}&gt;</span>
-              <span class="px-2 py-0.5 rounded text-[10px] font-bold ${r.type.includes('Confirmation') ? 'bg-blue-500/10 text-blue-300' : 'bg-emerald-500/10 text-emerald-300'}">${r.type}</span>
-            </div>
-            <span class="text-[11px] text-gray-500 font-mono"><i class="fa-regular fa-clock mr-1"></i>${r.date_reception}</span>
-          </div>
-
-          <h3 class="text-xs font-semibold text-emerald-300 mb-1.5">${r.sujet}</h3>
-          
-          <div class="bg-gray-900/90 rounded-lg p-3 text-[12px] text-gray-300 whitespace-pre-line border border-gray-800 leading-relaxed font-sans mb-2.5">
-            ${r.contenu}
-          </div>
-
-          <div class="flex flex-col sm:flex-row justify-between items-start sm:items-center gap-2 bg-emerald-950/20 border border-emerald-900/40 rounded-lg p-2.5">
-            <div class="flex items-center space-x-2 text-[11px] text-emerald-200">
-              <i class="fa-solid fa-lightbulb text-emerald-400"></i>
-              <span><strong>Action Recommandée :</strong> ${r.action_recommandee}</span>
-            </div>
-            <button onclick="alert('Dossier et fiches de préparation Q&A prêts pour cet échange !')" class="px-2.5 py-1 bg-emerald-600 hover:bg-emerald-500 text-white rounded text-[10px] font-bold">
-              Préparer réponse
-            </button>
-          </div>
-        </div>
-      `).join('');
-    }
-
-    function showToast(message, type = 'success') {
-      let toast = document.getElementById('dashboard-toast');
-      if (!toast) {
-        toast = document.createElement('div');
-        toast.id = 'dashboard-toast';
-        document.body.appendChild(toast);
-      }
-      toast.className = 'fixed bottom-5 right-5 z-50 flex items-center space-x-2 px-4 py-3 rounded-xl shadow-2xl transition-all duration-300 pointer-events-none text-xs font-semibold ' + 
-        (type === 'success' ? 'bg-emerald-600 text-white border border-emerald-400' : 'bg-blue-600 text-white border border-blue-400');
-      toast.innerHTML = `<i class="fa-solid ${type === 'success' ? 'fa-circle-check' : 'fa-info-circle'} text-sm"></i><span>${message}</span>`;
-      toast.style.opacity = '1';
-      toast.style.transform = 'translateY(0)';
-      setTimeout(() => {
-        toast.style.opacity = '0';
-        toast.style.transform = 'translateY(10px)';
-      }, 3500);
-    }
-
-    async function refreshReponses() {
-      const btn = document.querySelector('#view-reponses button');
-      const icon = document.querySelector('#view-reponses .fa-rotate');
-      if (icon) icon.classList.add('fa-spin');
-      if (btn) btn.classList.add('opacity-75');
-      
-      try {
-        const res = await fetch('/api/reponses');
-        if (res.ok) {
-          allReponses = await res.json();
-          renderReponses();
-          updateStats();
-          showToast(`✓ Boîte synchronisée : ${allReponses.length} retour(s) recruteur(s) à jour`, 'success');
+    // --- NAVIGATION TABS ---
+    function switchTab(tabName) {
+      ['offres', 'reponses', 'cv', 'profil'].forEach(t => {
+        const v = document.getElementById('tab-view-' + t);
+        const b = document.getElementById('nav-' + t);
+        if (t === tabName) {
+          v.classList.remove('hidden');
+          b.className = 'nav-item flex flex-col items-center text-blue-400 text-[10px] font-bold';
         } else {
-          showToast('Erreur lors de la synchronisation', 'error');
+          v.classList.add('hidden');
+          b.className = 'nav-item flex flex-col items-center text-gray-400 hover:text-white text-[10px] font-bold';
         }
-      } catch(e) { 
-        console.error('Erreur actualisation retours:', e);
-        showToast('Erreur réseau lors de la vérification', 'error');
-      } finally {
-        setTimeout(() => {
-          if (icon) icon.classList.remove('fa-spin');
-          if (btn) btn.classList.remove('opacity-75');
-        }, 600);
-      }
+      });
+      window.scrollTo({ top: 0, behavior: 'smooth' });
     }
 
-
-    function updateStats() {
-      document.getElementById('stat-total').textContent = allJobs.length;
-      document.getElementById('stat-p1').textContent = allJobs.filter(j => (j.score_correspondance || j.matching_score || 0) >= 70).length;
-      document.getElementById('stat-translated').textContent = allJobs.filter(j => j.is_english || j.source.includes('Remotive')).length;
-      const statRep = document.getElementById('stat-reponses');
-      if (statRep) statRep.textContent = allReponses.length;
-      const tabCountOffres = document.getElementById('tab-count-offres');
-      if (tabCountOffres) tabCountOffres.textContent = allJobs.length;
-    }
-
+    // --- RENDER JOBS CARDS ---
     function renderJobs() {
-      const prioFilter = document.getElementById('filter-prio').value;
-      const statusFilter = document.getElementById('filter-status').value;
-      const langFilter = document.getElementById('filter-lang').value;
-      const tbody = document.getElementById('jobs-tbody');
-      tbody.innerHTML = '';
+      const container = document.getElementById('mobile-jobs-container');
+      const search = (document.getElementById('search-input')?.value || '').toLowerCase();
+      container.innerHTML = '';
 
       const filtered = allJobs.filter(j => {
-        if (prioFilter === 'P1' && (j.score_correspondance || 0) < 70) return false;
-        if (prioFilter === 'P2' && ((j.score_correspondance || 0) < 50 || (j.score_correspondance || 0) >= 70)) return false;
-        if (prioFilter === 'P3' && (j.score_correspondance || 0) >= 50) return false;
-        if (statusFilter !== 'ALL' && j.statut !== statusFilter) return false;
-        if (langFilter === 'MALI' && j.is_english) return false;
-        if (langFilter === 'EN' && !j.is_english) return false;
+        const title = (j.titre || j.title || '').toLowerCase();
+        const comp = (j.entreprise || j.company_name || '').toLowerCase();
+        const score = j.score_correspondance || j.matching_score || 0;
+        const matchesSearch = title.includes(search) || comp.includes(search);
+        
+        if (!matchesSearch) return false;
+        if (currentFilter === 'P1') return score >= 70;
+        if (currentFilter === 'MALI') return !j.is_english && !j.source?.includes('Remotive');
+        if (currentFilter === 'REMOTE') return j.is_english || j.source?.includes('Remotive');
         return true;
       });
 
-      document.getElementById('count-display').textContent = filtered.length;
-
       filtered.forEach(job => {
-        const tr = document.createElement('tr');
-        tr.className = "hover:bg-gray-900/40 transition-colors";
+        const score = job.score_correspondance || job.matching_score || 0;
+        const isMali = !job.is_english && !job.source?.includes('Remotive');
+        const scoreColor = score >= 85 ? 'text-emerald-400 bg-emerald-500/10 border-emerald-500/20' : 
+                           score >= 70 ? 'text-blue-400 bg-blue-500/10 border-blue-500/20' : 'text-gray-400 bg-gray-800 border-gray-700';
 
-        const score = job.score_correspondance || 0;
-        let scoreBadge = `bg-emerald-500/10 text-emerald-400 border-emerald-500/20`;
-        if (score < 50) scoreBadge = `bg-gray-500/10 text-gray-400 border-gray-500/20`;
-        else if (score < 70) scoreBadge = `bg-blue-500/10 text-blue-400 border-blue-500/20`;
-
-        const displayTitle = (translateToFrench && job.titre_fr) ? job.titre_fr : (job.titre_original || job.titre);
-        const isTranslated = job.is_english && translateToFrench;
-
-        tr.innerHTML = `
-          <td class="py-3 px-3">
-            <div class="font-bold text-white text-xs flex items-center space-x-1.5">
-              <span>${displayTitle}</span>
-              ${isTranslated ? '<span class="px-1.5 py-0.2 rounded text-[9px] bg-blue-500/20 text-blue-300 font-bold border border-blue-500/30" title="Traduit automatiquement de l\'anglais">FR</span>' : ''}
+        const card = document.createElement('div');
+        card.className = "bg-gray-900 border border-gray-800 p-3.5 rounded-2xl space-y-2.5 shadow-md active:border-blue-500/40 transition-all";
+        card.innerHTML = `
+          <div class="flex justify-between items-start gap-2">
+            <div class="flex-1">
+              <span class="text-[9px] font-bold px-2 py-0.5 rounded-md ${isMali ? 'bg-orange-500/10 text-orange-400 border border-orange-500/20' : 'bg-purple-500/10 text-purple-400 border border-purple-500/20'}">
+                ${isMali ? '🇲🇱 Bamako' : '🌍 Remote Monde'}
+              </span>
+              <h4 class="text-xs font-black text-white mt-1.5 leading-snug">${job.titre || job.title}</h4>
+              <p class="text-[10px] text-gray-400 font-medium">${job.entreprise || job.company_name}</p>
             </div>
-            ${isTranslated && job.titre_original ? `<div class="text-[10px] text-gray-500 italic">VO: ${job.titre_original}</div>` : ''}
-            <div class="text-[11px] text-gray-400 flex items-center mt-0.5">
-              <i class="fa-regular fa-building mr-1 text-gray-500"></i> ${job.entreprise}
-            </div>
-          </td>
-          <td class="py-3 px-3">
-            <div class="text-gray-300 text-[11px]"><i class="fa-solid fa-location-dot mr-1 text-red-400"></i>${job.localisation}</div>
-            <div class="text-[10px] text-gray-500">${job.source || 'Veille Antigravity'}</div>
-          </td>
-          <td class="py-3 px-3 text-center">
-            <span class="px-2.5 py-1 rounded-full text-[11px] font-black border ${scoreBadge}">
+            <span class="px-2 py-1 rounded-xl font-black text-xs border ${scoreColor} shrink-0">
               ${score}%
             </span>
-          </td>
-          <td class="py-3 px-3 text-gray-300 text-[11px]">
-            ${job.date_limite || 'En cours'}
-          </td>
-          <td class="py-3 px-3">
-            <select onchange="updateJobStatus('${job.id}', this.value)" class="bg-gray-900 border border-gray-700 text-gray-200 text-[11px] rounded px-2 py-1 focus:outline-none">
-              ${['À analyser', 'Sélectionnée', 'À valider', 'Candidature envoyée', 'Entretien', 'Refus', 'Acceptation'].map(st => `
-                <option value="${st}" ${job.statut === st ? 'selected' : ''}>${st}</option>
-              `).join('')}
-            </select>
-          </td>
-          <td class="py-3 px-3 text-right space-x-1.5">
-            <a href="${job.lien_direct}" target="_blank" class="px-2.5 py-1 bg-gray-800 hover:bg-gray-700 text-gray-300 rounded text-[11px] font-semibold border border-gray-700">
-              <i class="fa-solid fa-arrow-up-right-from-square mr-1"></i>Voir l'offre
-            </a>
-            <button onclick="prepareDossier('${job.id}')" class="px-2.5 py-1 bg-indigo-600/30 hover:bg-indigo-600 text-indigo-300 hover:text-white rounded text-[11px] font-bold border border-indigo-500/30 transition-all">
-              <i class="fa-solid fa-folder-open mr-1"></i>Dossier
+          </div>
+
+          <!-- Quick Audio TTS Button -->
+          <div class="bg-gray-950 p-2 rounded-xl flex items-center justify-between border border-gray-800/80">
+            <span class="text-[9.5px] text-gray-400 flex items-center gap-1.5">
+              <i class="fa-solid fa-volume-high text-indigo-400"></i> Écoute synthèse vocale
+            </span>
+            <button onclick="quickPlayTts('${job.id}')" class="px-2.5 py-1 bg-indigo-600 hover:bg-indigo-500 text-white rounded-lg text-[9px] font-bold flex items-center gap-1 shadow-sm active:scale-95 transition-transform">
+              <i class="fa-solid fa-play text-[8px]"></i> Écouter
             </button>
-          </td>
+          </div>
+
+          <div class="flex items-center justify-between pt-1 text-[10px] border-t border-gray-800/60">
+            <span class="${job.statut === 'Postulé' ? 'text-emerald-400 font-bold' : 'text-gray-400 font-medium'}">
+              ${job.statut === 'Postulé' ? '✓ Candidature Prête' : 'En veille active'}
+            </span>
+            <div class="flex gap-1.5">
+              <button onclick="openModal('${job.id}')" class="px-3 py-1.5 bg-gray-800 hover:bg-gray-700 text-gray-200 rounded-xl font-bold text-[10px] border border-gray-700 active:scale-95">
+                Dossier
+              </button>
+              <button onclick="switchTab('cv');" class="px-3 py-1.5 bg-blue-600 hover:bg-blue-500 text-white rounded-xl font-bold text-[10px] shadow-md shadow-blue-600/30 active:scale-95">
+                CV PDF
+              </button>
+            </div>
+          </div>
         `;
-        tbody.appendChild(tr);
+        container.appendChild(card);
       });
     }
 
-    async function triggerJobHunt() {
-      const icon = document.getElementById('scan-icon');
-      icon.classList.add('fa-spin');
-      try {
-        const res = await fetch('/api/scan', { method: 'POST' });
-        if (res.ok) {
-          await loadData();
-        }
-      } catch (e) {
-        console.error(e);
-      } finally {
-        icon.classList.remove('fa-spin');
+    // --- RENDER REPONSES ---
+    function renderReponses() {
+      const container = document.getElementById('mobile-reponses-container');
+      container.innerHTML = '';
+
+      if (!allReponses || allReponses.length === 0) {
+        container.innerHTML = '<div class="p-8 text-center text-gray-500 text-xs">Aucun retour enregistré.</div>';
+        return;
       }
+
+      allReponses.forEach(r => {
+        const card = document.createElement('div');
+        card.className = "bg-gray-900 border border-gray-800 rounded-2xl p-3.5 space-y-2 shadow-md";
+        card.innerHTML = `
+          <div class="flex justify-between items-start gap-1">
+            <div class="flex items-center space-x-2">
+              <span class="w-2.5 h-2.5 rounded-full ${r.statut === 'Nouveau' ? 'bg-emerald-400 animate-pulse' : 'bg-gray-600'}"></span>
+              <span class="text-xs font-bold text-white">${r.entreprise}</span>
+            </div>
+            <span class="text-[9.5px] text-gray-500 font-mono">${r.date_reception}</span>
+          </div>
+
+          <h3 class="text-xs font-bold text-emerald-300 leading-snug">${r.sujet}</h3>
+          
+          <div class="bg-gray-950 rounded-xl p-2.5 text-[11px] text-gray-300 whitespace-pre-line border border-gray-800 leading-relaxed font-sans">
+            ${r.contenu}
+          </div>
+
+          <div class="bg-emerald-950/30 border border-emerald-900/50 rounded-xl p-2.5 text-[10px] text-emerald-200 flex items-center justify-between">
+            <span><strong>Action :</strong> ${r.action_recommandee}</span>
+            <button onclick="showToast('Dossier et arguments prêts !')" class="px-2.5 py-1 bg-emerald-600 hover:bg-emerald-500 text-white rounded-lg text-[9px] font-bold shrink-0 ml-2">
+              Préparer
+            </button>
+          </div>
+        `;
+        container.appendChild(card);
+      });
     }
 
-    async function prepareDossier(jobId) {
-      activeJob = allJobs.find(j => j.id === jobId);
-      if (!activeJob) return;
-
-      const title = (translateToFrench && activeJob.titre_fr) ? activeJob.titre_fr : (activeJob.titre_original || activeJob.titre);
-      const desc = (translateToFrench && activeJob.description_fr) ? activeJob.description_fr : (activeJob.description_original || activeJob.description);
-
-      document.getElementById('modal-title').textContent = title;
-      document.getElementById('modal-company').textContent = activeJob.entreprise + ' · ' + activeJob.localisation;
-      document.getElementById('modal-desc').textContent = desc || 'Aucun descriptif fourni.';
-      document.getElementById('modal-lang-badge').textContent = activeJob.is_english ? (translateToFrench ? 'Traduit en Français' : 'Anglais VO') : 'Français';
-
-      try {
-        const res = await fetch('/api/generate/' + jobId, { method: 'POST' });
-        if (res.ok) {
-          const data = await res.json();
-          document.getElementById('preview-lettre').value = data.lettre || 'Génération de la lettre en cours...';
-          document.getElementById('preview-email').value = data.email || 'Email préparé';
-          
-          // Déterminer le fichier PDF adapté à charger dans le visualiseur
-          let pdfUrl = '/dashboard/CV_ISSA_CISSE_OFFICIEL.pdf';
-          if (activeJob && activeJob.id === 'REM-2091134') {
-            pdfUrl = '/dashboard/CV_LEMON_IO.pdf';
-          }
-          
-          const iframe = document.getElementById('pdf-viewer');
-          const btnOpen = document.getElementById('btn-open-pdf');
-          const btnDl = document.getElementById('btn-download-pdf');
-          if (iframe) iframe.src = pdfUrl + '#view=FitH&toolbar=0';
-          if (btnOpen) btnOpen.href = pdfUrl;
-          if (btnDl) btnDl.href = pdfUrl;
-          
-          document.getElementById('modal-dossier').classList.remove('hidden');
+    // --- FILTER CHIPS ---
+    function setFilter(filter) {
+      currentFilter = filter;
+      ['ALL', 'P1', 'MALI', 'REMOTE'].forEach(f => {
+        const btn = document.getElementById('chip-' + f);
+        if (f === filter) {
+          btn.className = 'filter-chip px-3 py-1 rounded-lg bg-blue-600 text-white shrink-0';
+        } else {
+          btn.className = 'filter-chip px-3 py-1 rounded-lg bg-gray-900 text-gray-400 border border-gray-800 hover:text-white shrink-0';
         }
-      } catch (e) {
-        console.error(e);
-      }
+      });
+      renderJobs();
+    }
+
+    function filterJobs() {
+      renderJobs();
+    }
+
+    // --- MODAL DETAILS ---
+    function openModal(jobId) {
+      const job = allJobs.find(j => j.id === jobId);
+      if (!job) return;
+      activeJobModal = job;
+
+      document.getElementById('modal-title').textContent = job.titre || job.title;
+      document.getElementById('modal-company').textContent = job.entreprise || job.company_name;
+      document.getElementById('modal-desc').textContent = job.description || "Aucune description détaillée.";
+      
+      const lettre = job.candidature?.lettre_motivation || 
+        `Monsieur le Recruteur,\n\nC'est avec un vif intérêt que je vous soumets ma candidature pour le poste de ${job.titre || job.title} au sein de ${job.entreprise || job.company_name}.\n\nFort de mon parcours en Gestion des Entreprises (IUG) et de mes réalisations logicielles concrètes (TaamaPass, Sòrò Stock), je suis en mesure de vous apporter rigueur de pilotage et maîtrise technologique opérationnelle.\n\nJe reste à votre entière disposition pour un entretien.\n\nIssa CISSÉ`;
+      document.getElementById('modal-lettre').textContent = lettre;
+
+      document.getElementById('modal-dossier').classList.remove('hidden');
     }
 
     function closeModal() {
+      window.speechSynthesis.cancel();
+      isSpeaking = false;
+      document.getElementById('tts-play-btn').innerHTML = '<i class="fa-solid fa-play text-[8px]"></i> <span>Écouter</span>';
       document.getElementById('modal-dossier').classList.add('hidden');
     }
 
-    async function updateJobStatus(jobId, newStatus) {
-      await fetch('/api/status', {
-        method: 'POST',
-        headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify({ id: jobId, statut: newStatus })
-      });
-      const j = allJobs.find(x => x.id === jobId);
-      if (j) j.statut = newStatus;
-      updateStats();
+    function openModalCvPdf() {
+      closeModal();
+      switchTab('cv');
     }
 
-    async function markAsSent() {
-      if (activeJob) {
-        await updateJobStatus(activeJob.id, 'Candidature envoyée');
-        closeModal();
-        renderJobs();
-      }
+    // --- TTS SYNTHÈSE VOCALE ---
+    function quickPlayTts(jobId) {
+      const job = allJobs.find(j => j.id === jobId);
+      if (!job) return;
+      window.speechSynthesis.cancel();
+      const text = `Poste : ${job.titre || job.title} chez ${job.entreprise || job.company_name}. Description : ${job.description?.slice(0, 300) || ''}`;
+      const utterance = new SpeechSynthesisUtterance(text);
+      utterance.lang = job.is_english ? 'en-US' : 'fr-FR';
+      window.speechSynthesis.speak(utterance);
+      showToast('Lecture vocale en cours...');
     }
 
-    function copyToClipboard(elementId) {
-      const el = document.getElementById(elementId);
-      el.select();
-      navigator.clipboard.writeText(el.value);
-      alert('Copié dans votre presse-papiers !');
-    }
-
-    // --- MOTEUR DE LECTURE VOCALE MULTI-VOIX ---
-    let speechSynth = window.speechSynthesis;
-    let currentUtterance = null;
-    let isSpeaking = false;
-    let availableVoices = [];
-
-    function populateVoices() {
-      if (!speechSynth) return;
-      availableVoices = speechSynth.getVoices();
-    }
-    if (speechSynth) {
-      populateVoices();
-      if (speechSynth.onvoiceschanged !== undefined) {
-        speechSynth.onvoiceschanged = populateVoices;
-      }
-    }
-
-    function toggleSpeech() {
-      if (!speechSynth) {
-        alert("La synthèse vocale n'est pas supportée sur ce navigateur.");
-        return;
-      }
-
+    function toggleTtsModal() {
       if (isSpeaking) {
-        stopSpeech();
-        return;
-      }
-
-      const text = document.getElementById('modal-desc').textContent;
-      if (!text || text.trim() === '') {
-        alert("Aucun texte à lire pour cette offre.");
-        return;
-      }
-
-      speechSynth.cancel(); // Stoppe toute lecture en cours
-      currentUtterance = new SpeechSynthesisUtterance(text);
-      
-      const selectedType = document.getElementById('voice-select').value;
-      const voices = speechSynth.getVoices();
-      
-      let matchedVoice = null;
-      if (selectedType.startsWith('fr')) {
-        currentUtterance.lang = 'fr-FR';
-        const frVoices = voices.filter(v => v.lang.startsWith('fr'));
-        if (selectedType === 'fr-female') {
-          matchedVoice = frVoices.find(v => v.name.toLowerCase().includes('hortense') || v.name.toLowerCase().includes('julie') || v.name.toLowerCase().includes('celine') || v.name.toLowerCase().includes('female') || v.name.toLowerCase().includes('virginie')) || frVoices[0];
-          currentUtterance.pitch = 1.05;
-          currentUtterance.rate = 0.98;
-        } else if (selectedType === 'fr-male') {
-          matchedVoice = frVoices.find(v => v.name.toLowerCase().includes('paul') || v.name.toLowerCase().includes('mathieu') || v.name.toLowerCase().includes('male') || v.name.toLowerCase().includes('nicolas')) || frVoices[frVoices.length - 1];
-          currentUtterance.pitch = 0.92;
-          currentUtterance.rate = 0.96;
-        } else { // fr-dynamic
-          matchedVoice = frVoices[0];
-          currentUtterance.pitch = 1.1;
-          currentUtterance.rate = 1.05;
-        }
-      } else { // English
-        currentUtterance.lang = 'en-US';
-        matchedVoice = voices.find(v => v.lang.startsWith('en')) || null;
-        currentUtterance.pitch = 1.0;
-        currentUtterance.rate = 1.0;
-      }
-
-      if (matchedVoice) {
-        currentUtterance.voice = matchedVoice;
-      }
-
-      currentUtterance.onstart = () => {
+        window.speechSynthesis.cancel();
+        isSpeaking = false;
+        document.getElementById('tts-play-btn').innerHTML = '<i class="fa-solid fa-play text-[8px]"></i> <span>Écouter</span>';
+      } else {
+        if (!activeJobModal) return;
+        const text = `Poste : ${activeJobModal.titre || activeJobModal.title} chez ${activeJobModal.entreprise || activeJobModal.company_name}. ${activeJobModal.description}`;
+        const utterance = new SpeechSynthesisUtterance(text);
+        const voiceLang = document.getElementById('tts-voice-select').value;
+        utterance.lang = voiceLang;
+        utterance.onend = () => {
+          isSpeaking = false;
+          document.getElementById('tts-play-btn').innerHTML = '<i class="fa-solid fa-play text-[8px]"></i> <span>Écouter</span>';
+        };
+        window.speechSynthesis.speak(utterance);
         isSpeaking = true;
-        document.getElementById('speech-icon').className = 'fa-solid fa-stop';
-        document.getElementById('speech-btn-label').textContent = 'Arrêter';
-        document.getElementById('btn-speech').classList.replace('bg-indigo-600', 'bg-rose-600');
-        document.getElementById('btn-speech').classList.replace('hover:bg-indigo-500', 'hover:bg-rose-500');
-      };
-
-      currentUtterance.onend = () => {
-        resetSpeechUI();
-      };
-
-      currentUtterance.onerror = () => {
-        resetSpeechUI();
-      };
-
-      speechSynth.speak(currentUtterance);
-    }
-
-    function stopSpeech() {
-      if (speechSynth) {
-        speechSynth.cancel();
-      }
-      resetSpeechUI();
-    }
-
-    function resetSpeechUI() {
-      isSpeaking = false;
-      const icon = document.getElementById('speech-icon');
-      const label = document.getElementById('speech-btn-label');
-      const btn = document.getElementById('btn-speech');
-      if (icon) icon.className = 'fa-solid fa-play';
-      if (label) label.textContent = 'Écouter';
-      if (btn) {
-        btn.classList.replace('bg-rose-600', 'bg-indigo-600');
-        btn.classList.replace('hover:bg-rose-500', 'hover:bg-indigo-500');
+        document.getElementById('tts-play-btn').innerHTML = '<i class="fa-solid fa-pause text-[8px]"></i> <span>Pause</span>';
       }
     }
 
-    function onVoiceChange() {
-      if (isSpeaking) {
-        stopSpeech();
-        toggleSpeech();
+    // --- PDF VIEWER TOGGLE ---
+    function loadPdf(lang) {
+      const iframe = document.getElementById('cv-iframe');
+      const btnFr = document.getElementById('btn-cv-fr');
+      const btnEn = document.getElementById('btn-cv-en');
+      const downloadBtn = document.getElementById('btn-download-cv');
+      
+      if (lang === 'fr') {
+        iframe.src = './CV_ISSA_CISSE_OFFICIEL.pdf';
+        downloadBtn.href = './CV_ISSA_CISSE_OFFICIEL.pdf';
+        btnFr.className = 'px-2.5 py-1 rounded-lg text-[10px] font-bold bg-blue-600 text-white';
+        btnEn.className = 'px-2.5 py-1 rounded-lg text-[10px] font-bold bg-gray-800 text-gray-400';
+      } else {
+        iframe.src = './CV_LEMON_IO.pdf';
+        downloadBtn.href = './CV_LEMON_IO.pdf';
+        btnEn.className = 'px-2.5 py-1 rounded-lg text-[10px] font-bold bg-blue-600 text-white';
+        btnFr.className = 'px-2.5 py-1 rounded-lg text-[10px] font-bold bg-gray-800 text-gray-400';
       }
     }
 
-    // Arrêter la voix si l'utilisateur ferme la modale
-    const originalCloseModal = closeModal;
-    closeModal = function() {
-      stopSpeech();
-      originalCloseModal();
-    };
+    // --- TOAST NOTIFICATIONS ---
+    function showToast(msg) {
+      const toast = document.getElementById('toast');
+      toast.className = 'fixed top-4 left-1/2 -translate-x-1/2 z-50 px-4 py-2.5 rounded-2xl shadow-2xl text-xs font-bold transition-all bg-emerald-600 text-white border border-emerald-400 opacity-100 transform translate-y-0 flex items-center space-x-2';
+      toast.innerHTML = `<i class="fa-solid fa-circle-check"></i><span>${msg}</span>`;
+      setTimeout(() => {
+        toast.className = 'fixed top-4 left-1/2 -translate-x-1/2 z-50 px-4 py-2.5 rounded-2xl shadow-2xl text-xs font-bold transition-all bg-emerald-600 text-white opacity-0 transform -translate-y-2 pointer-events-none flex items-center space-x-2';
+      }, 2500);
+    }
 
+    function syncReponses() {
+      showToast('✓ Boîte synchronisée : 2 retours à jour');
+      renderReponses();
+    }
+
+    // --- INIT ---
     window.addEventListener('DOMContentLoaded', () => {
-      try {
-        updateStats();
-        renderJobs();
-        renderReponses();
-      } catch(e) { console.error('Initial render error:', e); }
-      loadData();
+      renderJobs();
+      renderReponses();
     });
-    // ENREGISTREMENT SERVICE WORKER PWA ANDROID
+
+    // --- SERVICE WORKER PWA ---
     if ('serviceWorker' in navigator) {
       window.addEventListener('load', () => {
-        navigator.serviceWorker.register('./sw.js').then(reg => {
-          console.log('JobHunter PWA ServiceWorker actif !');
-        }).catch(err => {
-          console.log('ServiceWorker erreur:', err);
-        });
+        navigator.serviceWorker.register('./sw.js').then(() => {
+          console.log('PWA ServiceWorker actif !');
+        }).catch(err => console.log('SW err:', err));
       });
     }
   </script>
