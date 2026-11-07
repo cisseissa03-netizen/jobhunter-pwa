@@ -35,26 +35,32 @@
 <body class="flex flex-col min-h-screen bg-[#090d16] text-gray-100 selection:bg-blue-600">
 
   <!-- TOP HEADER MOBILE NATIVE -->
-  <header class="sticky top-0 z-40 px-4 py-3 bg-gray-950/90 backdrop-blur-md border-b border-gray-800/80 flex items-center justify-between">
-    <div class="flex items-center space-x-2.5">
-      <div class="w-8 h-8 rounded-xl bg-gradient-to-tr from-blue-600 to-indigo-600 flex items-center justify-center text-white font-black text-xs shadow-md shadow-blue-500/30">
-        IC
-      </div>
-      <div>
-        <div class="flex items-center space-x-1.5">
-          <h1 class="text-xs font-black text-white tracking-wide">JobHunter</h1>
-          <span class="w-2 h-2 rounded-full bg-emerald-400 animate-pulse"></span>
+  <header class="sticky top-0 z-40 px-3 py-2.5 bg-[#0b1329] border-b border-blue-900/60 shadow-lg">
+    <div class="max-w-xl mx-auto flex items-center justify-between">
+      <div class="flex items-center space-x-2.5">
+        <div class="w-9 h-9 rounded-xl bg-blue-600 border border-blue-400/40 flex items-center justify-center font-black text-sm text-white shadow-md shadow-blue-500/30">
+          IC
         </div>
-        <p class="text-[9.5px] text-gray-400 font-medium">Agent Autonome &bull; Issa CISSÉ</p>
+        <div>
+          <div class="flex items-center space-x-2">
+            <span class="font-black text-xs tracking-wider uppercase text-white">AGENT AUTONOME DE RECRUTEMENT</span>
+            <span class="text-[9px] font-bold bg-green-500/20 text-emerald-300 border border-emerald-400/40 px-1.5 py-0.5 rounded flex items-center gap-1">
+              <span class="w-1.5 h-1.5 rounded-full bg-emerald-400 animate-pulse"></span> ACTIF 7H/7
+            </span>
+          </div>
+          <p class="text-[10px] text-blue-200 font-medium leading-tight">
+            Candidat : <b class="text-white">Issa CISSÉ</b> &bull; Double Compétence : Gestion GEA (Bac+3) &amp; IT / Automatisation
+          </p>
+        </div>
       </div>
-    </div>
-    
-    <div class="flex items-center space-x-2">
-      <button onclick="switchTab('reponses')" class="relative w-8 h-8 rounded-xl bg-gray-900 border border-gray-800 text-gray-300 flex items-center justify-center text-xs active:scale-95 transition-transform">
-        <i class="fa-solid fa-bell text-emerald-400 text-xs"></i>
-        <span class="absolute -top-0.5 -right-0.5 w-2.5 h-2.5 bg-emerald-400 rounded-full animate-ping"></span>
-        <span class="absolute -top-0.5 -right-0.5 w-2.5 h-2.5 bg-emerald-400 rounded-full"></span>
-      </button>
+      
+      <div class="flex items-center space-x-1.5">
+        <button onclick="switchTab('reponses')" class="relative w-8 h-8 rounded-xl bg-gray-900 border border-gray-800 text-gray-300 flex items-center justify-center text-xs active:scale-95 transition-transform" title="Boîte de réception">
+          <i class="fa-solid fa-bell text-emerald-400 text-xs"></i>
+          <span class="absolute -top-0.5 -right-0.5 w-2.5 h-2.5 bg-emerald-400 rounded-full animate-ping"></span>
+          <span class="absolute -top-0.5 -right-0.5 w-2.5 h-2.5 bg-emerald-400 rounded-full"></span>
+        </button>
+      </div>
     </div>
   </header>
 
@@ -65,21 +71,21 @@
     <div id="tab-view-offres" class="space-y-3.5">
 
       <!-- CARTE CANDIDAT RÉSUMÉ -->
-      <div class="bg-gradient-to-r from-blue-950/40 via-indigo-950/30 to-gray-900 p-3.5 rounded-2xl border border-blue-500/30 shadow-lg">
+      <div class="bg-gradient-to-r from-blue-950/60 via-indigo-950/40 to-gray-900 p-3.5 rounded-2xl border border-blue-500/30 shadow-lg">
         <div class="flex justify-between items-start">
           <div>
-            <span class="px-2 py-0.5 rounded text-[9px] font-extrabold bg-blue-500/20 text-blue-300 uppercase tracking-wider">Profil Vérifié</span>
+            <span class="px-2 py-0.5 rounded text-[9px] font-extrabold bg-blue-500/20 text-blue-300 uppercase tracking-wider">Profil Vérifié &bull; 07 Nov 2026</span>
             <h3 class="text-sm font-black text-white mt-1">Issa CISSÉ</h3>
-            <p class="text-[10.5px] text-gray-300 font-medium">BAC +3 Licence Pro GEA &bull; Lead Digital &amp; SI</p>
+            <p class="text-[10.5px] text-gray-300 font-medium">BAC +3 Licence Pro GEA (IUG) &bull; Lead Digital &amp; Systèmes d'Information</p>
           </div>
           <span class="px-2 py-1 bg-emerald-500/20 text-emerald-300 rounded-lg text-[10px] font-bold flex items-center gap-1 border border-emerald-500/30">
             <i class="fa-solid fa-location-dot"></i> Bamako / Remote
           </span>
         </div>
         <div class="flex items-center gap-1.5 mt-2.5 pt-2 border-t border-gray-800/80 text-[9.5px] text-gray-400 flex-wrap">
-          <span class="bg-gray-800/80 px-2 py-0.5 rounded text-gray-300">TaamaPass (PWA)</span>
-          <span class="bg-gray-800/80 px-2 py-0.5 rounded text-gray-300">Sòrò Stock</span>
-          <span class="bg-gray-800/80 px-2 py-0.5 rounded text-gray-300">Opti-pro (SIE-AES)</span>
+          <span class="bg-blue-950/60 border border-blue-800/60 px-2 py-0.5 rounded text-blue-200">🚀 TaamaPass (PWA)</span>
+          <span class="bg-indigo-950/60 border border-indigo-800/60 px-2 py-0.5 rounded text-indigo-200">📦 Sòrò Stock (ERP Caisse)</span>
+          <span class="bg-gray-800/80 px-2 py-0.5 rounded text-gray-300">⚡ SAP / Sage Saari / OHADA</span>
         </div>
       </div>
 
@@ -173,27 +179,41 @@
 
     <!-- ==================== VUE 3 : MON CV PDF ==================== -->
     <div id="tab-view-cv" class="space-y-3 hidden">
-      <div class="flex justify-between items-center pb-2 border-b border-gray-800">
-        <div>
-          <h2 class="text-sm font-black text-white flex items-center gap-1.5">
-            <i class="fa-solid fa-file-pdf text-rose-400"></i>
-            Aperçu de Mon CV Adapté
-          </h2>
-          <p class="text-[10px] text-gray-400">Format officiel 1-Page Dirigeant / Lead SI</p>
+      <div class="flex flex-col gap-2 pb-2 border-b border-gray-800">
+        <div class="flex justify-between items-center">
+          <div>
+            <h2 class="text-sm font-black text-white flex items-center gap-1.5" id="cv-viewer-title">
+              <i class="fa-solid fa-file-pdf text-rose-400"></i>
+              Aperçu du CV Sur-Mesure
+            </h2>
+            <p class="text-[10px] text-gray-400" id="cv-viewer-sub">Format officiel adapté au poste</p>
+          </div>
+          <a id="btn-download-cv" href="./CV_ISSA_CISSE_OFFICIEL.pdf" download class="px-3 py-1.5 bg-blue-600 hover:bg-blue-500 text-white rounded-xl text-xs font-bold flex items-center gap-1.5 shadow-md">
+            <i class="fa-solid fa-download"></i> Télécharger PDF
+          </a>
         </div>
-        <div class="flex gap-1.5">
-          <button onclick="loadPdf('fr')" id="btn-cv-fr" class="px-2.5 py-1 rounded-lg text-[10px] font-bold bg-blue-600 text-white">FR (Exécutif)</button>
-          <button onclick="loadPdf('en')" id="btn-cv-en" class="px-2.5 py-1 rounded-lg text-[10px] font-bold bg-gray-800 text-gray-400">EN (Lemon.io)</button>
+
+        <!-- Sélecteur rapide des CVs par offre -->
+        <div class="flex items-center gap-1.5 overflow-x-auto no-scrollbar py-1">
+          <button onclick="loadCustomCv('MASTER')" id="btn-cv-MASTER" class="cv-chip px-2.5 py-1 rounded-lg text-[10px] font-bold bg-blue-600 text-white shrink-0">Master Exécutif</button>
+          <button onclick="loadCustomCv('CORP-BDM-01')" id="btn-cv-CORP-BDM-01" class="cv-chip px-2.5 py-1 rounded-lg text-[10px] font-bold bg-gray-800 text-gray-400 hover:text-white shrink-0">BDM-SA (Banque)</button>
+          <button onclick="loadCustomCv('CORP-ONG-03')" id="btn-cv-CORP-ONG-03" class="cv-chip px-2.5 py-1 rounded-lg text-[10px] font-bold bg-gray-800 text-gray-400 hover:text-white shrink-0">PDI (Données & SI)</button>
+          <button onclick="loadCustomCv('CORP-ORANGE-02')" id="btn-cv-CORP-ORANGE-02" class="cv-chip px-2.5 py-1 rounded-lg text-[10px] font-bold bg-gray-800 text-gray-400 hover:text-white shrink-0">Orange (Mobile Money)</button>
+          <button onclick="loadCustomCv('REM-2091045')" id="btn-cv-REM-2091045" class="cv-chip px-2.5 py-1 rounded-lg text-[10px] font-bold bg-gray-800 text-gray-400 hover:text-white shrink-0">Unio (Tier III IT)</button>
+          <button onclick="loadCustomCv('REM-2091134')" id="btn-cv-REM-2091134" class="cv-chip px-2.5 py-1 rounded-lg text-[10px] font-bold bg-gray-800 text-gray-400 hover:text-white shrink-0">Lemon.io (Eng.)</button>
+          <button onclick="loadCustomCv('REM-2091161')" id="btn-cv-REM-2091161" class="cv-chip px-2.5 py-1 rounded-lg text-[10px] font-bold bg-gray-800 text-gray-400 hover:text-white shrink-0">iMerit (AI Trainer)</button>
+          <button onclick="loadCustomCv('REM-2086540')" id="btn-cv-REM-2086540" class="cv-chip px-2.5 py-1 rounded-lg text-[10px] font-bold bg-gray-800 text-gray-400 hover:text-white shrink-0">Credit Wellness</button>
+          <button onclick="loadCustomCv('REM-2091165')" id="btn-cv-REM-2091165" class="cv-chip px-2.5 py-1 rounded-lg text-[10px] font-bold bg-gray-800 text-gray-400 hover:text-white shrink-0">Fluence (Full-Stack)</button>
+          <button onclick="loadCustomCv('REM-1680495')" id="btn-cv-REM-1680495" class="cv-chip px-2.5 py-1 rounded-lg text-[10px] font-bold bg-gray-800 text-gray-400 hover:text-white shrink-0">Coalition (Assistant)</button>
+          <button onclick="loadCustomCv('REM-2091158')" id="btn-cv-REM-2091158" class="cv-chip px-2.5 py-1 rounded-lg text-[10px] font-bold bg-gray-800 text-gray-400 hover:text-white shrink-0">Askable (AI Tasks)</button>
         </div>
       </div>
 
-      <div class="bg-gray-900 border border-gray-800 rounded-2xl overflow-hidden shadow-2xl flex flex-col h-[65vh]">
+      <div class="bg-gray-900 border border-gray-800 rounded-2xl overflow-hidden shadow-2xl flex flex-col h-[70vh]">
         <iframe id="cv-iframe" src="./CV_ISSA_CISSE_OFFICIEL.pdf" class="w-full flex-1 border-0"></iframe>
-        <div class="p-3 bg-gray-950 border-t border-gray-800 flex justify-between items-center">
-          <span class="text-[10px] text-gray-400">PDF officiel compilé (228 Ko)</span>
-          <a id="btn-download-cv" href="./CV_ISSA_CISSE_OFFICIEL.pdf" download class="px-3 py-1.5 bg-blue-600 hover:bg-blue-500 text-white rounded-xl text-xs font-bold flex items-center gap-1.5 shadow-md">
-            <i class="fa-solid fa-download"></i> Télécharger
-          </a>
+        <div class="p-2.5 bg-gray-950 border-t border-gray-800 flex justify-between items-center text-[10px] text-gray-400">
+          <span id="cv-file-status">CV officiel 1-Page Dirigeant &bull; Optimisé ATS &amp; Recruteur</span>
+          <span class="text-emerald-400 font-bold"><i class="fa-solid fa-check"></i> 100% Prêt à l'emploi</span>
         </div>
       </div>
     </div>
@@ -294,51 +314,63 @@
     </button>
   </nav>
 
-  <!-- MODAL DOSSIER OFFRE (COVER LETTER + TTS) -->
-  <div id="modal-dossier" class="fixed inset-0 bg-black/80 backdrop-blur-sm z-50 flex items-end sm:items-center justify-center hidden p-0 sm:p-4">
-    <div class="bg-gray-900 border-t sm:border border-gray-700 rounded-t-3xl sm:rounded-2xl max-w-xl w-full max-h-[90vh] flex flex-col shadow-2xl overflow-hidden">
-      <div class="p-4 border-b border-gray-800 flex justify-between items-center bg-gray-950">
+  <!-- MODAL DOSSIER OFFRE (COVER LETTER + CV ADAPTE + PDF) -->
+  <div id="modal-dossier" class="fixed inset-0 bg-black/85 backdrop-blur-sm z-50 flex items-end sm:items-center justify-center hidden p-0 sm:p-4">
+    <div class="bg-gray-900 border border-gray-800 w-full max-w-xl max-h-[90vh] rounded-t-3xl sm:rounded-3xl flex flex-col overflow-hidden shadow-2xl">
+      
+      <div class="p-4 border-b border-gray-800 flex justify-between items-start bg-gray-950">
         <div>
-          <span id="modal-badge-prio" class="px-2 py-0.5 rounded text-[9px] font-bold bg-blue-500/20 text-blue-300">P1</span>
-          <h3 class="font-bold text-white text-xs mt-1" id="modal-title">Titre du Poste</h3>
-          <p class="text-[10px] text-gray-400" id="modal-company">Entreprise</p>
+          <div class="flex items-center gap-2">
+            <span id="modal-badge-prio" class="px-2 py-0.5 rounded text-[9px] font-bold bg-blue-500/20 text-blue-300">P1</span>
+            <span id="modal-badge-score" class="px-2 py-0.5 rounded text-[9px] font-black bg-emerald-500/20 text-emerald-300">100% Match</span>
+          </div>
+          <h3 class="font-black text-white text-sm mt-1" id="modal-title">Titre du Poste</h3>
+          <p class="text-[11px] text-gray-400" id="modal-company">Entreprise &bull; Localisation</p>
         </div>
-        <button onclick="closeModal()" class="w-8 h-8 rounded-full bg-gray-800 text-gray-300 flex items-center justify-center text-lg">&times;</button>
+        <button onclick="closeModal()" class="w-8 h-8 rounded-full bg-gray-800 text-gray-300 hover:text-white flex items-center justify-center text-lg">&times;</button>
       </div>
 
-      <!-- AUDIO TTS BAR -->
-      <div class="bg-gray-950 px-4 py-2.5 border-b border-gray-800 flex items-center justify-between text-xs">
-        <div class="flex items-center space-x-2 text-indigo-300 font-semibold text-[11px]">
-          <i class="fa-solid fa-volume-high text-indigo-400"></i>
-          <span>Lecture Vocale (TTS)</span>
+      <div class="p-4 space-y-4 overflow-y-auto max-h-[60vh] text-xs">
+        <!-- Actions Rapides -->
+        <div class="grid grid-cols-2 gap-2">
+          <button onclick="openModalCvPdf()" class="p-2.5 bg-blue-600 hover:bg-blue-500 text-white rounded-xl font-bold text-xs flex items-center justify-center gap-2 shadow-md">
+            <i class="fa-solid fa-file-pdf"></i> Voir le CV Adapté (PDF)
+          </button>
+          <a id="btn-modal-lettre-pdf" href="#" target="_blank" class="p-2.5 bg-gray-800 hover:bg-gray-700 text-emerald-300 border border-emerald-500/30 rounded-xl font-bold text-xs flex items-center justify-center gap-2">
+            <i class="fa-solid fa-file-lines"></i> Télécharger Lettre (PDF)
+          </a>
         </div>
-        <div class="flex items-center space-x-2">
-          <select id="tts-voice-select" class="bg-gray-900 border border-gray-700 text-gray-200 text-[10px] rounded-lg px-2 py-1">
-            <option value="fr-FR">Voix Amélie (FR)</option>
-            <option value="en-US">Voice Claire (EN)</option>
-          </select>
+
+        <!-- Synthèse vocale -->
+        <div class="bg-indigo-950/30 border border-indigo-900/50 p-2.5 rounded-xl flex items-center justify-between">
+          <span class="text-[11px] text-indigo-200 font-medium flex items-center gap-1.5">
+            <i class="fa-solid fa-volume-high text-indigo-400"></i> Synthèse Vocale de l'offre
+          </span>
           <button id="tts-play-btn" onclick="toggleTtsModal()" class="px-3 py-1 bg-indigo-600 hover:bg-indigo-500 text-white rounded-lg text-[10px] font-bold flex items-center gap-1 shadow-md">
             <i class="fa-solid fa-play text-[8px]"></i> <span>Écouter</span>
           </button>
         </div>
-      </div>
 
-      <div class="p-4 overflow-y-auto space-y-3.5 flex-1 text-xs leading-relaxed text-gray-300">
         <div>
-          <h4 class="text-[11px] font-black uppercase text-emerald-400 mb-1">Description &amp; Enjeux</h4>
-          <div id="modal-desc" class="bg-gray-950 p-3 rounded-xl border border-gray-800 text-[11px] leading-relaxed"></div>
+          <h4 class="text-[11px] font-black uppercase text-gray-400 mb-1">Description de la mission</h4>
+          <div id="modal-desc" class="bg-gray-950 p-3 rounded-xl border border-gray-800 text-[11px] leading-relaxed text-gray-300"></div>
         </div>
 
         <div>
-          <h4 class="text-[11px] font-black uppercase text-blue-400 mb-1">Lettre de Motivation Sur-Mesure</h4>
-          <div id="modal-lettre" class="bg-gray-950 p-3 rounded-xl border border-gray-800 text-[11px] whitespace-pre-line leading-relaxed font-sans text-gray-200"></div>
+          <div class="flex justify-between items-center mb-1">
+            <h4 class="text-[11px] font-black uppercase text-blue-400">Lettre de Motivation Sur-Mesure</h4>
+            <button onclick="copyLetterToClipboard()" class="text-[10px] text-gray-400 hover:text-white flex items-center gap-1">
+              <i class="fa-regular fa-copy"></i> Copier
+            </button>
+          </div>
+          <div id="modal-lettre" class="bg-gray-950 p-3.5 rounded-xl border border-gray-800 text-[11px] whitespace-pre-line leading-relaxed font-sans text-gray-200"></div>
         </div>
       </div>
 
       <div class="p-3 bg-gray-950 border-t border-gray-800 flex justify-between items-center">
         <button onclick="closeModal()" class="px-4 py-2 bg-gray-800 hover:bg-gray-700 text-gray-300 rounded-xl text-xs font-bold">Fermer</button>
         <button onclick="openModalCvPdf()" class="px-4 py-2 bg-blue-600 hover:bg-blue-500 text-white rounded-xl text-xs font-bold flex items-center gap-1.5 shadow-md">
-          <i class="fa-regular fa-file-pdf"></i> Voir CV PDF
+          <i class="fa-regular fa-file-pdf"></i> Ouvrir CV PDF
         </button>
       </div>
     </div>
@@ -349,8 +381,641 @@
 
   <!-- EMBEDDED DATA & SCRIPT -->
   <script>
-    const allJobs = [{"id": "CORP-BDM-01", "source": "Banque de Développement du Mali (BDM-SA)", "titre": "Chef de Projet Digital & Systèmes d'Information", "entreprise": "Banque de Développement du Mali (BDM-SA)", "localisation": "Siège BDM-SA, Bamako, Mali", "date_publication": "2026-11-01", "date_limite": "15 Novembre 2026", "description": "Superviser la transformation numérique des canaux bancaires, l'automatisation des flux financiers et la coordination des prestataires techniques.", "exigences": "Diplôme Bac+5 en Informatique ou Gestion de Projet. Expérience avérée dans les applications métiers, la gestion des flux de données et le management de projet digital.", "salaire": "Grille Cadre Bancaire Mali (Très attractif + Avantages sociaux)", "lien_direct": "https://www.bdm-sa.com/recrutement", "statut": "Candidature envoyée", "is_english": false, "titre_fr": "Chef de Projet Digital & Systèmes d'Information", "description_fr": "Superviser la transformation numérique des canaux bancaires, l'automatisation des flux financiers et la coordination des prestataires techniques.", "exigences_fr": "Diplôme Bac+5 en Informatique ou Gestion de Projet. Expérience avérée dans les applications métiers, la gestion des flux de données et le management de projet digital.", "score_correspondance": 100, "competences_validees": ["Format Mission / Consultance Prestataire", "Gestion d'Entreprise & Administration (GEA)", "Audit Opérationnel & Transformation Digitale", "Conception de Solutions Métiers (PWA, Web, Desktop)", "Automatisation intelligente & Workflows IA", "Diplôme Universitaire (BAC + 3 Licence Pro GEA + IT)", "Adéquation parfaite : Double profil Gestion d'Entreprise + IT", "Références et plateformes réelles vérifiables (TaamaPass, Sòrò Stock)", "Localisation 100% conforme : Bamako (Sur site / Hybride)"], "competences_manquantes": [], "categorie_priorite": "PRIORITÉ 1 (Excellente opportunité)", "status": "Candidature envoyée"}, {"id": "CORP-ONG-03", "source": "Organisations Internationales / Partenaires au Développement", "titre": "Coordinateur des Systèmes d'Information & Gestion des Données", "entreprise": "Programme de Développement Institutionnel (Bamako)", "localisation": "Bamako avec missions ponctuelles", "date_publication": "2026-11-01", "date_limite": "12 Novembre 2026", "description": "Mise en place de bases de données sécurisées, automatisation du suivi-évaluation et formation des agents aux outils numériques.", "exigences": "Bac+4/5 en Informatique ou Gestion de Données. Excellente maîtrise de SQL/Bases relationnelles, reporting digitalisé et capacité de vulgarisation.", "salaire": "Barème International Organisations Humanitaires & Coopération", "lien_direct": "https://www.malibaara.com/", "statut": "Candidature envoyée", "is_english": false, "titre_fr": "Coordinateur des Systèmes d'Information & Gestion des Données", "description_fr": "Mise en place de bases de données sécurisées, automatisation du suivi-évaluation et formation des agents aux outils numériques.", "exigences_fr": "Bac+4/5 en Informatique ou Gestion de Données. Excellente maîtrise de SQL/Bases relationnelles, reporting digitalisé et capacité de vulgarisation.", "score_correspondance": 67, "competences_validees": ["Gestion d'Entreprise & Administration (GEA)", "Systèmes d'Information, Bases de Données & Normes", "Automatisation intelligente & Workflows IA", "Diplôme Universitaire (BAC + 3 Licence Pro GEA + IT)", "Adéquation parfaite : Double profil Gestion d'Entreprise + IT", "Localisation 100% conforme : Bamako (Sur site / Hybride)"], "competences_manquantes": [], "categorie_priorite": "PRIORITÉ 2 (Opportunité intéressante)", "status": "Candidature envoyée"}, {"id": "REM-2091161", "source": "Remotive (Télétravail International)", "titre": "AI Trainer - Video Annotation", "entreprise": "iMerit Technology", "localisation": "Télétravail (100% Remote - Accessible depuis Bamako)", "date_publication": "2026-10-22", "date_limite": "Recrutement ouvert", "description": "AI Trainer - Video AnnotationRemote | Independent Contractor Prove your skills. Get certified. Robotics AI is advancing rapidly, and high-quality video data helps intelligent systems better understand the world around them. We are inviting detail-oriented professionals to complete our certification process for potential robotics AI projects. ▌ What you will doAs part of the certification process, you will demonstrate your ability to:Annotate short video clips by identifying objects, actions and ...", "exigences": "Maîtrise de JavaScript/Node.js, architecture web, autonomie et communication écrite.", "salaire": "70K-80K", "lien_direct": "https://remotive.com/remote-jobs/artificial-intelligence/ai-trainer-video-annotation-2091161", "statut": "À analyser", "is_english": true, "titre_original": "AI Trainer - Video Annotation", "description_original": "AI Trainer - Video AnnotationRemote | Independent Contractor Prove your skills. Get certified. Robotics AI is advancing rapidly, and high-quality video data helps intelligent systems better understand the world around them. We are inviting detail-oriented professionals to complete our certification process for potential robotics AI projects. ▌ What you will doAs part of the certification process, you will demonstrate your ability to:Annotate short video clips by identifying objects, actions and ...", "exigences_original": "Maîtrise de JavaScript/Node.js, architecture web, autonomie et communication écrite.", "titre_fr": "Entraîneur IA - Annotation vidéo", "description_fr": "AI Trainer - Annotation vidéo à distance | Entrepreneur indépendant Prouvez vos compétences. Obtenez une certification. L’IA robotique progresse rapidement et les données vidéo de haute qualité aident les systèmes intelligents à mieux comprendre le monde qui les entoure. Nous invitons les professionnels soucieux du détail à compléter notre processus de certification pour des projets potentiels d'IA robotique. ▌ Ce que vous ferezDans le cadre du processus de certification, vous démontrerez votre capacité à :Annoter de courts clips vidéo en identifiant des objets, des actions et...", "exigences_fr": "Maîtrise de JavaScript/Node.js, architecture web, autonomie et communication écrite.", "score_correspondance": 65, "competences_validees": ["Format Mission / Consultance Prestataire", "Conception de Solutions Métiers (PWA, Web, Desktop)", "Systèmes d'Information, Bases de Données & Normes", "Automatisation intelligente & Workflows IA", "Localisation 100% conforme : Bamako (Sur site / Hybride)"], "competences_manquantes": [], "categorie_priorite": "PRIORITÉ 2 (Opportunité intéressante)"}, {"id": "REM-2086540", "source": "Remotive (Télétravail International)", "titre": "Inside Sales Contractor", "entreprise": "Credit Wellness, LLC", "localisation": "Télétravail (100% Remote - Accessible depuis Bamako)", "date_publication": "2026-10-08", "date_limite": "Recrutement ouvert", "description": "About Us We are a financial services start up focusing on helping to improve consumer credit profiles. We are currently seeking KPI driven sales representatives looking to earn up to 45K in their first year while working remotely. We offer comprehensive training and continuous sales coaching to help you meet your financial goals. During our training period we offer a guaranteed training stipend while our trainees are acclimating to the position (*see weekly pay below). If you are a seasoned sale...", "exigences": "Maîtrise de JavaScript/Node.js, architecture web, autonomie et communication écrite.", "salaire": "OTE $25k - $35k", "lien_direct": "https://remotive.com/remote-jobs/sales/inside-sales-contractor-2086540", "statut": "À analyser", "is_english": true, "titre_original": "Inside Sales Contractor", "description_original": "About Us We are a financial services start up focusing on helping to improve consumer credit profiles. We are currently seeking KPI driven sales representatives looking to earn up to 45K in their first year while working remotely. We offer comprehensive training and continuous sales coaching to help you meet your financial goals. During our training period we offer a guaranteed training stipend while our trainees are acclimating to the position (*see weekly pay below). If you are a seasoned sale...", "exigences_original": "Maîtrise de JavaScript/Node.js, architecture web, autonomie et communication écrite.", "titre_fr": "Entrepreneur en ventes internes", "description_fr": "À propos de nous Nous sommes une start-up de services financiers qui se concentre sur l'amélioration des profils de crédit à la consommation. Nous recherchons actuellement des représentants commerciaux axés sur les KPI et cherchant à gagner jusqu'à 45 000 $ au cours de leur première année tout en travaillant à distance. Nous proposons une formation complète et un coaching commercial continu pour vous aider à atteindre vos objectifs financiers. Pendant notre période de formation, nous offrons une allocation de formation garantie pendant que nos stagiaires s'acclimatent au poste (*voir salaire hebdomadaire ci-dessous). Si vous êtes un vendeur chevronné...", "exigences_fr": "Maîtrise de JavaScript/Node.js, architecture web, autonomie et communication écrite.", "score_correspondance": 65, "competences_validees": ["Format Mission / Consultance Prestataire", "Conception de Solutions Métiers (PWA, Web, Desktop)", "Systèmes d'Information, Bases de Données & Normes", "Automatisation intelligente & Workflows IA", "Localisation 100% conforme : Bamako (Sur site / Hybride)"], "competences_manquantes": [], "categorie_priorite": "PRIORITÉ 2 (Opportunité intéressante)"}, {"id": "REM-2091045", "source": "Remotive (Télétravail International)", "titre": "Tier III Service Desk Engineer", "entreprise": "Unio Digital", "localisation": "Télétravail (100% Remote - Accessible depuis Bamako)", "date_publication": "2026-10-07", "date_limite": "Recrutement ouvert", "description": "Unió Digital is an Arizona-based managed service provider (MSP) delivering Managed IT Services, Low Voltage Cabling, Access Control, Video Surveillance, and Intrusion Services. We believe technology should be intuitive, not intimidating. We are looking for an experienced Tier 3 Service Desk Technician with exceptional problem-solving skills. You will serve as the escalation point within the team, resolving complex technical issues while also leading client onboarding and project initiatives. You...", "exigences": "Maîtrise de JavaScript/Node.js, architecture web, autonomie et communication écrite.", "salaire": "", "lien_direct": "https://remotive.com/remote-jobs/information-technology/tier-iii-service-desk-engineer-2091045", "statut": "À analyser", "is_english": true, "titre_original": "Tier III Service Desk Engineer", "description_original": "Unió Digital is an Arizona-based managed service provider (MSP) delivering Managed IT Services, Low Voltage Cabling, Access Control, Video Surveillance, and Intrusion Services. We believe technology should be intuitive, not intimidating. We are looking for an experienced Tier 3 Service Desk Technician with exceptional problem-solving skills. You will serve as the escalation point within the team, resolving complex technical issues while also leading client onboarding and project initiatives. You...", "exigences_original": "Maîtrise de JavaScript/Node.js, architecture web, autonomie et communication écrite.", "titre_fr": "Ingénieur Service Desk de niveau III", "description_fr": "Unió Digital est un fournisseur de services gérés (MSP) basé en Arizona qui fournit des services informatiques gérés, des services de câblage basse tension, de contrôle d'accès, de vidéosurveillance et d'intrusion. Nous pensons que la technologie doit être intuitive et non intimidante. Nous recherchons un technicien Service Desk expérimenté de niveau 3 doté de compétences exceptionnelles en résolution de problèmes. Vous servirez de point d'escalade au sein de l'équipe, résolvant des problèmes techniques complexes tout en dirigeant l'intégration des clients et les initiatives de projet. Toi...", "exigences_fr": "Maîtrise de JavaScript/Node.js, architecture web, autonomie et communication écrite.", "score_correspondance": 65, "competences_validees": ["Format Mission / Consultance Prestataire", "Conception de Solutions Métiers (PWA, Web, Desktop)", "Systèmes d'Information, Bases de Données & Normes", "Automatisation intelligente & Workflows IA", "Localisation 100% conforme : Bamako (Sur site / Hybride)"], "competences_manquantes": [], "categorie_priorite": "PRIORITÉ 2 (Opportunité intéressante)"}, {"id": "REM-1185979", "source": "Remotive (Télétravail International)", "titre": "Freelance Writer", "entreprise": "IAPWE", "localisation": "Télétravail (100% Remote - Accessible depuis Bamako)", "date_publication": "2026-10-04", "date_limite": "Recrutement ouvert", "description": "Our organization is seeking content writers to create articles and blog posts on a variety of topics. The rate of pay is $20 per 100 words (this comes out to approximately $100 per article or $50 per hour). Some topics you may be asked to write about include the following (you can always turn down a topic if you do not feel comfortable writing about it, however if you have experience or expertise in a specific area, please let us know): Health &amp; beauty Fitness Home Decor Fashion Sports Do it...", "exigences": "Maîtrise de JavaScript/Node.js, architecture web, autonomie et communication écrite.", "salaire": "$50-$75 /hour", "lien_direct": "https://remotive.com/remote-jobs/writing/freelance-writer-1185979", "statut": "À analyser", "is_english": true, "titre_original": "Freelance Writer", "description_original": "Our organization is seeking content writers to create articles and blog posts on a variety of topics. The rate of pay is $20 per 100 words (this comes out to approximately $100 per article or $50 per hour). Some topics you may be asked to write about include the following (you can always turn down a topic if you do not feel comfortable writing about it, however if you have experience or expertise in a specific area, please let us know): Health &amp; beauty Fitness Home Decor Fashion Sports Do it...", "exigences_original": "Maîtrise de JavaScript/Node.js, architecture web, autonomie et communication écrite.", "titre_fr": "Écrivain indépendant", "description_fr": "Notre organisation recherche des rédacteurs de contenu pour créer des articles et des billets de blog sur une variété de sujets. Le taux de rémunération est de 20 $ pour 100 mots (cela équivaut à environ 100 $ par article ou 50 $ de l'heure). Certains sujets sur lesquels vous pourriez être invité à écrire sont les suivants (vous pouvez toujours refuser un sujet si vous ne vous sentez pas à l'aise d'écrire à ce sujet, mais si vous avez de l'expérience ou une expertise dans un domaine spécifique, veuillez nous le faire savoir) : Santé et beauté Fitness Décoration d'intérieur Mode Sports Faites-le...", "exigences_fr": "Maîtrise de JavaScript/Node.js, architecture web, autonomie et communication écrite.", "score_correspondance": 54, "competences_validees": ["Format Mission / Consultance Prestataire", "Missions de Consultance & Prestation Technique", "Conception de Solutions Métiers (PWA, Web, Desktop)", "Localisation 100% conforme : Bamako (Sur site / Hybride)"], "competences_manquantes": [], "categorie_priorite": "PRIORITÉ 2 (Opportunité intéressante)"}, {"id": "CORP-ORANGE-02", "source": "Orange Mali / Orange Money", "titre": "Product Owner / Responsable Solutions Digitales & Mobile Money", "entreprise": "Orange Mali (Direction des Services Numériques)", "localisation": "Bamako (Hamdallaye ACI 2000)", "date_publication": "2026-11-01", "date_limite": "20 Novembre 2026", "description": "Piloter la conception et l'évolution des fonctionnalités B2B et B2C des applications mobiles, suivi des parcours clients et intégration de services tiers.", "exigences": "Bac+5 Ingénieur informatique ou Master SI. Expérience en conception de produits numériques (PWA/Mobile), sens de l'expérience utilisateur et rigueur opérationnelle.", "salaire": "Selon profil Cadre Télécoms & Services Financiers", "lien_direct": "https://orange.com/fr/carrieres", "statut": "À analyser", "is_english": false, "titre_fr": "Product Owner / Responsable Solutions Digitales & Mobile Money", "description_fr": "Piloter la conception et l'évolution des fonctionnalités B2B et B2C des applications mobiles, suivi des parcours clients et intégration de services tiers.", "exigences_fr": "Bac+5 Ingénieur informatique ou Master SI. Expérience en conception de produits numériques (PWA/Mobile), sens de l'expérience utilisateur et rigueur opérationnelle.", "score_correspondance": 45, "competences_validees": ["Conception de Solutions Métiers (PWA, Web, Desktop)", "Systèmes d'Information, Bases de Données & Normes", "Références et plateformes réelles vérifiables (TaamaPass, Sòrò Stock)", "Localisation 100% conforme : Bamako (Sur site / Hybride)"], "competences_manquantes": [], "categorie_priorite": "PRIORITÉ 3 (Opportunité secondaire)"}, {"id": "REM-2091165", "source": "Remotive (Télétravail International)", "titre": "Full-Stack Developer", "entreprise": "Fluence International, Inc.", "localisation": "Télétravail (100% Remote - Accessible depuis Bamako)", "date_publication": "2026-10-29", "date_limite": "Recrutement ouvert", "description": "We’re looking for a pragmatic, security-minded Full-Stack Developer to help build and scale Fluence’s B2B products used by clinicians, researchers, and organizations in psychedelic-assisted therapy and mental health. You’ll work closely with and report to our Senior AI &amp; Design Lead to turn product requirements into robust, secure, and well-documented applications, as well as maintain existing ones. What you’ll do Build and maintain full-stack web applications using React and Next.js. Archit...", "exigences": "Maîtrise de JavaScript/Node.js, architecture web, autonomie et communication écrite.", "salaire": "$3.5k–$5k/month", "lien_direct": "https://remotive.com/remote-jobs/software-development/full-stack-developer-2091165", "statut": "À analyser", "is_english": true, "titre_original": "Full-Stack Developer", "description_original": "We’re looking for a pragmatic, security-minded Full-Stack Developer to help build and scale Fluence’s B2B products used by clinicians, researchers, and organizations in psychedelic-assisted therapy and mental health. You’ll work closely with and report to our Senior AI &amp; Design Lead to turn product requirements into robust, secure, and well-documented applications, as well as maintain existing ones. What you’ll do Build and maintain full-stack web applications using React and Next.js. Archit...", "exigences_original": "Maîtrise de JavaScript/Node.js, architecture web, autonomie et communication écrite.", "titre_fr": "Développeur Full-Stack", "description_fr": "Nous recherchons un développeur Full-Stack pragmatique et soucieux de la sécurité pour aider à créer et à faire évoluer les produits B2B de Fluence utilisés par les cliniciens, les chercheurs et les organisations dans le domaine de la thérapie assistée par psychédélique et de la santé mentale. Vous travaillerez en étroite collaboration avec notre responsable principal de l'IA et de la conception et lui rendrez compte pour transformer les exigences du produit en applications robustes, sécurisées et bien documentées, ainsi que pour maintenir celles existantes. Ce que vous ferez Créer et maintenir des applications Web complètes à l'aide de React et Next.js. Archit...", "exigences_fr": "Maîtrise de JavaScript/Node.js, architecture web, autonomie et communication écrite.", "score_correspondance": 43, "competences_validees": ["Conception de Solutions Métiers (PWA, Web, Desktop)", "Systèmes d'Information, Bases de Données & Normes", "Automatisation intelligente & Workflows IA", "Localisation 100% conforme : Bamako (Sur site / Hybride)"], "competences_manquantes": [], "categorie_priorite": "PRIORITÉ 3 (Opportunité secondaire)"}, {"id": "REM-1680495", "source": "Remotive (Télétravail International)", "titre": "Remote Office Assistant", "entreprise": "Coalition Technologies ", "localisation": "Télétravail (100% Remote - Accessible depuis Bamako)", "date_publication": "2026-10-11", "date_limite": "Recrutement ouvert", "description": "Coalition Technologies is seeking a reliable, detail-oriented, and highly organized Remote Office Assistant to support administrative, bookkeeping, billing, reporting, data entry, and internal operations tasks. This role is ideal for someone with strong communication skills, discretion, attention to detail, and a willingness to learn and grow within a fast-paced remote work environment. As an Office Assistant, you will help support daily administrative operations, assist with entry-level bookkee...", "exigences": "Maîtrise de JavaScript/Node.js, architecture web, autonomie et communication écrite.", "salaire": "$35,3k- $52k", "lien_direct": "https://remotive.com/remote-jobs/marketing/remote-office-assistant-1680495", "statut": "À analyser", "is_english": true, "titre_original": "Remote Office Assistant", "description_original": "Coalition Technologies is seeking a reliable, detail-oriented, and highly organized Remote Office Assistant to support administrative, bookkeeping, billing, reporting, data entry, and internal operations tasks. This role is ideal for someone with strong communication skills, discretion, attention to detail, and a willingness to learn and grow within a fast-paced remote work environment. As an Office Assistant, you will help support daily administrative operations, assist with entry-level bookkee...", "exigences_original": "Maîtrise de JavaScript/Node.js, architecture web, autonomie et communication écrite.", "titre_fr": "Assistant de bureau à distance", "description_fr": "Coalition Technologies est à la recherche d'un assistant de bureau à distance fiable, minutieux et hautement organisé pour prendre en charge les tâches administratives, de comptabilité, de facturation, de reporting, de saisie de données et d'opérations internes. Ce rôle est idéal pour une personne possédant de solides compétences en communication, de la discrétion, une attention aux détails et une volonté d'apprendre et de grandir dans un environnement de travail à distance en évolution rapide. En tant qu'assistant de bureau, vous contribuerez à soutenir les opérations administratives quotidiennes, aiderez les comptables débutants...", "exigences_fr": "Maîtrise de JavaScript/Node.js, architecture web, autonomie et communication écrite.", "score_correspondance": 43, "competences_validees": ["Conception de Solutions Métiers (PWA, Web, Desktop)", "Systèmes d'Information, Bases de Données & Normes", "Automatisation intelligente & Workflows IA", "Localisation 100% conforme : Bamako (Sur site / Hybride)"], "competences_manquantes": [], "categorie_priorite": "PRIORITÉ 3 (Opportunité secondaire)"}, {"id": "REM-2091134", "source": "Remotive (Télétravail International)", "titre": "Head of Engineering", "entreprise": "Lemon.io", "localisation": "Télétravail (100% Remote - Accessible depuis Bamako)", "date_publication": "2026-10-26", "date_limite": "Recrutement ouvert", "description": "About Lemon.ioLemon.io is a profitable, growing talent marketplace that connects vetted senior engineers with companies that need them. We’ve been in business for 10 years, have 60 people across Ukraine, Europe, Canada, and the US, and process over $16M in annual GMV. We compress the traditional 2–5 week hiring timeline down to 24–48 hours through a curated, pre-vetted supply of developers.Hiring is still broken. Recruiters spend weeks building candidate pipelines on traditional platforms, burni...", "exigences": "Maîtrise de JavaScript/Node.js, architecture web, autonomie et communication écrite.", "salaire": "", "lien_direct": "https://remotive.com/remote-jobs/software-development/head-of-engineering-2091134", "statut": "À analyser", "is_english": true, "titre_original": "Head of Engineering", "description_original": "About Lemon.ioLemon.io is a profitable, growing talent marketplace that connects vetted senior engineers with companies that need them. We’ve been in business for 10 years, have 60 people across Ukraine, Europe, Canada, and the US, and process over $16M in annual GMV. We compress the traditional 2–5 week hiring timeline down to 24–48 hours through a curated, pre-vetted supply of developers.Hiring is still broken. Recruiters spend weeks building candidate pipelines on traditional platforms, burni...", "exigences_original": "Maîtrise de JavaScript/Node.js, architecture web, autonomie et communication écrite.", "titre_fr": "Responsable de l'ingénierie", "description_fr": "À propos de Lemon.ioLemon.io est un marché de talents rentable et en pleine croissance qui met en relation des ingénieurs seniors sélectionnés avec les entreprises qui en ont besoin. Nous sommes en affaires depuis 10 ans, comptons 60 personnes en Ukraine, en Europe, au Canada et aux États-Unis, et traitons plus de 16 millions de dollars de GMV annuel. Nous réduisons le délai de recrutement traditionnel de 2 à 5 semaines à 24 à 48 heures grâce à une sélection de développeurs sélectionnés et pré-sélectionnés. Le recrutement est toujours interrompu. Les recruteurs passent des semaines à constituer des pipelines de candidats sur des plateformes traditionnelles, brûlant...", "exigences_fr": "Maîtrise de JavaScript/Node.js, architecture web, autonomie et communication écrite.", "score_correspondance": 32, "competences_validees": ["Conception de Solutions Métiers (PWA, Web, Desktop)", "Systèmes d'Information, Bases de Données & Normes", "Localisation 100% conforme : Bamako (Sur site / Hybride)"], "competences_manquantes": [], "categorie_priorite": "PRIORITÉ 3 (Opportunité secondaire)"}, {"id": "REM-2091158", "source": "Remotive (Télétravail International)", "titre": "Software Engineer, AI Coding Tasks", "entreprise": "Askable", "localisation": "Télétravail (100% Remote - Accessible depuis Bamako)", "date_publication": "2026-10-17", "date_limite": "Recrutement ouvert", "description": "We're looking for experienced software engineers to build AI coding tasks from a codebase they know well. US$1,000 per task, and you can do as many tasks as you want. You turn a real change from a repository you know into a task that today's best AI coding models struggle with: hard for the models, but fair for a skilled engineer. Your tasks are used to measure and train AI coding models. Remote, any location. US$1,000 per task that passes review. Minimum of one task a week, about 10 hours a wee...", "exigences": "Maîtrise de JavaScript/Node.js, architecture web, autonomie et communication écrite.", "salaire": "$1000 per task", "lien_direct": "https://remotive.com/remote-jobs/software-development/software-engineer-ai-coding-tasks-2091158", "statut": "À analyser", "is_english": true, "titre_original": "Software Engineer, AI Coding Tasks", "description_original": "We're looking for experienced software engineers to build AI coding tasks from a codebase they know well. US$1,000 per task, and you can do as many tasks as you want. You turn a real change from a repository you know into a task that today's best AI coding models struggle with: hard for the models, but fair for a skilled engineer. Your tasks are used to measure and train AI coding models. Remote, any location. US$1,000 per task that passes review. Minimum of one task a week, about 10 hours a wee...", "exigences_original": "Maîtrise de JavaScript/Node.js, architecture web, autonomie et communication écrite.", "titre_fr": "Ingénieur logiciel, tâches de codage IA", "description_fr": "Nous recherchons des ingénieurs logiciels expérimentés pour créer des tâches de codage d'IA à partir d'une base de code qu'ils connaissent bien. 1 000 US$ par tâche, et vous pouvez effectuer autant de tâches que vous le souhaitez. Vous transformez un véritable changement d'un référentiel que vous connaissez en une tâche avec laquelle les meilleurs modèles de codage d'IA d'aujourd'hui ont du mal : difficile pour les modèles, mais équitable pour un ingénieur qualifié. Vos tâches sont utilisées pour mesurer et entraîner des modèles de codage d'IA. À distance, n'importe où. 1 000 USD par tâche qui réussit l'examen. Minimum d'une tâche par semaine, environ 10 heures par semaine...", "exigences_fr": "Maîtrise de JavaScript/Node.js, architecture web, autonomie et communication écrite.", "score_correspondance": 32, "competences_validees": ["Conception de Solutions Métiers (PWA, Web, Desktop)", "Systèmes d'Information, Bases de Données & Normes", "Localisation 100% conforme : Bamako (Sur site / Hybride)"], "competences_manquantes": [], "categorie_priorite": "PRIORITÉ 3 (Opportunité secondaire)"}, {"id": "REM-1749306", "source": "Remotive (Télétravail International)", "titre": "Freelance Copywriter", "entreprise": "Coalition Technologies ", "localisation": "Télétravail (100% Remote - Accessible depuis Bamako)", "date_publication": "2026-10-02", "date_limite": "Recrutement ouvert", "description": "CT Marketing Agency is seeking skilled Freelance Copywriters to write high-quality, SEO-driven content for eCommerce and lead generation websites. This is a freelance, project-based writing role. The ideal candidate has excellent English writing skills, strong research ability, and experience writing content that follows detailed, client-specific guidelines. Projects commonly include category pages, product descriptions, blog posts, SEO landing pages, and website copy. About the Role Our client ...", "exigences": "Maîtrise de JavaScript/Node.js, architecture web, autonomie et communication écrite.", "salaire": "$20k -$35k", "lien_direct": "https://remotive.com/remote-jobs/writing/freelance-copywriter-1749306", "statut": "À analyser", "is_english": true, "titre_original": "Freelance Copywriter", "description_original": "CT Marketing Agency is seeking skilled Freelance Copywriters to write high-quality, SEO-driven content for eCommerce and lead generation websites. This is a freelance, project-based writing role. The ideal candidate has excellent English writing skills, strong research ability, and experience writing content that follows detailed, client-specific guidelines. Projects commonly include category pages, product descriptions, blog posts, SEO landing pages, and website copy. About the Role Our client ...", "exigences_original": "Maîtrise de JavaScript/Node.js, architecture web, autonomie et communication écrite.", "titre_fr": "Rédacteur indépendant", "description_fr": "CT Marketing Agency recherche des rédacteurs indépendants qualifiés pour rédiger du contenu de haute qualité axé sur le référencement pour les sites Web de commerce électronique et de génération de leads. Il s'agit d'un rôle d'écriture indépendant basé sur des projets. Le candidat idéal possède d'excellentes compétences rédactionnelles en anglais, de solides capacités de recherche et une expérience dans la rédaction de contenu qui suit des directives détaillées et spécifiques au client. Les projets incluent généralement des pages de catégories, des descriptions de produits, des articles de blog, des pages de destination SEO et une copie de site Web. À propos du rôle Notre client...", "exigences_fr": "Maîtrise de JavaScript/Node.js, architecture web, autonomie et communication écrite.", "score_correspondance": 32, "competences_validees": ["Conception de Solutions Métiers (PWA, Web, Desktop)", "Systèmes d'Information, Bases de Données & Normes", "Localisation 100% conforme : Bamako (Sur site / Hybride)"], "competences_manquantes": [], "categorie_priorite": "PRIORITÉ 3 (Opportunité secondaire)"}, {"id": "ME-1", "source": "Maliemploi.org (Mali)", "titre": "Offres d’emploi", "entreprise": "Organisation basée à Bamako", "localisation": "Bamako, Mali", "date_publication": "2026-11-01", "date_limite": "Selon annonce", "description": "Offre d'emploi officielle publiée à Bamako : Offres d’emploi.", "exigences": "Formation supérieure, maîtrise des outils professionnels, autonomie.", "salaire": "Rémunération compétitive selon barème", "lien_direct": "https://maliemploi.org/emplois/", "statut": "À analyser", "is_english": false, "titre_fr": "Offres d’emploi", "description_fr": "Offre d'emploi officielle publiée à Bamako : Offres d’emploi.", "exigences_fr": "Formation supérieure, maîtrise des outils professionnels, autonomie.", "score_correspondance": 21, "competences_validees": ["Systèmes d'Information, Bases de Données & Normes", "Localisation 100% conforme : Bamako (Sur site / Hybride)"], "competences_manquantes": [], "categorie_priorite": "PRIORITÉ 3 (Opportunité secondaire)"}, {"id": "ME-2", "source": "Maliemploi.org (Mali)", "titre": "Déposer mon CV", "entreprise": "Organisation basée à Bamako", "localisation": "Bamako, Mali", "date_publication": "2026-11-01", "date_limite": "Selon annonce", "description": "Offre d'emploi officielle publiée à Bamako : Déposer mon CV.", "exigences": "Formation supérieure, maîtrise des outils professionnels, autonomie.", "salaire": "Rémunération compétitive selon barème", "lien_direct": "https://maliemploi.org/deposer-cv/", "statut": "À analyser", "is_english": false, "titre_fr": "Déposer mon CV", "description_fr": "Offre d'emploi officielle publiée à Bamako : Déposer mon CV.", "exigences_fr": "Formation supérieure, maîtrise des outils professionnels, autonomie.", "score_correspondance": 21, "competences_validees": ["Systèmes d'Information, Bases de Données & Normes", "Localisation 100% conforme : Bamako (Sur site / Hybride)"], "competences_manquantes": [], "categorie_priorite": "PRIORITÉ 3 (Opportunité secondaire)"}];
-    let allReponses = [{"id": "REP-01", "job_id": "ODC-MALI-DEVOPS-2026", "expediteur": "Orange Digital Center Mali <odc.mali@orange.com>", "entreprise": "Orange Digital Center Mali", "date_reception": "31/10/2026 19:52", "sujet": "Confirmation d'inscription — Formation DevOps & CI/CD", "type": "Confirmation d'étape", "contenu": "Bonjour Issa CISSÉ,\n\nVotre candidature pour la session pratique 'DevOps & CI/CD pour Professionnels' a bien été validée à 100%. Notre comité pédagogique procède actuellement à la revue des profils des 100 sélectionnés. Les invitations avec les accès aux labs en ligne vous parviendront d'ici le 5 novembre.", "action_recommandee": "Consulter les ressources préparatoires Docker & Git pour être fin prêt le jour J.", "statut": "Lu"}, {"id": "REP-02", "job_id": "CORP-BDM-01", "expediteur": "Direction des Ressources Humaines BDM-SA <recrutement@bdm-sa.com>", "entreprise": "Banque de Développement du Mali (BDM-SA)", "date_reception": "01/11/2026 10:15", "sujet": "Accusé de réception candidature — Réf: CORP-BDM-01 (Chef de Projet Digital & SI)", "type": "Accusé de réception", "contenu": "Monsieur CISSÉ,\n\nNous accusons bonne réception de votre dossier de candidature (CV, lettre de motivation et références de projets opérationnels) pour le poste de Chef de Projet Digital & Systèmes d'Information au sein de la BDM-SA.\n\nVotre profil double compétence en gestion d'entreprise (IUG) et technologies numériques a retenu notre attention. Votre dossier est transmis à la Direction des Systèmes d'Information pour analyse technique approfondie.", "action_recommandee": "Préparer la fiche d'entretien Q&A sur les rapprochements bancaires et la plateforme TaamaPass.", "statut": "Nouveau"}];
+    let allJobs = [{"id": "CORP-BDM-01", "source": "Banque de Développement du Mali (BDM-SA)", "titre": "Chef de Projet Digital & Systèmes d'Information", "entreprise": "Banque de Développement du Mali (BDM-SA)", "localisation": "Siège BDM-SA, Bamako, Mali", "date_publication": "2026-11-06", "date_limite": "15 Novembre 2026", "description": "Superviser la transformation numérique des canaux bancaires, l'automatisation des flux financiers et la coordination des prestataires techniques.", "exigences": "Diplôme Bac+5 en Informatique ou Gestion de Projet. Expérience avérée dans les applications métiers, la gestion des flux de données et le management de projet digital.", "salaire": "Grille Cadre Bancaire Mali (Très attractif + Avantages sociaux)", "lien_direct": "https://www.bdm-sa.com/recrutement", "statut": "À analyser", "is_english": false, "titre_fr": "Chef de Projet Digital & Systèmes d'Information", "description_fr": "Superviser la transformation numérique des canaux bancaires, l'automatisation des flux financiers et la coordination des prestataires techniques.", "exigences_fr": "Diplôme Bac+5 en Informatique ou Gestion de Projet. Expérience avérée dans les applications métiers, la gestion des flux de données et le management de projet digital.", "score_correspondance": 100, "competences_validees": ["Format Mission / Consultance Prestataire", "Gestion d'Entreprise & Administration (GEA)", "Audit Opérationnel & Transformation Digitale", "Conception de Solutions Métiers (PWA, Web, Desktop)", "Automatisation intelligente & Workflows IA", "Diplôme Universitaire (BAC + 3 Licence Pro GEA + IT)", "Adéquation parfaite : Double profil Gestion d'Entreprise + IT", "Références et plateformes réelles vérifiables (TaamaPass, Sòrò Stock)", "Localisation 100% conforme : Bamako (Sur site / Hybride)"], "competences_manquantes": [], "categorie_priorite": "PRIORITÉ 1 (Excellente opportunité)", "score_match": 100, "matching_score": 100, "candidature": {"lettre_motivation": "# LETTRE DE MOTIVATION SUR-MESURE
+
+**Candidat :** Issa CISSÉ  
+**Contact :** (+223) 78 02 02 09 | mali-scope@scopeinter.com  
+**Adresse :** Bamako Golf, Commune V, District de Bamako, Mali  
+**LinkedIn :** https://www.linkedin.com/in/issa-cisse-3a4444145  
+
+---
+
+**À l'attention du Responsable du Recrutement / RH**  
+**Entreprise :** Banque de Développement du Mali (BDM-SA)  
+**Poste :** Chef de Projet Digital & Systèmes d'Information (Réf : CORP-BDM-01)  
+**Localisation :** Siège BDM-SA, Bamako, Mali  
+
+**Objet : Candidature au poste de Chef de Projet Digital & Systèmes d'Information**
+
+Madame, Monsieur,
+
+Titulaire d'une **Licence Professionnelle (BAC + 3) en Gestion des Entreprises et des Administrations (GEA, IUG Bamako)** et justifiant de plus de 10 ans d'expérience terrain dans la gestion de flux financiers, de caisses à fort volume et l'ingénierie de solutions numériques, c'est avec un très grand intérêt que je vous soumets ma candidature pour le poste de **Chef de Projet Digital & Systèmes d'Information** au sein de la BDM-SA.
+
+Face aux enjeux stratégiques de **Banque de Développement du Mali (BDM-SA)**, je mets à votre disposition un profil immédiatement opérationnel articulé autour de 3 forces majeures :
+
+1. **Expertise éprouvée en flux financiers et ERP métiers :** Chez IPC Mali (Partenaire Canal+) et Startimes Mali, j'ai supervisé les flux de caisse centrale, assuré des rapprochements bancaires sans faille sous l'ERP SAP et garanti la traçabilité intégrale de volumes financiers journaliers critiques.
+2. **Conception et exploitation de plateformes transactionnelles (TaamaPass) :** J'ai développé et déployé une plateforme PWA de billetterie VIP pour une compagnie de transport majeure, intégrant le traitement sécurisé des paiements dématérialisés, la billetterie QR Code cryptographique et la réconciliation financière automatisée.
+3. **Rigueur d'audit et culture du contrôle interne (Sòrò Stock) :** Concepteur d'un logiciel de gestion commerciale et d'encaissement certifié conforme OHADA, j'intègre les meilleures pratiques de résilience des données, de sécurisation cryptographique et de reporting de trésorerie nette.
+
+Rejoindre la Banque de Développement du Mali représente pour moi l'opportunité de mettre au service de vos chantiers de transformation digitale une vision à la fois stratégique sur le plan de la finance d'entreprise et ultra-pratique sur le plan technologique.
+
+Je reste à votre entière disposition pour tout entretien d'approfondissement afin de vous détailler mes réalisations et mon plan d'action.
+
+Veuillez agréer, Madame, Monsieur, l'expression de mes salutations les plus distinguées.
+
+**Issa CISSÉ**  
+*Consultant Prestataire B2B | Concepteur TaamaPass & Sòrò Stock*  
+*Bamako, le 07 Novembre 2026*
+", "email_candidature": "OBJET : Candidature : Chef de Projet Digital & Systèmes d'Information - Issa CISSÉ - (+223 78 02 02 09)
+
+Madame, Monsieur le Responsable du Recrutement,
+
+Veuillez trouver ci-joint mon dossier de candidature sur-mesure (CV détaillé et lettre de motivation ciblée) pour le poste de Chef de Projet Digital & Systèmes d'Information au sein de Banque de Développement du Mali (BDM-SA) (Réf : CORP-BDM-01).
+
+Titulaire d'une Licence Professionnelle (BAC + 3) en Gestion des Entreprises et des Administrations (IUG Bamako) avec spécialisation en technologies numériques, et créateur de solutions opérationnelles éprouvées au Mali (notamment la plateforme de billetterie VIP TaamaPass et le progiciel de caisse Sòrò Stock), je suis en mesure de vous apporter rigueur de pilotage et maîtrise technologique immédiate.
+
+Je me tiens à votre disposition pour convenir d'un échange téléphonique ou d'un entretien.
+
+Excellente réception et cordiales salutations,
+
+Issa CISSÉ
+Tél / WhatsApp : (+223) 78 02 02 09
+Email : mali-scope@scopeinter.com / cisseissa03@gmail.com
+LinkedIn : https://www.linkedin.com/in/issa-cisse-3a4444145
+Bamako, Mali
+", "cv_titre_cible": "Chef de Projet Digital & Systèmes d'Information Bancaires", "pdf_cv_url": "/dashboard/cv_adaptes/CORP-BDM-01_CV_ADAPTE.pdf", "pdf_lettre_url": "/dashboard/cv_adaptes/CORP-BDM-01_LETTRE.pdf", "dossier_local": "C:\Users\BANOU B.T.M\Documents\AGENT_RECRUTEMENT\candidatures\Banque_de_Développement_du_Mali_BDMSA_Chef_de_Projet_Digital__S"}}, {"id": "CORP-ONG-03", "source": "Organisations Internationales / Partenaires au Développement", "titre": "Coordinateur des Systèmes d'Information & Gestion des Données", "entreprise": "Programme de Développement Institutionnel (Bamako)", "localisation": "Bamako avec missions ponctuelles", "date_publication": "2026-11-06", "date_limite": "12 Novembre 2026", "description": "Mise en place de bases de données sécurisées, automatisation du suivi-évaluation et formation des agents aux outils numériques.", "exigences": "Bac+4/5 en Informatique ou Gestion de Données. Excellente maîtrise de SQL/Bases relationnelles, reporting digitalisé et capacité de vulgarisation.", "salaire": "Barème International Organisations Humanitaires & Coopération", "lien_direct": "https://www.malibaara.com/", "statut": "À analyser", "is_english": false, "titre_fr": "Coordinateur des Systèmes d'Information & Gestion des Données", "description_fr": "Mise en place de bases de données sécurisées, automatisation du suivi-évaluation et formation des agents aux outils numériques.", "exigences_fr": "Bac+4/5 en Informatique ou Gestion de Données. Excellente maîtrise de SQL/Bases relationnelles, reporting digitalisé et capacité de vulgarisation.", "score_correspondance": 67, "competences_validees": ["Gestion d'Entreprise & Administration (GEA)", "Systèmes d'Information, Bases de Données & Normes", "Automatisation intelligente & Workflows IA", "Diplôme Universitaire (BAC + 3 Licence Pro GEA + IT)", "Adéquation parfaite : Double profil Gestion d'Entreprise + IT", "Localisation 100% conforme : Bamako (Sur site / Hybride)"], "competences_manquantes": [], "categorie_priorite": "PRIORITÉ 2 (Opportunité intéressante)", "score_match": 67, "matching_score": 67, "candidature": {"lettre_motivation": "# LETTRE DE MOTIVATION SUR-MESURE
+
+**Candidat :** Issa CISSÉ  
+**Contact :** (+223) 78 02 02 09 | mali-scope@scopeinter.com  
+**Adresse :** Bamako Golf, Commune V, District de Bamako, Mali  
+**LinkedIn :** https://www.linkedin.com/in/issa-cisse-3a4444145  
+
+---
+
+**À l'attention du Responsable du Recrutement / RH**  
+**Entreprise :** Programme de Développement Institutionnel (Bamako)  
+**Poste :** Coordinateur des Systèmes d'Information & Gestion des Données (Réf : CORP-ONG-03)  
+**Localisation :** Bamako avec missions ponctuelles  
+
+**Objet : Candidature au poste de Coordinateur des Systèmes d'Information & Gestion des Données**
+
+Madame, Monsieur,
+
+Diplômé d'une **Licence Professionnelle en Gestion des Entreprises et des Administrations (IUG Bamako)** et expert dans le déploiement d'outils numériques de gestion et de bases de données relationnelles, je vous présente ma candidature au poste de **Coordinateur des Systèmes d'Information & Gestion des Données** au sein du Programme de Développement Institutionnel.
+
+Face aux enjeux stratégiques de **Programme de Développement Institutionnel (Bamako)**, je mets à votre disposition un profil immédiatement opérationnel articulé autour de 3 forces majeures :
+
+1. **Structuration et sécurisation de bases relationnelles :** J'ai conçu et administré les bases de données de solutions opérationnelles (SQLite, architectures relationnelles pour Sòrò Stock et TaamaPass), assurant une intégrité parfaite des données et un fonctionnement autonome même en zone à connectivité limitée.
+2. **Digitalisation du suivi-évaluation et tableaux de bord :** Mon parcours en gestion GEA me confère une maîtrise approfondie de la modélisation d'indicateurs de performance (KPIs), du reporting automatisé et de la production d'états de synthèse fiables pour les décideurs institutionnels.
+3. **Accompagnement du changement et formation des équipes :** J'ai formé et accompagné des dizaines d'agents et gestionnaires sur le terrain dans l'adoption de nouveaux progiciels numériques, avec une grande pédagogie et un sens aigu de la vulgarisation.
+
+Intégrer le Programme de Développement Institutionnel me permettra d'engager toute ma rigueur méthodologique et ma polyvalence technique dans la réussite de vos missions de modernisation administrative au Mali.
+
+Je reste à votre entière disposition pour tout entretien d'approfondissement afin de vous détailler mes réalisations et mon plan d'action.
+
+Veuillez agréer, Madame, Monsieur, l'expression de mes salutations les plus distinguées.
+
+**Issa CISSÉ**  
+*Consultant Prestataire B2B | Concepteur TaamaPass & Sòrò Stock*  
+*Bamako, le 07 Novembre 2026*
+", "email_candidature": "OBJET : Candidature : Coordinateur des Systèmes d'Information & Gestion des Données - Issa CISSÉ - (+223 78 02 02 09)
+
+Madame, Monsieur le Responsable du Recrutement,
+
+Veuillez trouver ci-joint mon dossier de candidature sur-mesure (CV détaillé et lettre de motivation ciblée) pour le poste de Coordinateur des Systèmes d'Information & Gestion des Données au sein de Programme de Développement Institutionnel (Bamako) (Réf : CORP-ONG-03).
+
+Titulaire d'une Licence Professionnelle (BAC + 3) en Gestion des Entreprises et des Administrations (IUG Bamako) avec spécialisation en technologies numériques, et créateur de solutions opérationnelles éprouvées au Mali (notamment la plateforme de billetterie VIP TaamaPass et le progiciel de caisse Sòrò Stock), je suis en mesure de vous apporter rigueur de pilotage et maîtrise technologique immédiate.
+
+Je me tiens à votre disposition pour convenir d'un échange téléphonique ou d'un entretien.
+
+Excellente réception et cordiales salutations,
+
+Issa CISSÉ
+Tél / WhatsApp : (+223) 78 02 02 09
+Email : mali-scope@scopeinter.com / cisseissa03@gmail.com
+LinkedIn : https://www.linkedin.com/in/issa-cisse-3a4444145
+Bamako, Mali
+", "cv_titre_cible": "Coordinateur Systèmes d'Information & Gestion des Données", "pdf_cv_url": "/dashboard/cv_adaptes/CORP-ONG-03_CV_ADAPTE.pdf", "pdf_lettre_url": "/dashboard/cv_adaptes/CORP-ONG-03_LETTRE.pdf", "dossier_local": "C:\Users\BANOU B.T.M\Documents\AGENT_RECRUTEMENT\candidatures\Programme_de_Développement_Institutionnel_Bamako_Coordinateur_des_Systèmes"}}, {"id": "REM-2091161", "source": "Remotive (Télétravail International)", "titre": "AI Trainer - Video Annotation", "entreprise": "iMerit Technology", "localisation": "Télétravail (100% Remote - Accessible depuis Bamako)", "date_publication": "2026-10-22", "date_limite": "Recrutement ouvert", "description": "AI Trainer - Video AnnotationRemote | Independent Contractor Prove your skills. Get certified. Robotics AI is advancing rapidly, and high-quality video data helps intelligent systems better understand the world around them. We are inviting detail-oriented professionals to complete our certification process for potential robotics AI projects. ▌ What you will doAs part of the certification process, you will demonstrate your ability to:Annotate short video clips by identifying objects, actions and ...", "exigences": "Maîtrise de JavaScript/Node.js, architecture web, autonomie et communication écrite.", "salaire": "70K-80K", "lien_direct": "https://remotive.com/remote-jobs/artificial-intelligence/ai-trainer-video-annotation-2091161", "statut": "À analyser", "is_english": true, "titre_original": "AI Trainer - Video Annotation", "description_original": "AI Trainer - Video AnnotationRemote | Independent Contractor Prove your skills. Get certified. Robotics AI is advancing rapidly, and high-quality video data helps intelligent systems better understand the world around them. We are inviting detail-oriented professionals to complete our certification process for potential robotics AI projects. ▌ What you will doAs part of the certification process, you will demonstrate your ability to:Annotate short video clips by identifying objects, actions and ...", "exigences_original": "Maîtrise de JavaScript/Node.js, architecture web, autonomie et communication écrite.", "titre_fr": "Entraîneur IA - Annotation vidéo", "description_fr": "AI Trainer - Annotation vidéo à distance | Entrepreneur indépendant Prouvez vos compétences. Obtenez une certification. L’IA robotique progresse rapidement et les données vidéo de haute qualité aident les systèmes intelligents à mieux comprendre le monde qui les entoure. Nous invitons les professionnels soucieux du détail à compléter notre processus de certification pour des projets potentiels d'IA robotique. ▌ Ce que vous ferezDans le cadre du processus de certification, vous démontrerez votre capacité à :Annoter de courts clips vidéo en identifiant des objets, des actions et...", "exigences_fr": "Maîtrise de JavaScript/Node.js, architecture web, autonomie et communication écrite.", "score_correspondance": 65, "competences_validees": ["Format Mission / Consultance Prestataire", "Conception de Solutions Métiers (PWA, Web, Desktop)", "Systèmes d'Information, Bases de Données & Normes", "Automatisation intelligente & Workflows IA", "Localisation 100% conforme : Bamako (Sur site / Hybride)"], "competences_manquantes": [], "categorie_priorite": "PRIORITÉ 2 (Opportunité intéressante)", "score_match": 65, "matching_score": 65, "candidature": {"lettre_motivation": "# LETTRE DE MOTIVATION SUR-MESURE
+
+**Candidat :** Issa CISSÉ  
+**Contact :** (+223) 78 02 02 09 | mali-scope@scopeinter.com  
+**Adresse :** Bamako Golf, Commune V, District de Bamako, Mali  
+**LinkedIn :** https://www.linkedin.com/in/issa-cisse-3a4444145  
+
+---
+
+**À l'attention du Responsable du Recrutement / RH**  
+**Entreprise :** iMerit Technology  
+**Poste :** AI Trainer - Video Annotation (Réf : REM-2091161)  
+**Localisation :** Télétravail (100% Remote - Accessible depuis Bamako)  
+
+**Objet : Candidature au poste de AI Trainer - Video Annotation**
+
+Madame, Monsieur,
+
+I am writing to express my strong interest in the **AI Trainer - Video Annotation** role at iMerit Technology. With a background in Business Operations (Licence Pro GEA) and software engineering, I bring the exact combination of methodical precision, high visual acuity, and tech-savviness required to train state-of-the-art robotic AI models.
+
+Face aux enjeux stratégiques de **iMerit Technology**, je mets à votre disposition un profil immédiatement opérationnel articulé autour de 3 forces majeures :
+
+1. **Exceptional Attention to Detail and Labeling Rigor :** My background in financial auditing and software quality assurance has honed my ability to identify subtle discrepancies, label bounding boxes with pixel precision, and adhere strictly to complex annotation taxonomies.
+2. **Deep Understanding of Data Pipelines & Computer Vision :** Having engineered web and data-driven systems, I comprehend how clean annotations directly impact model loss functions and inference accuracy in real-world robotic environments.
+3. **Proven Output Consistency & Self-Sufficiency :** Accustomed to high-standard deliverables, I consistently meet tight deadlines while exceeding QA benchmarks, supported by seamless written communication in professional English.
+
+I look forward to successfully completing your certification process and delivering reliable, high-fidelity video training datasets for iMerit's AI and robotics initiatives.
+
+Je reste à votre entière disposition pour tout entretien d'approfondissement afin de vous détailler mes réalisations et mon plan d'action.
+
+Veuillez agréer, Madame, Monsieur, l'expression de mes salutations les plus distinguées.
+
+**Issa CISSÉ**  
+*Consultant Prestataire B2B | Concepteur TaamaPass & Sòrò Stock*  
+*Bamako, le 07 Novembre 2026*
+", "email_candidature": "OBJET : Candidature : AI Trainer - Video Annotation - Issa CISSÉ - (+223 78 02 02 09)
+
+Madame, Monsieur le Responsable du Recrutement,
+
+Veuillez trouver ci-joint mon dossier de candidature sur-mesure (CV détaillé et lettre de motivation ciblée) pour le poste de AI Trainer - Video Annotation au sein de iMerit Technology (Réf : REM-2091161).
+
+Titulaire d'une Licence Professionnelle (BAC + 3) en Gestion des Entreprises et des Administrations (IUG Bamako) avec spécialisation en technologies numériques, et créateur de solutions opérationnelles éprouvées au Mali (notamment la plateforme de billetterie VIP TaamaPass et le progiciel de caisse Sòrò Stock), je suis en mesure de vous apporter rigueur de pilotage et maîtrise technologique immédiate.
+
+Je me tiens à votre disposition pour convenir d'un échange téléphonique ou d'un entretien.
+
+Excellente réception et cordiales salutations,
+
+Issa CISSÉ
+Tél / WhatsApp : (+223) 78 02 02 09
+Email : mali-scope@scopeinter.com / cisseissa03@gmail.com
+LinkedIn : https://www.linkedin.com/in/issa-cisse-3a4444145
+Bamako, Mali
+", "cv_titre_cible": "AI Quality Specialist & Video Annotation Lead", "pdf_cv_url": "/dashboard/cv_adaptes/REM-2091161_CV_ADAPTE.pdf", "pdf_lettre_url": "/dashboard/cv_adaptes/REM-2091161_LETTRE.pdf", "dossier_local": "C:\Users\BANOU B.T.M\Documents\AGENT_RECRUTEMENT\candidatures\iMerit_Technology_AI_Trainer__Video_Annotat"}}, {"id": "REM-2086540", "source": "Remotive (Télétravail International)", "titre": "Inside Sales Contractor", "entreprise": "Credit Wellness, LLC", "localisation": "Télétravail (100% Remote - Accessible depuis Bamako)", "date_publication": "2026-10-08", "date_limite": "Recrutement ouvert", "description": "About Us We are a financial services start up focusing on helping to improve consumer credit profiles. We are currently seeking KPI driven sales representatives looking to earn up to 45K in their first year while working remotely. We offer comprehensive training and continuous sales coaching to help you meet your financial goals. During our training period we offer a guaranteed training stipend while our trainees are acclimating to the position (*see weekly pay below). If you are a seasoned sale...", "exigences": "Maîtrise de JavaScript/Node.js, architecture web, autonomie et communication écrite.", "salaire": "OTE $25k - $35k", "lien_direct": "https://remotive.com/remote-jobs/sales/inside-sales-contractor-2086540", "statut": "À analyser", "is_english": true, "titre_original": "Inside Sales Contractor", "description_original": "About Us We are a financial services start up focusing on helping to improve consumer credit profiles. We are currently seeking KPI driven sales representatives looking to earn up to 45K in their first year while working remotely. We offer comprehensive training and continuous sales coaching to help you meet your financial goals. During our training period we offer a guaranteed training stipend while our trainees are acclimating to the position (*see weekly pay below). If you are a seasoned sale...", "exigences_original": "Maîtrise de JavaScript/Node.js, architecture web, autonomie et communication écrite.", "titre_fr": "Entrepreneur en ventes internes", "description_fr": "À propos de nous Nous sommes une start-up de services financiers qui se concentre sur l'amélioration des profils de crédit à la consommation. Nous recherchons actuellement des représentants commerciaux axés sur les KPI et cherchant à gagner jusqu'à 45 000 $ au cours de leur première année tout en travaillant à distance. Nous proposons une formation complète et un coaching commercial continu pour vous aider à atteindre vos objectifs financiers. Pendant notre période de formation, nous offrons une allocation de formation garantie pendant que nos stagiaires s'acclimatent au poste (*voir salaire hebdomadaire ci-dessous). Si vous êtes un vendeur chevronné...", "exigences_fr": "Maîtrise de JavaScript/Node.js, architecture web, autonomie et communication écrite.", "score_correspondance": 65, "competences_validees": ["Format Mission / Consultance Prestataire", "Conception de Solutions Métiers (PWA, Web, Desktop)", "Systèmes d'Information, Bases de Données & Normes", "Automatisation intelligente & Workflows IA", "Localisation 100% conforme : Bamako (Sur site / Hybride)"], "competences_manquantes": [], "categorie_priorite": "PRIORITÉ 2 (Opportunité intéressante)", "score_match": 65, "matching_score": 65, "candidature": {"lettre_motivation": "# LETTRE DE MOTIVATION SUR-MESURE
+
+**Candidat :** Issa CISSÉ  
+**Contact :** (+223) 78 02 02 09 | mali-scope@scopeinter.com  
+**Adresse :** Bamako Golf, Commune V, District de Bamako, Mali  
+**LinkedIn :** https://www.linkedin.com/in/issa-cisse-3a4444145  
+
+---
+
+**À l'attention du Responsable du Recrutement / RH**  
+**Entreprise :** Credit Wellness, LLC  
+**Poste :** Inside Sales Contractor (Réf : REM-2086540)  
+**Localisation :** Télétravail (100% Remote - Accessible depuis Bamako)  
+
+**Objet : Candidature au poste de Inside Sales Contractor**
+
+Madame, Monsieur,
+
+I am applying with enthusiasm for the **Inside Sales Contractor** position at Credit Wellness, LLC. Combining an academic background in Business Administration (GEA) with 10+ years of frontline commercial negotiation and partnership acquisition, I am confident in my ability to exceed your sales pipeline KPIs.
+
+Face aux enjeux stratégiques de **Credit Wellness, LLC**, je mets à votre disposition un profil immédiatement opérationnel articulé autour de 3 forces majeures :
+
+1. **Proven Track Record in Client Acquisition & Conversion :** At Aux Belles Dames and across my consulting endeavors, I have led B2B sales outreach, negotiated contracts with key distribution accounts, and maintained high retention through structured consultative selling.
+2. **Fluency in Financial Concepts & Consumer Mindset :** My core education in Business Administration and treasury control allows me to clearly articulate the value of financial wellness, credit repair, and debt management to prospective clients.
+3. **KPI-Driven Discipline & Relentless Execution :** I thrive in structured, goal-oriented environments, leveraging CRM workflows and active listening to overcome client objections and close agreements efficiently.
+
+I am ready to undertake your comprehensive training and start delivering measurable sales revenue for Credit Wellness, LLC.
+
+Je reste à votre entière disposition pour tout entretien d'approfondissement afin de vous détailler mes réalisations et mon plan d'action.
+
+Veuillez agréer, Madame, Monsieur, l'expression de mes salutations les plus distinguées.
+
+**Issa CISSÉ**  
+*Consultant Prestataire B2B | Concepteur TaamaPass & Sòrò Stock*  
+*Bamako, le 07 Novembre 2026*
+", "email_candidature": "OBJET : Candidature : Inside Sales Contractor - Issa CISSÉ - (+223 78 02 02 09)
+
+Madame, Monsieur le Responsable du Recrutement,
+
+Veuillez trouver ci-joint mon dossier de candidature sur-mesure (CV détaillé et lettre de motivation ciblée) pour le poste de Inside Sales Contractor au sein de Credit Wellness, LLC (Réf : REM-2086540).
+
+Titulaire d'une Licence Professionnelle (BAC + 3) en Gestion des Entreprises et des Administrations (IUG Bamako) avec spécialisation en technologies numériques, et créateur de solutions opérationnelles éprouvées au Mali (notamment la plateforme de billetterie VIP TaamaPass et le progiciel de caisse Sòrò Stock), je suis en mesure de vous apporter rigueur de pilotage et maîtrise technologique immédiate.
+
+Je me tiens à votre disposition pour convenir d'un échange téléphonique ou d'un entretien.
+
+Excellente réception et cordiales salutations,
+
+Issa CISSÉ
+Tél / WhatsApp : (+223) 78 02 02 09
+Email : mali-scope@scopeinter.com / cisseissa03@gmail.com
+LinkedIn : https://www.linkedin.com/in/issa-cisse-3a4444145
+Bamako, Mali
+", "cv_titre_cible": "Inside Sales & Business Development Representative", "pdf_cv_url": "/dashboard/cv_adaptes/REM-2086540_CV_ADAPTE.pdf", "pdf_lettre_url": "/dashboard/cv_adaptes/REM-2086540_LETTRE.pdf", "dossier_local": "C:\Users\BANOU B.T.M\Documents\AGENT_RECRUTEMENT\candidatures\Credit_Wellness_LLC_Inside_Sales_Contractor"}}, {"id": "REM-2091045", "source": "Remotive (Télétravail International)", "titre": "Tier III Service Desk Engineer", "entreprise": "Unio Digital", "localisation": "Télétravail (100% Remote - Accessible depuis Bamako)", "date_publication": "2026-10-07", "date_limite": "Recrutement ouvert", "description": "Unió Digital is an Arizona-based managed service provider (MSP) delivering Managed IT Services, Low Voltage Cabling, Access Control, Video Surveillance, and Intrusion Services. We believe technology should be intuitive, not intimidating. We are looking for an experienced Tier 3 Service Desk Technician with exceptional problem-solving skills. You will serve as the escalation point within the team, resolving complex technical issues while also leading client onboarding and project initiatives. You...", "exigences": "Maîtrise de JavaScript/Node.js, architecture web, autonomie et communication écrite.", "salaire": "", "lien_direct": "https://remotive.com/remote-jobs/information-technology/tier-iii-service-desk-engineer-2091045", "statut": "À analyser", "is_english": true, "titre_original": "Tier III Service Desk Engineer", "description_original": "Unió Digital is an Arizona-based managed service provider (MSP) delivering Managed IT Services, Low Voltage Cabling, Access Control, Video Surveillance, and Intrusion Services. We believe technology should be intuitive, not intimidating. We are looking for an experienced Tier 3 Service Desk Technician with exceptional problem-solving skills. You will serve as the escalation point within the team, resolving complex technical issues while also leading client onboarding and project initiatives. You...", "exigences_original": "Maîtrise de JavaScript/Node.js, architecture web, autonomie et communication écrite.", "titre_fr": "Ingénieur Service Desk de niveau III", "description_fr": "Unió Digital est un fournisseur de services gérés (MSP) basé en Arizona qui fournit des services informatiques gérés, des services de câblage basse tension, de contrôle d'accès, de vidéosurveillance et d'intrusion. Nous pensons que la technologie doit être intuitive et non intimidante. Nous recherchons un technicien Service Desk expérimenté de niveau 3 doté de compétences exceptionnelles en résolution de problèmes. Vous servirez de point d'escalade au sein de l'équipe, résolvant des problèmes techniques complexes tout en dirigeant l'intégration des clients et les initiatives de projet. Toi...", "exigences_fr": "Maîtrise de JavaScript/Node.js, architecture web, autonomie et communication écrite.", "score_correspondance": 65, "competences_validees": ["Format Mission / Consultance Prestataire", "Conception de Solutions Métiers (PWA, Web, Desktop)", "Systèmes d'Information, Bases de Données & Normes", "Automatisation intelligente & Workflows IA", "Localisation 100% conforme : Bamako (Sur site / Hybride)"], "competences_manquantes": [], "categorie_priorite": "PRIORITÉ 2 (Opportunité intéressante)", "score_match": 65, "matching_score": 65, "candidature": {"lettre_motivation": "# LETTRE DE MOTIVATION SUR-MESURE
+
+**Candidat :** Issa CISSÉ  
+**Contact :** (+223) 78 02 02 09 | mali-scope@scopeinter.com  
+**Adresse :** Bamako Golf, Commune V, District de Bamako, Mali  
+**LinkedIn :** https://www.linkedin.com/in/issa-cisse-3a4444145  
+
+---
+
+**À l'attention du Responsable du Recrutement / RH**  
+**Entreprise :** Unio Digital  
+**Poste :** Tier III Service Desk Engineer (Réf : REM-2091045)  
+**Localisation :** Télétravail (100% Remote - Accessible depuis Bamako)  
+
+**Objet : Candidature au poste de Tier III Service Desk Engineer**
+
+Madame, Monsieur,
+
+As an experienced software troubleshooter and systems solutions developer, I am writing to express my strong enthusiasm for the **Tier III Service Desk Engineer** position at Unió Digital. My day-to-day work involves solving deep-level operating system locks, database corruptions, and deploying robust managed software solutions.
+
+Face aux enjeux stratégiques de **Unio Digital**, je mets à votre disposition un profil immédiatement opérationnel articulé autour de 3 forces majeures :
+
+1. **Deep Level 3 Root Cause Analysis & Resolution :** I routinely troubleshoot critical software and systems failures—including Windows locked processes, SQLite database corruptions ('database disk image is malformed'), and IPC remote invocations—authoring targeted recovery runbooks for field technicians.
+2. **Full-Stack Systems & Architecture Mastery :** Having built and maintained desktop and web business applications using Electron, Node.js, SQLite, and modern web protocols, I understand software under the hood, enabling rapid diagnosis of network bottlenecks, access controls, and software crashes.
+3. **Customer-Centric Problem Solving & Autonomy :** I combine rigorous technical diagnostics with clear, empathetic communication, ensuring enterprise clients experience minimal downtime and receive clear post-incident documentation.
+
+I am eager to bring my advanced Tier 3 troubleshooting capabilities and proactive problem-solving mindset to Unió Digital's managed service desk operations.
+
+Je reste à votre entière disposition pour tout entretien d'approfondissement afin de vous détailler mes réalisations et mon plan d'action.
+
+Veuillez agréer, Madame, Monsieur, l'expression de mes salutations les plus distinguées.
+
+**Issa CISSÉ**  
+*Consultant Prestataire B2B | Concepteur TaamaPass & Sòrò Stock*  
+*Bamako, le 07 Novembre 2026*
+", "email_candidature": "OBJET : Candidature : Tier III Service Desk Engineer - Issa CISSÉ - (+223 78 02 02 09)
+
+Madame, Monsieur le Responsable du Recrutement,
+
+Veuillez trouver ci-joint mon dossier de candidature sur-mesure (CV détaillé et lettre de motivation ciblée) pour le poste de Tier III Service Desk Engineer au sein de Unio Digital (Réf : REM-2091045).
+
+Titulaire d'une Licence Professionnelle (BAC + 3) en Gestion des Entreprises et des Administrations (IUG Bamako) avec spécialisation en technologies numériques, et créateur de solutions opérationnelles éprouvées au Mali (notamment la plateforme de billetterie VIP TaamaPass et le progiciel de caisse Sòrò Stock), je suis en mesure de vous apporter rigueur de pilotage et maîtrise technologique immédiate.
+
+Je me tiens à votre disposition pour convenir d'un échange téléphonique ou d'un entretien.
+
+Excellente réception et cordiales salutations,
+
+Issa CISSÉ
+Tél / WhatsApp : (+223) 78 02 02 09
+Email : mali-scope@scopeinter.com / cisseissa03@gmail.com
+LinkedIn : https://www.linkedin.com/in/issa-cisse-3a4444145
+Bamako, Mali
+", "cv_titre_cible": "Tier III Service Desk & Systems Support Engineer", "pdf_cv_url": "/dashboard/cv_adaptes/REM-2091045_CV_ADAPTE.pdf", "pdf_lettre_url": "/dashboard/cv_adaptes/REM-2091045_LETTRE.pdf", "dossier_local": "C:\Users\BANOU B.T.M\Documents\AGENT_RECRUTEMENT\candidatures\Unio_Digital_Tier_III_Service_Desk_Eng"}}, {"id": "REM-1185979", "source": "Remotive (Télétravail International)", "titre": "Freelance Writer", "entreprise": "IAPWE", "localisation": "Télétravail (100% Remote - Accessible depuis Bamako)", "date_publication": "2026-11-04", "date_limite": "Recrutement ouvert", "description": "Our organization is seeking content writers to create articles and blog posts on a variety of topics. The rate of pay is $20 per 100 words (this comes out to approximately $100 per article or $50 per hour). Some topics you may be asked to write about include the following (you can always turn down a topic if you do not feel comfortable writing about it, however if you have experience or expertise in a specific area, please let us know): Health &amp; beauty Fitness Home Decor Fashion Sports Do it...", "exigences": "Maîtrise de JavaScript/Node.js, architecture web, autonomie et communication écrite.", "salaire": "$50-$75 /hour", "lien_direct": "https://remotive.com/remote-jobs/writing/freelance-writer-1185979", "statut": "À analyser", "is_english": true, "titre_original": "Freelance Writer", "description_original": "Our organization is seeking content writers to create articles and blog posts on a variety of topics. The rate of pay is $20 per 100 words (this comes out to approximately $100 per article or $50 per hour). Some topics you may be asked to write about include the following (you can always turn down a topic if you do not feel comfortable writing about it, however if you have experience or expertise in a specific area, please let us know): Health &amp; beauty Fitness Home Decor Fashion Sports Do it...", "exigences_original": "Maîtrise de JavaScript/Node.js, architecture web, autonomie et communication écrite.", "titre_fr": "Écrivain indépendant", "description_fr": "Notre organisation recherche des rédacteurs de contenu pour créer des articles et des billets de blog sur une variété de sujets. Le taux de rémunération est de 20 $ pour 100 mots (cela équivaut à environ 100 $ par article ou 50 $ par heure). Certains sujets sur lesquels vous pourriez être invité à écrire sont les suivants (vous pouvez toujours refuser un sujet si vous ne vous sentez pas à l'aise d'écrire à ce sujet, mais si vous avez de l'expérience ou une expertise dans un domaine spécifique, veuillez nous le faire savoir) : Santé et beauté Fitness Décoration d'intérieur Mode Sports Faites-le...", "exigences_fr": "Maîtrise de JavaScript/Node.js, architecture web, autonomie et communication écrite.", "score_correspondance": 54, "competences_validees": ["Format Mission / Consultance Prestataire", "Missions de Consultance & Prestation Technique", "Conception de Solutions Métiers (PWA, Web, Desktop)", "Localisation 100% conforme : Bamako (Sur site / Hybride)"], "competences_manquantes": [], "categorie_priorite": "PRIORITÉ 2 (Opportunité intéressante)", "score_match": 54, "matching_score": 54, "candidature": {"lettre_motivation": "# LETTRE DE MOTIVATION SUR-MESURE
+
+**Candidat :** Issa CISSÉ  
+**Contact :** (+223) 78 02 02 09 | mali-scope@scopeinter.com  
+**Adresse :** Bamako Golf, Commune V, District de Bamako, Mali  
+**LinkedIn :** https://www.linkedin.com/in/issa-cisse-3a4444145  
+
+---
+
+**À l'attention du Responsable du Recrutement / RH**  
+**Entreprise :** IAPWE  
+**Poste :** Freelance Writer (Réf : REM-1185979)  
+**Localisation :** Télétravail (100% Remote - Accessible depuis Bamako)  
+
+**Objet : Candidature au poste de Freelance Writer**
+
+Madame, Monsieur,
+
+I am pleased to submit my application for the **Freelance Writer** position at IAPWE. Combining an academic background in Business Administration (GEA) with extensive experience producing high-impact technical and business documentation, I provide engaging, highly researched content tailored to your audience.
+
+Face aux enjeux stratégiques de **IAPWE**, je mets à votre disposition un profil immédiatement opérationnel articulé autour de 3 forces majeures :
+
+1. **In-Depth Subject Matter Authority :** My direct experience in financial systems, business management, and software development enables me to write with authentic technical nuance and practical clarity.
+2. **Audience-Driven SEO & Content Structuring :** I craft compelling articles, landing pages, and educational guides optimized for search intent, readability, and conversion.
+3. **Strict Adherence to Editorial Guidelines & Timelines :** I deliver thoroughly researched, original, and polished content that respects style guides, word counts, and deadlines.
+
+I look forward to contributing high-quality, engaging content to IAPWE's publication roster.
+
+Je reste à votre entière disposition pour tout entretien d'approfondissement afin de vous détailler mes réalisations et mon plan d'action.
+
+Veuillez agréer, Madame, Monsieur, l'expression de mes salutations les plus distinguées.
+
+**Issa CISSÉ**  
+*Consultant Prestataire B2B | Concepteur TaamaPass & Sòrò Stock*  
+*Bamako, le 07 Novembre 2026*
+", "email_candidature": "OBJET : Candidature : Freelance Writer - Issa CISSÉ - (+223 78 02 02 09)
+
+Madame, Monsieur le Responsable du Recrutement,
+
+Veuillez trouver ci-joint mon dossier de candidature sur-mesure (CV détaillé et lettre de motivation ciblée) pour le poste de Freelance Writer au sein de IAPWE (Réf : REM-1185979).
+
+Titulaire d'une Licence Professionnelle (BAC + 3) en Gestion des Entreprises et des Administrations (IUG Bamako) avec spécialisation en technologies numériques, et créateur de solutions opérationnelles éprouvées au Mali (notamment la plateforme de billetterie VIP TaamaPass et le progiciel de caisse Sòrò Stock), je suis en mesure de vous apporter rigueur de pilotage et maîtrise technologique immédiate.
+
+Je me tiens à votre disposition pour convenir d'un échange téléphonique ou d'un entretien.
+
+Excellente réception et cordiales salutations,
+
+Issa CISSÉ
+Tél / WhatsApp : (+223) 78 02 02 09
+Email : mali-scope@scopeinter.com / cisseissa03@gmail.com
+LinkedIn : https://www.linkedin.com/in/issa-cisse-3a4444145
+Bamako, Mali
+", "cv_titre_cible": "Technical & B2B Content Writer", "pdf_cv_url": "/dashboard/cv_adaptes/REM-1185979_CV_ADAPTE.pdf", "pdf_lettre_url": "/dashboard/cv_adaptes/REM-1185979_LETTRE.pdf", "dossier_local": "C:\Users\BANOU B.T.M\Documents\AGENT_RECRUTEMENT\candidatures\IAPWE_Freelance_Writer"}}, {"id": "CORP-ORANGE-02", "source": "Orange Mali / Orange Money", "titre": "Product Owner / Responsable Solutions Digitales & Mobile Money", "entreprise": "Orange Mali (Direction des Services Numériques)", "localisation": "Bamako (Hamdallaye ACI 2000)", "date_publication": "2026-11-06", "date_limite": "20 Novembre 2026", "description": "Piloter la conception et l'évolution des fonctionnalités B2B et B2C des applications mobiles, suivi des parcours clients et intégration de services tiers.", "exigences": "Bac+5 Ingénieur informatique ou Master SI. Expérience en conception de produits numériques (PWA/Mobile), sens de l'expérience utilisateur et rigueur opérationnelle.", "salaire": "Selon profil Cadre Télécoms & Services Financiers", "lien_direct": "https://orange.com/fr/carrieres", "statut": "À analyser", "is_english": false, "titre_fr": "Product Owner / Responsable Solutions Digitales & Mobile Money", "description_fr": "Piloter la conception et l'évolution des fonctionnalités B2B et B2C des applications mobiles, suivi des parcours clients et intégration de services tiers.", "exigences_fr": "Bac+5 Ingénieur informatique ou Master SI. Expérience en conception de produits numériques (PWA/Mobile), sens de l'expérience utilisateur et rigueur opérationnelle.", "score_correspondance": 45, "competences_validees": ["Conception de Solutions Métiers (PWA, Web, Desktop)", "Systèmes d'Information, Bases de Données & Normes", "Références et plateformes réelles vérifiables (TaamaPass, Sòrò Stock)", "Localisation 100% conforme : Bamako (Sur site / Hybride)"], "competences_manquantes": [], "categorie_priorite": "PRIORITÉ 3 (Opportunité secondaire)", "score_match": 45, "matching_score": 45, "candidature": {"lettre_motivation": "# LETTRE DE MOTIVATION SUR-MESURE
+
+**Candidat :** Issa CISSÉ  
+**Contact :** (+223) 78 02 02 09 | mali-scope@scopeinter.com  
+**Adresse :** Bamako Golf, Commune V, District de Bamako, Mali  
+**LinkedIn :** https://www.linkedin.com/in/issa-cisse-3a4444145  
+
+---
+
+**À l'attention du Responsable du Recrutement / RH**  
+**Entreprise :** Orange Mali (Direction des Services Numériques)  
+**Poste :** Product Owner / Responsable Solutions Digitales & Mobile Money (Réf : CORP-ORANGE-02)  
+**Localisation :** Bamako (Hamdallaye ACI 2000)  
+
+**Objet : Candidature au poste de Product Owner / Responsable Solutions Digitales & Mobile Money**
+
+Madame, Monsieur,
+
+Fort d'une solide expérience de **Superviseur de Réseau au sein du partenaire officiel Orange Mali (Bizcom)**, diplômé en **Gestion des Entreprises (IUG Bac+3)** et concepteur de la solution transactionnelle **TaamaPass**, je vous soumets avec enthousiasme ma candidature au poste de **Product Owner / Responsable Solutions Digitales & Mobile Money** chez Orange Mali.
+
+Face aux enjeux stratégiques de **Orange Mali (Direction des Services Numériques)**, je mets à votre disposition un profil immédiatement opérationnel articulé autour de 3 forces majeures :
+
+1. **Connaissance intime de l'écosystème commercial et financier Orange :** De 2011 à 2014 chez Bizcom, j'ai supervisé un réseau dense de points de vente Orange, assurant la distribution, la gestion des inventaires de monnaie électronique (valeurs virtuelles) et la sécurisation des flux de trésorerie.
+2. **Conception et delivery de produits numériques à fort impact (TaamaPass) :** J'ai piloté de A à Z le produit TaamaPass : expérience utilisateur mobile (PWA), architecture transactionnelle, notifications automatisées et intégration de canaux de paiement, avec une adoption massive sur le corridor sous-régional.
+3. **Pratiques modernes de développement et certification ODC :** Sélectionné et certifié par Orange Digital Center Mali sur les pratiques DevOps, Docker et CI/CD, je bridge parfaitement les attentes business et les impératifs des équipes d'ingénierie logicielle.
+
+Rejoindre la Direction des Services Numériques d'Orange Mali représente pour moi la suite logique de mon engagement dans l'innovation mobile au Mali, en apportant un profil rare mêlant expérience terrain télécom et maîtrise produit.
+
+Je reste à votre entière disposition pour tout entretien d'approfondissement afin de vous détailler mes réalisations et mon plan d'action.
+
+Veuillez agréer, Madame, Monsieur, l'expression de mes salutations les plus distinguées.
+
+**Issa CISSÉ**  
+*Consultant Prestataire B2B | Concepteur TaamaPass & Sòrò Stock*  
+*Bamako, le 07 Novembre 2026*
+", "email_candidature": "OBJET : Candidature : Product Owner / Responsable Solutions Digitales & Mobile Money - Issa CISSÉ - (+223 78 02 02 09)
+
+Madame, Monsieur le Responsable du Recrutement,
+
+Veuillez trouver ci-joint mon dossier de candidature sur-mesure (CV détaillé et lettre de motivation ciblée) pour le poste de Product Owner / Responsable Solutions Digitales & Mobile Money au sein de Orange Mali (Direction des Services Numériques) (Réf : CORP-ORANGE-02).
+
+Titulaire d'une Licence Professionnelle (BAC + 3) en Gestion des Entreprises et des Administrations (IUG Bamako) avec spécialisation en technologies numériques, et créateur de solutions opérationnelles éprouvées au Mali (notamment la plateforme de billetterie VIP TaamaPass et le progiciel de caisse Sòrò Stock), je suis en mesure de vous apporter rigueur de pilotage et maîtrise technologique immédiate.
+
+Je me tiens à votre disposition pour convenir d'un échange téléphonique ou d'un entretien.
+
+Excellente réception et cordiales salutations,
+
+Issa CISSÉ
+Tél / WhatsApp : (+223) 78 02 02 09
+Email : mali-scope@scopeinter.com / cisseissa03@gmail.com
+LinkedIn : https://www.linkedin.com/in/issa-cisse-3a4444145
+Bamako, Mali
+", "cv_titre_cible": "Product Owner Solutions Digitales & Mobile Money", "pdf_cv_url": "/dashboard/cv_adaptes/CORP-ORANGE-02_CV_ADAPTE.pdf", "pdf_lettre_url": "/dashboard/cv_adaptes/CORP-ORANGE-02_LETTRE.pdf", "dossier_local": "C:\Users\BANOU B.T.M\Documents\AGENT_RECRUTEMENT\candidatures\Orange_Mali_Direction_des_Services_Numériques_Product_Owner__Responsabl"}}, {"id": "REM-2091165", "source": "Remotive (Télétravail International)", "titre": "Full-Stack Developer", "entreprise": "Fluence International, Inc.", "localisation": "Télétravail (100% Remote - Accessible depuis Bamako)", "date_publication": "2026-10-29", "date_limite": "Recrutement ouvert", "description": "We’re looking for a pragmatic, security-minded Full-Stack Developer to help build and scale Fluence’s B2B products used by clinicians, researchers, and organizations in psychedelic-assisted therapy and mental health. You’ll work closely with and report to our Senior AI &amp; Design Lead to turn product requirements into robust, secure, and well-documented applications, as well as maintain existing ones. What you’ll do Build and maintain full-stack web applications using React and Next.js. Archit...", "exigences": "Maîtrise de JavaScript/Node.js, architecture web, autonomie et communication écrite.", "salaire": "$3.5k–$5k/month", "lien_direct": "https://remotive.com/remote-jobs/software-development/full-stack-developer-2091165", "statut": "À analyser", "is_english": true, "titre_original": "Full-Stack Developer", "description_original": "We’re looking for a pragmatic, security-minded Full-Stack Developer to help build and scale Fluence’s B2B products used by clinicians, researchers, and organizations in psychedelic-assisted therapy and mental health. You’ll work closely with and report to our Senior AI &amp; Design Lead to turn product requirements into robust, secure, and well-documented applications, as well as maintain existing ones. What you’ll do Build and maintain full-stack web applications using React and Next.js. Archit...", "exigences_original": "Maîtrise de JavaScript/Node.js, architecture web, autonomie et communication écrite.", "titre_fr": "Développeur Full-Stack", "description_fr": "Nous recherchons un développeur Full-Stack pragmatique et soucieux de la sécurité pour aider à créer et à faire évoluer les produits B2B de Fluence utilisés par les cliniciens, les chercheurs et les organisations dans le domaine de la thérapie assistée par psychédélique et de la santé mentale. Vous travaillerez en étroite collaboration avec notre responsable principal de l'IA et de la conception et lui rendrez compte pour transformer les exigences du produit en applications robustes, sécurisées et bien documentées, ainsi que pour maintenir celles existantes. Ce que vous ferez Créer et maintenir des applications Web complètes à l'aide de React et Next.js. Archit...", "exigences_fr": "Maîtrise de JavaScript/Node.js, architecture web, autonomie et communication écrite.", "score_correspondance": 43, "competences_validees": ["Conception de Solutions Métiers (PWA, Web, Desktop)", "Systèmes d'Information, Bases de Données & Normes", "Automatisation intelligente & Workflows IA", "Localisation 100% conforme : Bamako (Sur site / Hybride)"], "competences_manquantes": [], "categorie_priorite": "PRIORITÉ 3 (Opportunité secondaire)", "score_match": 43, "matching_score": 43, "candidature": {"lettre_motivation": "# LETTRE DE MOTIVATION SUR-MESURE
+
+**Candidat :** Issa CISSÉ  
+**Contact :** (+223) 78 02 02 09 | mali-scope@scopeinter.com  
+**Adresse :** Bamako Golf, Commune V, District de Bamako, Mali  
+**LinkedIn :** https://www.linkedin.com/in/issa-cisse-3a4444145  
+
+---
+
+**À l'attention du Responsable du Recrutement / RH**  
+**Entreprise :** Fluence International, Inc.  
+**Poste :** Full-Stack Developer (Réf : REM-2091165)  
+**Localisation :** Télétravail (100% Remote - Accessible depuis Bamako)  
+
+**Objet : Candidature au poste de Full-Stack Developer**
+
+Madame, Monsieur,
+
+I am writing to express my strong interest in the **Full-Stack Developer** role at Fluence International. As a developer passionate about secure, human-centric software and the creator of scalable real-world applications (TaamaPass, Sòrò Stock), I am enthusiastic about building robust digital tools for your B2B healthcare community.
+
+Face aux enjeux stratégiques de **Fluence International, Inc.**, je mets à votre disposition un profil immédiatement opérationnel articulé autour de 3 forces majeures :
+
+1. **Robust Full-Stack Web Development :** I build performant web applications utilizing React, modern JavaScript/Node.js, and relational database layers, prioritizing clean code architecture, type safety, and seamless UI responsiveness.
+2. **Security-First Mindset & Data Privacy :** Having built solutions that process sensitive ticketing transactions and commercial financial records, I implement rigorous data validation, encrypted local stores, and secure authentication flows.
+3. **Pragmatic Collaboration with Product & Design :** I work efficiently with cross-functional leads to turn complex product requirements into documented, testable features while maintaining existing codebases with care.
+
+I would be honored to contribute to Fluence's innovative mission by scaling resilient, user-friendly B2B applications.
+
+Je reste à votre entière disposition pour tout entretien d'approfondissement afin de vous détailler mes réalisations et mon plan d'action.
+
+Veuillez agréer, Madame, Monsieur, l'expression de mes salutations les plus distinguées.
+
+**Issa CISSÉ**  
+*Consultant Prestataire B2B | Concepteur TaamaPass & Sòrò Stock*  
+*Bamako, le 07 Novembre 2026*
+", "email_candidature": "OBJET : Candidature : Full-Stack Developer - Issa CISSÉ - (+223 78 02 02 09)
+
+Madame, Monsieur le Responsable du Recrutement,
+
+Veuillez trouver ci-joint mon dossier de candidature sur-mesure (CV détaillé et lettre de motivation ciblée) pour le poste de Full-Stack Developer au sein de Fluence International, Inc. (Réf : REM-2091165).
+
+Titulaire d'une Licence Professionnelle (BAC + 3) en Gestion des Entreprises et des Administrations (IUG Bamako) avec spécialisation en technologies numériques, et créateur de solutions opérationnelles éprouvées au Mali (notamment la plateforme de billetterie VIP TaamaPass et le progiciel de caisse Sòrò Stock), je suis en mesure de vous apporter rigueur de pilotage et maîtrise technologique immédiate.
+
+Je me tiens à votre disposition pour convenir d'un échange téléphonique ou d'un entretien.
+
+Excellente réception et cordiales salutations,
+
+Issa CISSÉ
+Tél / WhatsApp : (+223) 78 02 02 09
+Email : mali-scope@scopeinter.com / cisseissa03@gmail.com
+LinkedIn : https://www.linkedin.com/in/issa-cisse-3a4444145
+Bamako, Mali
+", "cv_titre_cible": "Full-Stack Web & Software Developer", "pdf_cv_url": "/dashboard/cv_adaptes/REM-2091165_CV_ADAPTE.pdf", "pdf_lettre_url": "/dashboard/cv_adaptes/REM-2091165_LETTRE.pdf", "dossier_local": "C:\Users\BANOU B.T.M\Documents\AGENT_RECRUTEMENT\candidatures\Fluence_International_Inc_FullStack_Developer"}}, {"id": "REM-1680495", "source": "Remotive (Télétravail International)", "titre": "Remote Office Assistant", "entreprise": "Coalition Technologies ", "localisation": "Télétravail (100% Remote - Accessible depuis Bamako)", "date_publication": "2026-10-11", "date_limite": "Recrutement ouvert", "description": "Coalition Technologies is seeking a reliable, detail-oriented, and highly organized Remote Office Assistant to support administrative, bookkeeping, billing, reporting, data entry, and internal operations tasks. This role is ideal for someone with strong communication skills, discretion, attention to detail, and a willingness to learn and grow within a fast-paced remote work environment. As an Office Assistant, you will help support daily administrative operations, assist with entry-level bookkee...", "exigences": "Maîtrise de JavaScript/Node.js, architecture web, autonomie et communication écrite.", "salaire": "$35,3k- $52k", "lien_direct": "https://remotive.com/remote-jobs/marketing/remote-office-assistant-1680495", "statut": "À analyser", "is_english": true, "titre_original": "Remote Office Assistant", "description_original": "Coalition Technologies is seeking a reliable, detail-oriented, and highly organized Remote Office Assistant to support administrative, bookkeeping, billing, reporting, data entry, and internal operations tasks. This role is ideal for someone with strong communication skills, discretion, attention to detail, and a willingness to learn and grow within a fast-paced remote work environment. As an Office Assistant, you will help support daily administrative operations, assist with entry-level bookkee...", "exigences_original": "Maîtrise de JavaScript/Node.js, architecture web, autonomie et communication écrite.", "titre_fr": "Assistant de bureau à distance", "description_fr": "Coalition Technologies est à la recherche d'un assistant de bureau à distance fiable, minutieux et hautement organisé pour prendre en charge les tâches administratives, de comptabilité, de facturation, de reporting, de saisie de données et d'opérations internes. Ce rôle est idéal pour une personne possédant de solides compétences en communication, de la discrétion, une attention aux détails et une volonté d'apprendre et de grandir dans un environnement de travail à distance en évolution rapide. En tant qu'assistant de bureau, vous contribuerez à soutenir les opérations administratives quotidiennes, aiderez les comptables débutants...", "exigences_fr": "Maîtrise de JavaScript/Node.js, architecture web, autonomie et communication écrite.", "score_correspondance": 43, "competences_validees": ["Conception de Solutions Métiers (PWA, Web, Desktop)", "Systèmes d'Information, Bases de Données & Normes", "Automatisation intelligente & Workflows IA", "Localisation 100% conforme : Bamako (Sur site / Hybride)"], "competences_manquantes": [], "categorie_priorite": "PRIORITÉ 3 (Opportunité secondaire)", "score_match": 43, "matching_score": 43, "candidature": {"lettre_motivation": "# LETTRE DE MOTIVATION SUR-MESURE
+
+**Candidat :** Issa CISSÉ  
+**Contact :** (+223) 78 02 02 09 | mali-scope@scopeinter.com  
+**Adresse :** Bamako Golf, Commune V, District de Bamako, Mali  
+**LinkedIn :** https://www.linkedin.com/in/issa-cisse-3a4444145  
+
+---
+
+**À l'attention du Responsable du Recrutement / RH**  
+**Entreprise :** Coalition Technologies   
+**Poste :** Remote Office Assistant (Réf : REM-1680495)  
+**Localisation :** Télétravail (100% Remote - Accessible depuis Bamako)  
+
+**Objet : Candidature au poste de Remote Office Assistant**
+
+Madame, Monsieur,
+
+I am submitting my application for the **Remote Office Assistant** position at Coalition Technologies. Backed by a Bachelor's Degree in Business Administration & Management (Licence Pro GEA) and over a decade of administrative and operational coordination, I am eager to provide top-tier operational support to your global team.
+
+Face aux enjeux stratégiques de **Coalition Technologies **, je mets à votre disposition un profil immédiatement opérationnel articulé autour de 3 forces majeures :
+
+1. **Meticulous Administrative and Bookkeeping Precision :** Throughout my roles at Scope International and prior enterprises, I have handled invoicing, billing reconciliation, accounts payable/receivable, and routine bookkeeping with zero discrepancy.
+2. **Advanced Reporting & Data Management Skills :** I am an expert in spreadsheet data manipulation (advanced Excel formulas, VLOOKUP/XLOOKUP, pivot tables) and business ERPs, capable of generating clean executive reports efficiently.
+3. **High Discretion and Autonomous Organization :** I operate with strict confidentiality, proactive time management, and flawless written communication across multiple simultaneous workflows.
+
+I am prepared to immediately integrate into Coalition Technologies' remote workflow to deliver impeccable administrative assistance.
+
+Je reste à votre entière disposition pour tout entretien d'approfondissement afin de vous détailler mes réalisations et mon plan d'action.
+
+Veuillez agréer, Madame, Monsieur, l'expression de mes salutations les plus distinguées.
+
+**Issa CISSÉ**  
+*Consultant Prestataire B2B | Concepteur TaamaPass & Sòrò Stock*  
+*Bamako, le 07 Novembre 2026*
+", "email_candidature": "OBJET : Candidature : Remote Office Assistant - Issa CISSÉ - (+223 78 02 02 09)
+
+Madame, Monsieur le Responsable du Recrutement,
+
+Veuillez trouver ci-joint mon dossier de candidature sur-mesure (CV détaillé et lettre de motivation ciblée) pour le poste de Remote Office Assistant au sein de Coalition Technologies  (Réf : REM-1680495).
+
+Titulaire d'une Licence Professionnelle (BAC + 3) en Gestion des Entreprises et des Administrations (IUG Bamako) avec spécialisation en technologies numériques, et créateur de solutions opérationnelles éprouvées au Mali (notamment la plateforme de billetterie VIP TaamaPass et le progiciel de caisse Sòrò Stock), je suis en mesure de vous apporter rigueur de pilotage et maîtrise technologique immédiate.
+
+Je me tiens à votre disposition pour convenir d'un échange téléphonique ou d'un entretien.
+
+Excellente réception et cordiales salutations,
+
+Issa CISSÉ
+Tél / WhatsApp : (+223) 78 02 02 09
+Email : mali-scope@scopeinter.com / cisseissa03@gmail.com
+LinkedIn : https://www.linkedin.com/in/issa-cisse-3a4444145
+Bamako, Mali
+", "cv_titre_cible": "Remote Operations & Administrative Executive Assistant", "pdf_cv_url": "/dashboard/cv_adaptes/REM-1680495_CV_ADAPTE.pdf", "pdf_lettre_url": "/dashboard/cv_adaptes/REM-1680495_LETTRE.pdf", "dossier_local": "C:\Users\BANOU B.T.M\Documents\AGENT_RECRUTEMENT\candidatures\Coalition_Technologies_Remote_Office_Assistant"}}, {"id": "REM-1749306", "source": "Remotive (Télétravail International)", "titre": "Freelance Copywriter", "entreprise": "Coalition Technologies ", "localisation": "Télétravail (100% Remote - Accessible depuis Bamako)", "date_publication": "2026-11-02", "date_limite": "Recrutement ouvert", "description": "CT Marketing Agency is seeking skilled Freelance Copywriters to write high-quality, SEO-driven content for eCommerce and lead generation websites. This is a freelance, project-based writing role. The ideal candidate has excellent English writing skills, strong research ability, and experience writing content that follows detailed, client-specific guidelines. Projects commonly include category pages, product descriptions, blog posts, SEO landing pages, and website copy. About the Role Our client ...", "exigences": "Maîtrise de JavaScript/Node.js, architecture web, autonomie et communication écrite.", "salaire": "$20k -$35k", "lien_direct": "https://remotive.com/remote-jobs/writing/freelance-copywriter-1749306", "statut": "À analyser", "is_english": true, "titre_original": "Freelance Copywriter", "description_original": "CT Marketing Agency is seeking skilled Freelance Copywriters to write high-quality, SEO-driven content for eCommerce and lead generation websites. This is a freelance, project-based writing role. The ideal candidate has excellent English writing skills, strong research ability, and experience writing content that follows detailed, client-specific guidelines. Projects commonly include category pages, product descriptions, blog posts, SEO landing pages, and website copy. About the Role Our client ...", "exigences_original": "Maîtrise de JavaScript/Node.js, architecture web, autonomie et communication écrite.", "titre_fr": "Rédacteur indépendant", "description_fr": "CT Marketing Agency recherche des rédacteurs indépendants qualifiés pour rédiger du contenu de haute qualité axé sur le référencement pour les sites Web de commerce électronique et de génération de leads. Il s'agit d'un rôle d'écriture indépendant basé sur des projets. Le candidat idéal possède d'excellentes compétences rédactionnelles en anglais, de solides capacités de recherche et une expérience dans la rédaction de contenu qui suit des directives détaillées et spécifiques au client. Les projets incluent généralement des pages de catégories, des descriptions de produits, des articles de blog, des pages de destination SEO et une copie de site Web. À propos du rôle Notre client...", "exigences_fr": "Maîtrise de JavaScript/Node.js, architecture web, autonomie et communication écrite.", "score_correspondance": 32, "competences_validees": ["Conception de Solutions Métiers (PWA, Web, Desktop)", "Systèmes d'Information, Bases de Données & Normes", "Localisation 100% conforme : Bamako (Sur site / Hybride)"], "competences_manquantes": [], "categorie_priorite": "PRIORITÉ 3 (Opportunité secondaire)", "score_match": 32, "matching_score": 32, "candidature": {"lettre_motivation": "# LETTRE DE MOTIVATION SUR-MESURE
+
+**Candidat :** Issa CISSÉ  
+**Contact :** (+223) 78 02 02 09 | mali-scope@scopeinter.com  
+**Adresse :** Bamako Golf, Commune V, District de Bamako, Mali  
+**LinkedIn :** https://www.linkedin.com/in/issa-cisse-3a4444145  
+
+---
+
+**À l'attention du Responsable du Recrutement / RH**  
+**Entreprise :** Coalition Technologies   
+**Poste :** Freelance Copywriter (Réf : REM-1749306)  
+**Localisation :** Télétravail (100% Remote - Accessible depuis Bamako)  
+
+**Objet : Candidature au poste de Freelance Copywriter**
+
+Madame, Monsieur,
+
+I am pleased to submit my application for the **Freelance Copywriter** position at Coalition Technologies . Combining an academic background in Business Administration (GEA) with extensive experience producing high-impact technical and business documentation, I provide engaging, highly researched content tailored to your audience.
+
+Face aux enjeux stratégiques de **Coalition Technologies **, je mets à votre disposition un profil immédiatement opérationnel articulé autour de 3 forces majeures :
+
+1. **In-Depth Subject Matter Authority :** My direct experience in financial systems, business management, and software development enables me to write with authentic technical nuance and practical clarity.
+2. **Audience-Driven SEO & Content Structuring :** I craft compelling articles, landing pages, and educational guides optimized for search intent, readability, and conversion.
+3. **Strict Adherence to Editorial Guidelines & Timelines :** I deliver thoroughly researched, original, and polished content that respects style guides, word counts, and deadlines.
+
+I look forward to contributing high-quality, engaging content to Coalition Technologies 's publication roster.
+
+Je reste à votre entière disposition pour tout entretien d'approfondissement afin de vous détailler mes réalisations et mon plan d'action.
+
+Veuillez agréer, Madame, Monsieur, l'expression de mes salutations les plus distinguées.
+
+**Issa CISSÉ**  
+*Consultant Prestataire B2B | Concepteur TaamaPass & Sòrò Stock*  
+*Bamako, le 07 Novembre 2026*
+", "email_candidature": "OBJET : Candidature : Freelance Copywriter - Issa CISSÉ - (+223 78 02 02 09)
+
+Madame, Monsieur le Responsable du Recrutement,
+
+Veuillez trouver ci-joint mon dossier de candidature sur-mesure (CV détaillé et lettre de motivation ciblée) pour le poste de Freelance Copywriter au sein de Coalition Technologies  (Réf : REM-1749306).
+
+Titulaire d'une Licence Professionnelle (BAC + 3) en Gestion des Entreprises et des Administrations (IUG Bamako) avec spécialisation en technologies numériques, et créateur de solutions opérationnelles éprouvées au Mali (notamment la plateforme de billetterie VIP TaamaPass et le progiciel de caisse Sòrò Stock), je suis en mesure de vous apporter rigueur de pilotage et maîtrise technologique immédiate.
+
+Je me tiens à votre disposition pour convenir d'un échange téléphonique ou d'un entretien.
+
+Excellente réception et cordiales salutations,
+
+Issa CISSÉ
+Tél / WhatsApp : (+223) 78 02 02 09
+Email : mali-scope@scopeinter.com / cisseissa03@gmail.com
+LinkedIn : https://www.linkedin.com/in/issa-cisse-3a4444145
+Bamako, Mali
+", "cv_titre_cible": "Technical & B2B Content Writer", "pdf_cv_url": "/dashboard/cv_adaptes/REM-1749306_CV_ADAPTE.pdf", "pdf_lettre_url": "/dashboard/cv_adaptes/REM-1749306_LETTRE.pdf", "dossier_local": "C:\Users\BANOU B.T.M\Documents\AGENT_RECRUTEMENT\candidatures\Coalition_Technologies_Freelance_Copywriter"}}, {"id": "REM-2091134", "source": "Remotive (Télétravail International)", "titre": "Head of Engineering", "entreprise": "Lemon.io", "localisation": "Télétravail (100% Remote - Accessible depuis Bamako)", "date_publication": "2026-10-26", "date_limite": "Recrutement ouvert", "description": "About Lemon.ioLemon.io is a profitable, growing talent marketplace that connects vetted senior engineers with companies that need them. We’ve been in business for 10 years, have 60 people across Ukraine, Europe, Canada, and the US, and process over $16M in annual GMV. We compress the traditional 2–5 week hiring timeline down to 24–48 hours through a curated, pre-vetted supply of developers.Hiring is still broken. Recruiters spend weeks building candidate pipelines on traditional platforms, burni...", "exigences": "Maîtrise de JavaScript/Node.js, architecture web, autonomie et communication écrite.", "salaire": "", "lien_direct": "https://remotive.com/remote-jobs/software-development/head-of-engineering-2091134", "statut": "À analyser", "is_english": true, "titre_original": "Head of Engineering", "description_original": "About Lemon.ioLemon.io is a profitable, growing talent marketplace that connects vetted senior engineers with companies that need them. We’ve been in business for 10 years, have 60 people across Ukraine, Europe, Canada, and the US, and process over $16M in annual GMV. We compress the traditional 2–5 week hiring timeline down to 24–48 hours through a curated, pre-vetted supply of developers.Hiring is still broken. Recruiters spend weeks building candidate pipelines on traditional platforms, burni...", "exigences_original": "Maîtrise de JavaScript/Node.js, architecture web, autonomie et communication écrite.", "titre_fr": "Responsable de l'ingénierie", "description_fr": "À propos de Lemon.ioLemon.io est un marché de talents rentable et en pleine croissance qui met en relation des ingénieurs seniors sélectionnés avec les entreprises qui en ont besoin. Nous sommes en affaires depuis 10 ans, comptons 60 personnes en Ukraine, en Europe, au Canada et aux États-Unis, et traitons plus de 16 millions de dollars de GMV annuel. Nous réduisons le délai de recrutement traditionnel de 2 à 5 semaines à 24 à 48 heures grâce à une sélection de développeurs sélectionnés et pré-sélectionnés. Le recrutement est toujours interrompu. Les recruteurs passent des semaines à constituer des pipelines de candidats sur des plateformes traditionnelles, brûlant...", "exigences_fr": "Maîtrise de JavaScript/Node.js, architecture web, autonomie et communication écrite.", "score_correspondance": 32, "competences_validees": ["Conception de Solutions Métiers (PWA, Web, Desktop)", "Systèmes d'Information, Bases de Données & Normes", "Localisation 100% conforme : Bamako (Sur site / Hybride)"], "competences_manquantes": [], "categorie_priorite": "PRIORITÉ 3 (Opportunité secondaire)", "score_match": 32, "matching_score": 32, "candidature": {"lettre_motivation": "# LETTRE DE MOTIVATION SUR-MESURE
+
+**Candidat :** Issa CISSÉ  
+**Contact :** (+223) 78 02 02 09 | mali-scope@scopeinter.com  
+**Adresse :** Bamako Golf, Commune V, District de Bamako, Mali  
+**LinkedIn :** https://www.linkedin.com/in/issa-cisse-3a4444145  
+
+---
+
+**À l'attention du Responsable du Recrutement / RH**  
+**Entreprise :** Lemon.io  
+**Poste :** Head of Engineering (Réf : REM-2091134)  
+**Localisation :** Télétravail (100% Remote - Accessible depuis Bamako)  
+
+**Objet : Candidature au poste de Head of Engineering**
+
+Madame, Monsieur,
+
+I am applying for the **Head of Engineering** position at Lemon.io. Having spearheaded the end-to-end design, delivery, and scaling of mission-critical business platforms (such as the TaamaPass ticketing engine and Sòrò Stock offline ERP), I bring a battle-tested approach to technical leadership that aligns engineering excellence with business revenue.
+
+Face aux enjeux stratégiques de **Lemon.io**, je mets à votre disposition un profil immédiatement opérationnel articulé autour de 3 forces majeures :
+
+1. **Strategic Technical Architecture & Delivery :** I design resilient architectures that solve hard constraints (such as offline synchronization, cryptographic tamper-proofing, and real-time transaction processing), ensuring developers ship clean, scalable code rapidly.
+2. **Bridging Business Strategy and Engineering Velocity :** My dual background in Business Administration (GEA) and software engineering enables me to translate high-level company OKRs into concrete sprint backlogs and robust technical roadmaps.
+3. **Engineering Culture of Quality and Accountability :** I foster high standards through automated testing, peer reviews, CI/CD pipelines, and empathetic mentorship, helping senior developers perform at their highest potential.
+
+I look forward to discussing how my pragmatic leadership can accelerate Lemon.io's engineering velocity and platform stability.
+
+Je reste à votre entière disposition pour tout entretien d'approfondissement afin de vous détailler mes réalisations et mon plan d'action.
+
+Veuillez agréer, Madame, Monsieur, l'expression de mes salutations les plus distinguées.
+
+**Issa CISSÉ**  
+*Consultant Prestataire B2B | Concepteur TaamaPass & Sòrò Stock*  
+*Bamako, le 07 Novembre 2026*
+", "email_candidature": "OBJET : Candidature : Head of Engineering - Issa CISSÉ - (+223 78 02 02 09)
+
+Madame, Monsieur le Responsable du Recrutement,
+
+Veuillez trouver ci-joint mon dossier de candidature sur-mesure (CV détaillé et lettre de motivation ciblée) pour le poste de Head of Engineering au sein de Lemon.io (Réf : REM-2091134).
+
+Titulaire d'une Licence Professionnelle (BAC + 3) en Gestion des Entreprises et des Administrations (IUG Bamako) avec spécialisation en technologies numériques, et créateur de solutions opérationnelles éprouvées au Mali (notamment la plateforme de billetterie VIP TaamaPass et le progiciel de caisse Sòrò Stock), je suis en mesure de vous apporter rigueur de pilotage et maîtrise technologique immédiate.
+
+Je me tiens à votre disposition pour convenir d'un échange téléphonique ou d'un entretien.
+
+Excellente réception et cordiales salutations,
+
+Issa CISSÉ
+Tél / WhatsApp : (+223) 78 02 02 09
+Email : mali-scope@scopeinter.com / cisseissa03@gmail.com
+LinkedIn : https://www.linkedin.com/in/issa-cisse-3a4444145
+Bamako, Mali
+", "cv_titre_cible": "Head of Engineering & Technical Operations Lead", "pdf_cv_url": "/dashboard/cv_adaptes/REM-2091134_CV_ADAPTE.pdf", "pdf_lettre_url": "/dashboard/cv_adaptes/REM-2091134_LETTRE.pdf", "dossier_local": "C:\Users\BANOU B.T.M\Documents\AGENT_RECRUTEMENT\candidatures\Lemonio_Head_of_Engineering"}}, {"id": "REM-2091158", "source": "Remotive (Télétravail International)", "titre": "Software Engineer, AI Coding Tasks", "entreprise": "Askable", "localisation": "Télétravail (100% Remote - Accessible depuis Bamako)", "date_publication": "2026-10-17", "date_limite": "Recrutement ouvert", "description": "We're looking for experienced software engineers to build AI coding tasks from a codebase they know well. US$1,000 per task, and you can do as many tasks as you want. You turn a real change from a repository you know into a task that today's best AI coding models struggle with: hard for the models, but fair for a skilled engineer. Your tasks are used to measure and train AI coding models. Remote, any location. US$1,000 per task that passes review. Minimum of one task a week, about 10 hours a wee...", "exigences": "Maîtrise de JavaScript/Node.js, architecture web, autonomie et communication écrite.", "salaire": "$1000 per task", "lien_direct": "https://remotive.com/remote-jobs/software-development/software-engineer-ai-coding-tasks-2091158", "statut": "À analyser", "is_english": true, "titre_original": "Software Engineer, AI Coding Tasks", "description_original": "We're looking for experienced software engineers to build AI coding tasks from a codebase they know well. US$1,000 per task, and you can do as many tasks as you want. You turn a real change from a repository you know into a task that today's best AI coding models struggle with: hard for the models, but fair for a skilled engineer. Your tasks are used to measure and train AI coding models. Remote, any location. US$1,000 per task that passes review. Minimum of one task a week, about 10 hours a wee...", "exigences_original": "Maîtrise de JavaScript/Node.js, architecture web, autonomie et communication écrite.", "titre_fr": "Ingénieur logiciel, tâches de codage IA", "description_fr": "Nous recherchons des ingénieurs logiciels expérimentés pour créer des tâches de codage d'IA à partir d'une base de code qu'ils connaissent bien. 1 000 US$ par tâche, et vous pouvez effectuer autant de tâches que vous le souhaitez. Vous transformez un véritable changement d'un référentiel que vous connaissez en une tâche avec laquelle les meilleurs modèles de codage d'IA d'aujourd'hui ont du mal : difficile pour les modèles, mais équitable pour un ingénieur qualifié. Vos tâches sont utilisées pour mesurer et entraîner des modèles de codage d'IA. À distance, n'importe où. 1 000 USD par tâche qui réussit l'examen. Minimum d'une tâche par semaine, environ 10 heures par semaine...", "exigences_fr": "Maîtrise de JavaScript/Node.js, architecture web, autonomie et communication écrite.", "score_correspondance": 32, "competences_validees": ["Conception de Solutions Métiers (PWA, Web, Desktop)", "Systèmes d'Information, Bases de Données & Normes", "Localisation 100% conforme : Bamako (Sur site / Hybride)"], "competences_manquantes": [], "categorie_priorite": "PRIORITÉ 3 (Opportunité secondaire)", "score_match": 32, "matching_score": 32, "candidature": {"lettre_motivation": "# LETTRE DE MOTIVATION SUR-MESURE
+
+**Candidat :** Issa CISSÉ  
+**Contact :** (+223) 78 02 02 09 | mali-scope@scopeinter.com  
+**Adresse :** Bamako Golf, Commune V, District de Bamako, Mali  
+**LinkedIn :** https://www.linkedin.com/in/issa-cisse-3a4444145  
+
+---
+
+**À l'attention du Responsable du Recrutement / RH**  
+**Entreprise :** Askable  
+**Poste :** Software Engineer, AI Coding Tasks (Réf : REM-2091158)  
+**Localisation :** Télétravail (100% Remote - Accessible depuis Bamako)  
+
+**Objet : Candidature au poste de Software Engineer, AI Coding Tasks**
+
+Madame, Monsieur,
+
+I am excited to apply for the **Software Engineer, AI Coding Tasks** role at Askable. As a software developer who constructs and maintains real-world production codebases with complex architectural constraints, I am uniquely positioned to formulate rigorous, nuanced programming tasks that challenge modern AI coding models.
+
+Face aux enjeux stratégiques de **Askable**, je mets à votre disposition un profil immédiatement opérationnel articulé autour de 3 forces majeures :
+
+1. **Deep Familiarity with Production Repositories :** Having built desktop, mobile, and web applications from the ground up, I possess an intimate understanding of nuanced bugs, asynchronous race conditions, and architectural refactoring.
+2. **Crafting Challenging Yet Objective Benchmarks :** I specialize in isolating real engineering changes into well-defined, verifiable prompts that test an AI model's contextual understanding, algorithmic reasoning, and adherence to edge cases.
+3. **Disciplined Delivery & Fast Turnaround :** I work with autonomous rigor, delivering structured tasks with complete solutions, comprehensive test suites, and transparent rubric documentation.
+
+I look forward to collaborating with Askable to generate high-value coding evaluation benchmarks that push AI capabilities forward.
+
+Je reste à votre entière disposition pour tout entretien d'approfondissement afin de vous détailler mes réalisations et mon plan d'action.
+
+Veuillez agréer, Madame, Monsieur, l'expression de mes salutations les plus distinguées.
+
+**Issa CISSÉ**  
+*Consultant Prestataire B2B | Concepteur TaamaPass & Sòrò Stock*  
+*Bamako, le 07 Novembre 2026*
+", "email_candidature": "OBJET : Candidature : Software Engineer, AI Coding Tasks - Issa CISSÉ - (+223 78 02 02 09)
+
+Madame, Monsieur le Responsable du Recrutement,
+
+Veuillez trouver ci-joint mon dossier de candidature sur-mesure (CV détaillé et lettre de motivation ciblée) pour le poste de Software Engineer, AI Coding Tasks au sein de Askable (Réf : REM-2091158).
+
+Titulaire d'une Licence Professionnelle (BAC + 3) en Gestion des Entreprises et des Administrations (IUG Bamako) avec spécialisation en technologies numériques, et créateur de solutions opérationnelles éprouvées au Mali (notamment la plateforme de billetterie VIP TaamaPass et le progiciel de caisse Sòrò Stock), je suis en mesure de vous apporter rigueur de pilotage et maîtrise technologique immédiate.
+
+Je me tiens à votre disposition pour convenir d'un échange téléphonique ou d'un entretien.
+
+Excellente réception et cordiales salutations,
+
+Issa CISSÉ
+Tél / WhatsApp : (+223) 78 02 02 09
+Email : mali-scope@scopeinter.com / cisseissa03@gmail.com
+LinkedIn : https://www.linkedin.com/in/issa-cisse-3a4444145
+Bamako, Mali
+", "cv_titre_cible": "Software Engineer & AI Coding Evaluation Specialist", "pdf_cv_url": "/dashboard/cv_adaptes/REM-2091158_CV_ADAPTE.pdf", "pdf_lettre_url": "/dashboard/cv_adaptes/REM-2091158_LETTRE.pdf", "dossier_local": "C:\Users\BANOU B.T.M\Documents\AGENT_RECRUTEMENT\candidatures\Askable_Software_Engineer_AI_Codi"}}];
+    let allReponses = [
+      {"id": "REP-01", "job_id": "ODC-MALI-DEVOPS-2026", "expediteur": "Orange Digital Center Mali <odc.mali@orange.com>", "entreprise": "Orange Digital Center Mali", "date_reception": "31/10/2026 19:52", "sujet": "Confirmation d'inscription — Formation DevOps & CI/CD", "type": "Confirmation d'étape", "contenu": "Bonjour Issa CISSÉ,
+
+Votre candidature pour la session pratique 'DevOps & CI/CD pour Professionnels' a bien été validée à 100%. Notre comité pédagogique procède actuellement à la revue des profils des 100 sélectionnés.", "action_recommandee": "Consulter les ressources préparatoires Docker & Git.", "statut": "Lu"},
+      {"id": "REP-02", "job_id": "CORP-BDM-01", "expediteur": "Direction des Ressources Humaines BDM-SA <recrutement@bdm-sa.com>", "entreprise": "Banque de Développement du Mali (BDM-SA)", "date_reception": "01/11/2026 10:15", "sujet": "Accusé de réception candidature — Réf: CORP-BDM-01 (Chef de Projet Digital & SI)", "type": "Accusé de réception", "contenu": "Monsieur CISSÉ,
+
+Nous accusons bonne réception de votre dossier de candidature (CV adapté, lettre de motivation et références de projets opérationnels) pour le poste de Chef de Projet Digital & Systèmes d'Information au sein de la BDM-SA.
+
+Votre profil double compétence en gestion d'entreprise (IUG) et technologies numériques a retenu notre attention. Votre dossier est transmis à la Direction des Systèmes d'Information pour analyse technique approfondie.", "action_recommandee": "Préparer la fiche d'entretien Q&A sur les rapprochements bancaires et la plateforme TaamaPass.", "statut": "Nouveau"}
+    ];
     let currentFilter = 'ALL';
     let activeJobModal = null;
     let isSpeaking = false;
@@ -390,11 +1055,18 @@
         return true;
       });
 
+      // Update KPI
+      const p1Count = allJobs.filter(j => (j.score_correspondance || j.matching_score || 0) >= 70).length;
+      if (document.getElementById('stat-total')) document.getElementById('stat-total').textContent = allJobs.length;
+      if (document.getElementById('stat-p1')) document.getElementById('stat-p1').textContent = p1Count;
+
       filtered.forEach(job => {
         const score = job.score_correspondance || job.matching_score || 0;
         const isMali = !job.is_english && !job.source?.includes('Remotive');
         const scoreColor = score >= 85 ? 'text-emerald-400 bg-emerald-500/10 border-emerald-500/20' : 
-                           score >= 70 ? 'text-blue-400 bg-blue-500/10 border-blue-500/20' : 'text-gray-400 bg-gray-800 border-gray-700';
+                           score >= 65 ? 'text-blue-400 bg-blue-500/10 border-blue-500/20' : 'text-gray-400 bg-gray-800 border-gray-700';
+        
+        const tailoredTitle = job.candidature?.cv_titre_cible || job.titre || job.title;
 
         const card = document.createElement('div');
         card.className = "bg-gray-900 border border-gray-800 p-3.5 rounded-2xl space-y-2.5 shadow-md active:border-blue-500/40 transition-all";
@@ -412,26 +1084,24 @@
             </span>
           </div>
 
-          <!-- Quick Audio TTS Button -->
-          <div class="bg-gray-950 p-2 rounded-xl flex items-center justify-between border border-gray-800/80">
-            <span class="text-[9.5px] text-gray-400 flex items-center gap-1.5">
-              <i class="fa-solid fa-volume-high text-indigo-400"></i> Écoute synthèse vocale
+          <!-- Badge CV Adapté Spécifique -->
+          <div class="bg-blue-950/30 border border-blue-900/40 p-2 rounded-xl flex items-center justify-between text-[10px]">
+            <span class="text-blue-300 font-medium truncate mr-2">
+              <i class="fa-solid fa-file-signature text-blue-400 mr-1"></i> CV Cible : <b>${tailoredTitle}</b>
             </span>
-            <button onclick="quickPlayTts('${job.id}')" class="px-2.5 py-1 bg-indigo-600 hover:bg-indigo-500 text-white rounded-lg text-[9px] font-bold flex items-center gap-1 shadow-sm active:scale-95 transition-transform">
-              <i class="fa-solid fa-play text-[8px]"></i> Écouter
-            </button>
+            <span class="text-emerald-400 font-bold shrink-0 text-[9px]"><i class="fa-solid fa-check-circle"></i> Sur-Mesure</span>
           </div>
 
           <div class="flex items-center justify-between pt-1 text-[10px] border-t border-gray-800/60">
-            <span class="${job.statut === 'Postulé' ? 'text-emerald-400 font-bold' : 'text-gray-400 font-medium'}">
-              ${job.statut === 'Postulé' ? '✓ Candidature Prête' : 'En veille active'}
-            </span>
+            <button onclick="quickPlayTts('${job.id}')" class="text-gray-400 hover:text-white flex items-center gap-1 text-[9.5px]">
+              <i class="fa-solid fa-volume-high text-indigo-400"></i> Écouter
+            </button>
             <div class="flex gap-1.5">
               <button onclick="openModal('${job.id}')" class="px-3 py-1.5 bg-gray-800 hover:bg-gray-700 text-gray-200 rounded-xl font-bold text-[10px] border border-gray-700 active:scale-95">
-                Dossier
+                Dossier &amp; Lettre
               </button>
-              <button onclick="switchTab('cv');" class="px-3 py-1.5 bg-blue-600 hover:bg-blue-500 text-white rounded-xl font-bold text-[10px] shadow-md shadow-blue-600/30 active:scale-95">
-                CV PDF
+              <button onclick="viewTailoredCv('${job.id}')" class="px-3 py-1.5 bg-blue-600 hover:bg-blue-500 text-white rounded-xl font-bold text-[10px] shadow-md shadow-blue-600/30 active:scale-95 flex items-center gap-1">
+                <i class="fa-regular fa-file-pdf"></i> CV PDF
               </button>
             </div>
           </div>
@@ -479,6 +1149,48 @@
       });
     }
 
+    // --- VIEW SPECIFIC TAILORED CV ---
+    function viewTailoredCv(jobId) {
+      const job = allJobs.find(j => j.id === jobId);
+      const iframe = document.getElementById('cv-iframe');
+      const downloadBtn = document.getElementById('btn-download-cv');
+      const titleElem = document.getElementById('cv-viewer-title');
+      const subElem = document.getElementById('cv-viewer-sub');
+      const statusElem = document.getElementById('cv-file-status');
+
+      if (job && job.candidature?.pdf_cv_url) {
+        iframe.src = job.candidature.pdf_cv_url;
+        downloadBtn.href = job.candidature.pdf_cv_url;
+        titleElem.innerHTML = `<i class="fa-solid fa-file-pdf text-rose-400"></i> CV Adapté : ${job.entreprise}`;
+        subElem.textContent = `Cible : ${job.candidature.cv_titre_cible}`;
+        statusElem.textContent = `Généré sur-mesure pour ${job.entreprise} (${job.id})`;
+        
+        // Highlight corresponding chip
+        document.querySelectorAll('.cv-chip').forEach(c => {
+          c.className = 'cv-chip px-2.5 py-1 rounded-lg text-[10px] font-bold bg-gray-800 text-gray-400 hover:text-white shrink-0';
+        });
+        const targetBtn = document.getElementById('btn-cv-' + jobId);
+        if (targetBtn) targetBtn.className = 'cv-chip px-2.5 py-1 rounded-lg text-[10px] font-bold bg-blue-600 text-white shrink-0';
+      } else {
+        iframe.src = './CV_ISSA_CISSE_OFFICIEL.pdf';
+        downloadBtn.href = './CV_ISSA_CISSE_OFFICIEL.pdf';
+        titleElem.innerHTML = `<i class="fa-solid fa-file-pdf text-rose-400"></i> Aperçu du CV Master Officiel`;
+        subElem.textContent = `Format officiel Dirigeant GEA & Lead SI`;
+      }
+
+      switchTab('cv');
+    }
+
+    function loadCustomCv(key) {
+      if (key === 'MASTER') {
+        viewTailoredCv(null);
+        document.querySelectorAll('.cv-chip').forEach(c => c.className = 'cv-chip px-2.5 py-1 rounded-lg text-[10px] font-bold bg-gray-800 text-gray-400 hover:text-white shrink-0');
+        document.getElementById('btn-cv-MASTER').className = 'cv-chip px-2.5 py-1 rounded-lg text-[10px] font-bold bg-blue-600 text-white shrink-0';
+      } else {
+        viewTailoredCv(key);
+      }
+    }
+
     // --- FILTER CHIPS ---
     function setFilter(filter) {
       currentFilter = filter;
@@ -497,33 +1209,114 @@
       renderJobs();
     }
 
-    // --- MODAL DETAILS ---
+    // --- MODAL DETAILS (ULTRA-ROBUSTE & COMPATIBLE TABLEAU/CARTES) ---
     function openModal(jobId) {
-      const job = allJobs.find(j => j.id === jobId);
-      if (!job) return;
+      console.log('Ouverture du dossier pour l\'offre :', jobId);
+      const job = (allJobs || []).find(j => j.id === jobId);
+      if (!job) {
+        console.warn('Offre non trouvee :', jobId);
+        return;
+      }
       activeJobModal = job;
 
-      document.getElementById('modal-title').textContent = job.titre || job.title;
-      document.getElementById('modal-company').textContent = job.entreprise || job.company_name;
-      document.getElementById('modal-desc').textContent = job.description || "Aucune description détaillée.";
+      // Titre, entreprise, localisation
+      const titleElem = document.getElementById('modal-title');
+      if (titleElem) titleElem.textContent = job.titre || job.title || 'Dossier de Candidature';
       
-      const lettre = job.candidature?.lettre_motivation || 
-        `Monsieur le Recruteur,\n\nC'est avec un vif intérêt que je vous soumets ma candidature pour le poste de ${job.titre || job.title} au sein de ${job.entreprise || job.company_name}.\n\nFort de mon parcours en Gestion des Entreprises (IUG) et de mes réalisations logicielles concrètes (TaamaPass, Sòrò Stock), je suis en mesure de vous apporter rigueur de pilotage et maîtrise technologique opérationnelle.\n\nJe reste à votre entière disposition pour un entretien.\n\nIssa CISSÉ`;
-      document.getElementById('modal-lettre').textContent = lettre;
+      const compElem = document.getElementById('modal-company');
+      if (compElem) compElem.textContent = (job.entreprise || job.company_name || '') + ' • ' + (job.localisation || 'Bamako');
+      
+      const descElem = document.getElementById('modal-desc');
+      if (descElem) descElem.textContent = job.description || job.description_fr || "Aucune description détaillée fournie.";
 
-      document.getElementById('modal-dossier').classList.remove('hidden');
+      // Badges
+      const score = job.score_correspondance || job.matching_score || job.score_match || 0;
+      const scoreElem = document.getElementById('modal-badge-score');
+      if (scoreElem) scoreElem.textContent = score + '% Match';
+      
+      const prioElem = document.getElementById('modal-badge-prio');
+      if (prioElem) prioElem.textContent = score >= 70 ? 'P1' : (score >= 50 ? 'P2' : 'P3');
+
+      // Lettre de motivation personnalisée
+      const lettre = job.candidature?.lettre_motivation || 
+        `Monsieur le Recruteur,\n\nC'est avec un vif intérêt que je vous soumets ma candidature pour le poste de ${job.titre || job.title} au sein de ${job.entreprise || job.company_name}.\n\nFort de mon parcours en Gestion des Entreprises (IUG Bac+3) et de mes réalisations concrètes (TaamaPass, Sòrò Stock), je suis immédiatement opérationnel.\n\nIssa CISSÉ`;
+      
+      const lettreElem = document.getElementById('modal-lettre');
+      if (lettreElem) lettreElem.textContent = lettre;
+      
+      // Support rétro-compatible si l'ancien textarea 'preview-lettre' existe
+      const prevLettre = document.getElementById('preview-lettre');
+      if (prevLettre) prevLettre.value = lettre;
+
+      const prevEmail = document.getElementById('preview-email');
+      if (prevEmail && job.candidature?.email_candidature) prevEmail.value = job.candidature.email_candidature;
+
+      // Lien PDF Lettre
+      const lettrePdfBtn = document.getElementById('btn-modal-lettre-pdf');
+      if (lettrePdfBtn) {
+        if (job.candidature?.pdf_lettre_url) {
+          lettrePdfBtn.href = job.candidature.pdf_lettre_url;
+          lettrePdfBtn.style.display = 'flex';
+          lettrePdfBtn.classList.remove('hidden');
+        } else {
+          lettrePdfBtn.style.display = 'none';
+        }
+      }
+
+      // Visualiseur PDF intégré (si présent)
+      const pdfViewer = document.getElementById('pdf-viewer');
+      if (pdfViewer && job.candidature?.pdf_cv_url) {
+        pdfViewer.src = job.candidature.pdf_cv_url + '#view=FitH&toolbar=0';
+      }
+
+      // OUVERTURE IMMÉDIATE SANS ATTENDRE LE RÉSEAU
+      const modal = document.getElementById('modal-dossier');
+      if (modal) {
+        modal.classList.remove('hidden');
+        modal.style.display = 'flex';
+        modal.style.zIndex = '99999';
+        modal.style.position = 'fixed';
+        modal.style.inset = '0';
+      }
     }
+
+    // Alias universel pour compatibilité avec l'ancien bouton [Dossier]
+    window.prepareDossier = function(jobId) {
+      openModal(jobId);
+    };
+    window.openModal = openModal;
 
     function closeModal() {
       window.speechSynthesis.cancel();
       isSpeaking = false;
-      document.getElementById('tts-play-btn').innerHTML = '<i class="fa-solid fa-play text-[8px]"></i> <span>Écouter</span>';
-      document.getElementById('modal-dossier').classList.add('hidden');
+      const ttsBtn = document.getElementById('tts-play-btn');
+      if (ttsBtn) ttsBtn.innerHTML = '<i class="fa-solid fa-play text-[8px]"></i> <span>Écouter</span>';
+      
+      const modal = document.getElementById('modal-dossier');
+      if (modal) {
+        modal.classList.add('hidden');
+        modal.style.display = 'none';
+      }
     }
+    window.closeModal = closeModal;
 
     function openModalCvPdf() {
-      closeModal();
-      switchTab('cv');
+      if (activeJobModal) {
+        const jid = activeJobModal.id;
+        closeModal();
+        viewTailoredCv(jid);
+      } else {
+        closeModal();
+        switchTab('cv');
+      }
+    }
+
+    function copyLetterToClipboard() {
+      if (!activeJobModal) return;
+      const text = activeJobModal.candidature?.lettre_motivation || '';
+      navigator.clipboard.writeText(text).then(() => {
+        showToast('✓ Lettre de motivation copiée !');
+      });
     }
 
     // --- TTS SYNTHÈSE VOCALE ---
@@ -547,8 +1340,7 @@
         if (!activeJobModal) return;
         const text = `Poste : ${activeJobModal.titre || activeJobModal.title} chez ${activeJobModal.entreprise || activeJobModal.company_name}. ${activeJobModal.description}`;
         const utterance = new SpeechSynthesisUtterance(text);
-        const voiceLang = document.getElementById('tts-voice-select').value;
-        utterance.lang = voiceLang;
+        utterance.lang = activeJobModal.is_english ? 'en-US' : 'fr-FR';
         utterance.onend = () => {
           isSpeaking = false;
           document.getElementById('tts-play-btn').innerHTML = '<i class="fa-solid fa-play text-[8px]"></i> <span>Écouter</span>';
@@ -556,26 +1348,6 @@
         window.speechSynthesis.speak(utterance);
         isSpeaking = true;
         document.getElementById('tts-play-btn').innerHTML = '<i class="fa-solid fa-pause text-[8px]"></i> <span>Pause</span>';
-      }
-    }
-
-    // --- PDF VIEWER TOGGLE ---
-    function loadPdf(lang) {
-      const iframe = document.getElementById('cv-iframe');
-      const btnFr = document.getElementById('btn-cv-fr');
-      const btnEn = document.getElementById('btn-cv-en');
-      const downloadBtn = document.getElementById('btn-download-cv');
-      
-      if (lang === 'fr') {
-        iframe.src = './CV_ISSA_CISSE_OFFICIEL.pdf';
-        downloadBtn.href = './CV_ISSA_CISSE_OFFICIEL.pdf';
-        btnFr.className = 'px-2.5 py-1 rounded-lg text-[10px] font-bold bg-blue-600 text-white';
-        btnEn.className = 'px-2.5 py-1 rounded-lg text-[10px] font-bold bg-gray-800 text-gray-400';
-      } else {
-        iframe.src = './CV_LEMON_IO.pdf';
-        downloadBtn.href = './CV_LEMON_IO.pdf';
-        btnEn.className = 'px-2.5 py-1 rounded-lg text-[10px] font-bold bg-blue-600 text-white';
-        btnFr.className = 'px-2.5 py-1 rounded-lg text-[10px] font-bold bg-gray-800 text-gray-400';
       }
     }
 
@@ -594,10 +1366,21 @@
       renderReponses();
     }
 
-    // --- INIT ---
+    // --- INIT & LIVE FETCH ---
     window.addEventListener('DOMContentLoaded', () => {
       renderJobs();
       renderReponses();
+
+      // Live fetch if server running
+      fetch('/api/jobs')
+        .then(r => r.json())
+        .then(data => {
+          if (Array.isArray(data) && data.length > 0) {
+            allJobs = data;
+            renderJobs();
+          }
+        })
+        .catch(err => console.log('Mode local autonome (pas de serveur API)'));
     });
 
     // --- SERVICE WORKER PWA ---
@@ -610,4 +1393,5 @@
     }
   </script>
 </body>
+</html>
 </html>
